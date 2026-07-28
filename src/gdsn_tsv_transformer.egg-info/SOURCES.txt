@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/gdsn_tsv_transformer/__init__.py
+src/gdsn_tsv_transformer/__main__.py
+src/gdsn_tsv_transformer/cli.py
+src/gdsn_tsv_transformer/holon.py
+src/gdsn_tsv_transformer.egg-info/PKG-INFO
+src/gdsn_tsv_transformer.egg-info/SOURCES.txt
+src/gdsn_tsv_transformer.egg-info/dependency_links.txt
+src/gdsn_tsv_transformer.egg-info/entry_points.txt
+src/gdsn_tsv_transformer.egg-info/requires.txt
+src/gdsn_tsv_transformer.egg-info/top_level.txt

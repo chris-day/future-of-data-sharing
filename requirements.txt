@@ -1,0 +1,13 @@
+# Python package list for this workspace.
+#
+# Install the local transformer executable into the virtual environment with:
+#   venv/bin/python -m pip install -e .
+#
+html5rdf==1.2.1
+owlrl==7.6.2
+packaging==26.2
+prettytable==3.18.0
+pyparsing==3.3.2
+pyshacl==0.40.1
+rdflib==7.6.0
+wcwidth==0.8.2
