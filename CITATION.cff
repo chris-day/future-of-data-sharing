@@ -1,0 +1,50 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: GS1 Future of Data Sharing
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Chris
+    family-names: Day
+    email: chris.day@gs1.org
+    orcid: 'https://orcid.org/0000-0001-5095-7052'
+    affiliation: GS1
+identifiers:
+  - type: other
+    value: 'https://gs1.org'
+    description: GS1 Homepage
+repository-code: 'https://github.com/gs1/gs1-future-of-data-sharing'
+abstract: >-
+  Vision 2030 — Objective 8
+
+
+  Trusted identification. Trusted data. An AI-driven world.
+
+
+  This repository is the shared implementation and knowledge
+  space for GS1's Future of Data Sharing programme. It
+  brings together strategic framing, project artefacts,
+  technical specifications, machine-readable examples,
+  prototypes, validation evidence and implementation
+  guidance across Objective 8.
+
+
+  The programme addresses how GS1 identifiers, standards,
+  vocabularies, registries, data-sharing services and
+  governance must evolve so that trusted GS1 data can be
+  created, published, discovered, verified and used
+  consistently by people, organisations, regulatory systems,
+  data spaces, software applications and AI agents.
+keywords:
+  - 'GS1 '
+  - 'FoDS '
+  - Holon
+  - ' Machine-Consumable'
+  - ' Machine-Readable'
+  - ' FAIR'
+  - ' Semantic Profiles'
+license: Apache-2.0
