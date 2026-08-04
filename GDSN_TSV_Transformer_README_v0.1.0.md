@@ -248,20 +248,27 @@ PY
 The package also installs a SHACL generator executable:
 
 ```bash
-venv/bin/gs1-gsdn-holon --help
+venv/bin/gs1-gdsn-holon --help
 ```
 
 The repository also includes a standalone wrapper that prefers the local
 virtual environment and can be run directly:
 
 ```bash
-./gs1-gsdn-holon --help
+./gs1-gdsn-holon --help
 ```
 
 Generate a GPC Brick SHACL shape from a Brick code:
 
 ```bash
-./gs1-gsdn-holon 10000030 \
+./gs1-gdsn-holon 10000030 > build/shacl/gpc-brick-10000030.shacl.ttl
+```
+
+When `--output` is omitted, SHACL Turtle is written to standard output and
+the JSON summary plus validation result are written to standard error.
+
+```bash
+./gs1-gdsn-holon 10000030 \
   --gpc build/gpc.ttl \
   --output build/shacl/gpc-brick-10000030.shacl.ttl \
   --write-tests \
@@ -271,7 +278,7 @@ Generate a GPC Brick SHACL shape from a Brick code:
 Example for Brick `10000043`, Sugar/Sugar Substitutes Shelf Stable:
 
 ```bash
-./gs1-gsdn-holon 10000043 \
+./gs1-gdsn-holon 10000043 \
   --gpc build/gpc.ttl \
   --output build/shacl/gpc-brick-10000043.shacl.ttl \
   --write-tests \
@@ -282,7 +289,7 @@ Generate a Brick shape and include the optional GDSN cross-category
 `TradeItemGDSNShape`:
 
 ```bash
-./gs1-gsdn-holon 10001198 \
+./gs1-gdsn-holon 10001198 \
   --gpc build/gpc.ttl \
   --gdsn build/gdsn.ttl \
   --include-gdsn \
@@ -294,7 +301,7 @@ Generate a Brick shape and include the optional GDSN cross-category
 Example for Brick `10000043` with the optional GDSN cross-category shape:
 
 ```bash
-./gs1-gsdn-holon 10000043 \
+./gs1-gdsn-holon 10000043 \
   --gpc build/gpc.ttl \
   --gdsn build/gdsn.ttl \
   --include-gdsn \
@@ -305,7 +312,7 @@ For GTIN input, the ontology alone is not enough to resolve product
 classification. Supply either a resolved Brick code:
 
 ```bash
-./gs1-gsdn-holon 09506000134352 \
+./gs1-gdsn-holon 09506000134352 \
   --input-kind gtin \
   --brick-code 10000030 \
   --output build/shacl/gtin-09506000134352.shacl.ttl
@@ -314,7 +321,7 @@ classification. Supply either a resolved Brick code:
 Or supply a local CSV or JSON lookup file:
 
 ```bash
-./gs1-gsdn-holon 09506000134352 \
+./gs1-gdsn-holon 09506000134352 \
   --input-kind gtin \
   --gtin-map product-gpc-map.csv \
   --gtin-column gtin \
@@ -322,7 +329,7 @@ Or supply a local CSV or JSON lookup file:
   --output build/shacl/gtin-09506000134352.shacl.ttl
 ```
 
-By default, `gs1-gsdn-holon` validates the generated SHACL with pySHACL:
+By default, `gs1-gdsn-holon` validates the generated SHACL with pySHACL:
 
 - parse-only via RDFLib Turtle parsing
 - empty graph validation
@@ -345,7 +352,7 @@ When changing the transformer:
 6. Regenerate TSVs with `venv/bin/gdsn-json-to-tsv --output-dir build/gdsn-tsv`.
 7. Review `build/gdsn-tsv/gdsn/diagnostics.tsv`.
 8. Run the `uml2semantics` commands for both modules.
-9. Run representative SHACL generation with `./gs1-gsdn-holon`.
+9. Run representative SHACL generation with `./gs1-gdsn-holon`.
 
 If third-party Python dependencies are added later, update `requirements.txt`
 with pinned package versions.

@@ -5,6 +5,19 @@
     "description": "This is the high performance API that should only be used for {env} data coming from your internal systems and Activate-Grade tools.",
     "version": "3.2.1"
   },
+  "servers": [
+    {
+      "url": "https://grp.gs1.org:443/grp-st/v3.2"
+    }
+  ],
+  "security": [
+    {
+      "ApiKeyHeader": []
+    },
+    {
+      "ApiKeyQuery": []
+    }
+  ],
   "tags": [
     {
       "name": "data-in",
@@ -3840,6 +3853,20 @@
     }
   },
   "components": {
+    "securitySchemes": {
+      "ApiKeyHeader": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Ocp-Apim-Subscription-Key",
+        "description": "GRP API key passed as an Azure API Management subscription key header."
+      },
+      "ApiKeyQuery": {
+        "type": "apiKey",
+        "in": "query",
+        "name": "subscription-key",
+        "description": "GRP API key passed as an Azure API Management subscription key query parameter."
+      }
+    },
     "schemas": {
       "GTIN-8": {
         "type": "string",
@@ -7023,4 +7050,3 @@
     }
   }
 }
-

@@ -1,7 +1,10 @@
 from __future__ import annotations
 
 import unittest
+from contextlib import redirect_stderr, redirect_stdout
+from io import StringIO
 from pathlib import Path
+from tempfile import TemporaryDirectory
 
 from pyshacl import validate
 from rdflib import Graph
@@ -11,6 +14,7 @@ from gdsn_tsv_transformer.holon import (
     bind_common,
     build_validation_graphs,
     load_graph,
+    main,
 )
 
 
@@ -49,7 +53,22 @@ class GpcBrickShapeTests(unittest.TestCase):
             with self.subTest(brick_code=brick_code):
                 self.assert_brick_shape_validates(brick_code, expected_label, expected_attribute_count)
 
+    def test_cli_stdout_mode(self) -> None:
+        with TemporaryDirectory() as temp_dir:
+            report_path = Path(temp_dir) / "report.json"
+            stdout = StringIO()
+            stderr = StringIO()
+            with redirect_stdout(stdout), redirect_stderr(stderr):
+                exit_code = main(["10000043", "--no-validate", "--report-json", str(report_path)])
+            self.assertEqual(exit_code, 0)
+            self.assertTrue(report_path.exists())
+            self.assertIn("gpc-shapes:Brick10000043Shape", stdout.getvalue())
+            self.assertIn('"output": "stdout"', stderr.getvalue())
+
+    def test_write_tests_requires_output(self) -> None:
+        with self.assertRaises(SystemExit):
+            main(["10000043", "--write-tests"])
+
 
 if __name__ == "__main__":
     unittest.main()
-

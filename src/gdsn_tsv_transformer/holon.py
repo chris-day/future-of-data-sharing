@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -32,8 +33,41 @@ GDSN_CROSS_CATEGORY_LABELS = [
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        prog="gs1-gsdn-holon",
+        prog="gs1-gdsn-holon",
         description="Generate SHACL shapes for GPC Brick holons and optional GDSN cross-category TradeItem constraints.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+epilog="""examples:
+  Generate a GPC Brick SHACL shape to stdout:
+    ./gs1-gdsn-holon 10000043 > build/shacl/gpc-brick-10000043.shacl.ttl
+
+  Generate a GPC Brick SHACL shape to a file:
+    ./gs1-gdsn-holon 10000043 \\
+      --gpc build/gpc.ttl \\
+      --output build/shacl/gpc-brick-10000043.shacl.ttl \\
+      --write-tests \\
+      --report-json build/shacl/gpc-brick-10000043.report.json
+
+  Include the optional GDSN cross-category TradeItem shape:
+    ./gs1-gdsn-holon 10000043 \\
+      --gpc build/gpc.ttl \\
+      --gdsn build/gdsn.ttl \\
+      --include-gdsn \\
+      --output build/shacl/gpc-brick-10000043-with-gdsn.shacl.ttl
+
+  Resolve a GTIN with a known Brick code:
+    ./gs1-gdsn-holon 09506000134352 \\
+      --input-kind gtin \\
+      --brick-code 10000030 \\
+      --output build/shacl/gtin-09506000134352.shacl.ttl
+
+  Resolve a GTIN from a local CSV or JSON mapping file:
+    ./gs1-gdsn-holon 09506000134352 \\
+      --input-kind gtin \\
+      --gtin-map product-gpc-map.csv \\
+      --gtin-column gtin \\
+      --brick-column brickCode \\
+      --output build/shacl/gtin-09506000134352.shacl.ttl
+""",
     )
     parser.add_argument(
         "input",
@@ -69,7 +103,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--output",
         type=Path,
-        help="Output SHACL file. Defaults to build/shacl/gpc-brick-{code}.shacl.ttl.",
+        help="Output SHACL file. If omitted, SHACL Turtle is written to stdout and status messages go to stderr.",
     )
     parser.add_argument(
         "--include-gdsn",
@@ -335,7 +369,9 @@ def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     gpc_graph = load_graph(args.gpc, default_format="turtle")
     brick_code = resolve_brick_code(args, gpc_graph)
-    output_path = args.output or Path("build/shacl") / f"gpc-brick-{brick_code}.shacl.ttl"
+    if args.write_tests and args.output is None:
+        raise SystemExit("--write-tests requires --output so test data files can be written next to the SHACL file")
+    output_path = args.output
     shapes = Graph()
     bind_common(shapes)
 
@@ -348,14 +384,20 @@ def main(argv: list[str] | None = None) -> int:
         gdsn_graph = load_graph(args.gdsn, default_format="turtle")
         report["gdsn_shape"] = add_gdsn_trade_item_shape(shapes, gdsn_graph)
 
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(shapes.serialize(format="turtle"), encoding="utf-8")
-    report["output"] = str(output_path)
+    shape_text = shapes.serialize(format="turtle")
+    if output_path is not None:
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        output_path.write_text(shape_text, encoding="utf-8")
+        report["output"] = str(output_path)
+    else:
+        sys.stdout.write(shape_text)
+        report["output"] = "stdout"
 
     if not args.no_validate:
         conforming, broken = build_validation_graphs(gpc_graph, brick_code, args.include_gdsn)
         report["validation"] = validate_shapes(shapes, conforming, broken)
         if args.write_tests:
+            assert output_path is not None
             conforming_path = output_path.with_suffix(".conforming.ttl")
             broken_path = output_path.with_suffix(".broken.ttl")
             conforming_path.write_text(conforming.serialize(format="turtle"), encoding="utf-8")
@@ -366,7 +408,8 @@ def main(argv: list[str] | None = None) -> int:
         args.report_json.parent.mkdir(parents=True, exist_ok=True)
         args.report_json.write_text(json.dumps(report, indent=2), encoding="utf-8")
 
-    print(json.dumps({k: v for k, v in report.items() if k not in {"validation"}}, indent=2))
+    status_stream = sys.stdout if output_path is not None else sys.stderr
+    print(json.dumps({k: v for k, v in report.items() if k not in {"validation"}}, indent=2), file=status_stream)
     if "validation" in report:
         validation = report["validation"]
         print(
@@ -374,7 +417,8 @@ def main(argv: list[str] | None = None) -> int:
             f"parse={validation['parse']} "
             f"empty_graph_conforms={validation['empty_graph_conforms']} "
             f"conforming_test_conforms={validation['conforming_test_conforms']} "
-            f"broken_test_conforms={validation['broken_test_conforms']}"
+            f"broken_test_conforms={validation['broken_test_conforms']}",
+            file=status_stream,
         )
     return 0
 

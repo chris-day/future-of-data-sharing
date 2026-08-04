@@ -11,3 +11,4 @@ src/gdsn_tsv_transformer.egg-info/dependency_links.txt
 src/gdsn_tsv_transformer.egg-info/entry_points.txt
 src/gdsn_tsv_transformer.egg-info/requires.txt
 src/gdsn_tsv_transformer.egg-info/top_level.txt
+tests/test_holon.py

@@ -10,11 +10,12 @@ requires-python = ">=3.10"
 dependencies = [
   "pyshacl==0.40.1",
   "rdflib==7.6.0",
+  "xml2rfc==3.34.0",
 ]
 
 [project.scripts]
 gdsn-json-to-tsv = "gdsn_tsv_transformer.cli:main"
-gs1-gsdn-holon = "gdsn_tsv_transformer.holon:main"
+gs1-gdsn-holon = "gdsn_tsv_transformer.holon:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

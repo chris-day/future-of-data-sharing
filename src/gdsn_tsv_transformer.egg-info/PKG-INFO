@@ -6,4 +6,5 @@ Requires-Python: >=3.10
 License-File: LICENSE
 Requires-Dist: pyshacl==0.40.1
 Requires-Dist: rdflib==7.6.0
+Requires-Dist: xml2rfc==3.34.0
 Dynamic: license-file
