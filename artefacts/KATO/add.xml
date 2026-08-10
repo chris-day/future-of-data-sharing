@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalogue_item_notification:catalogueItemNotificationMessage xmlns:catalogue_item_notification="urn:gs1:gdsn:catalogue_item_notification:xsd:3" xmlns:sh="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:gs1:gdsn:catalogue_item_notification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/CatalogueItemNotification.xsd">
+  <sh:StandardBusinessDocumentHeader>
+    <sh:HeaderVersion>1.0</sh:HeaderVersion>
+    <sh:Sender>
+      <sh:Identifier Authority="GS1">2100000000005</sh:Identifier>
+    </sh:Sender>
+    <sh:Receiver>
+      <sh:Identifier Authority="GS1">9501101020641</sh:Identifier>
+    </sh:Receiver>
+    <sh:DocumentIdentification>
+      <sh:Standard>GS1</sh:Standard>
+      <sh:TypeVersion>3.1</sh:TypeVersion>
+      <sh:InstanceIdentifier>11b93bcd-4a96-413d-925c-1494f75bf5e3</sh:InstanceIdentifier>
+      <sh:Type>catalogueItemNotification</sh:Type>
+      <sh:CreationDateAndTime>2026-07-16T06:22:25.377+00:00</sh:CreationDateAndTime>
+    </sh:DocumentIdentification>
+  </sh:StandardBusinessDocumentHeader>
+  <transaction>
+    <transactionIdentification>
+      <entityIdentification>c0637f16-0439-4743-966e-902ce7a4b8e5</entityIdentification>
+      <contentOwner>
+        <gln>1234567890128</gln>
+      </contentOwner>
+    </transactionIdentification>
+    <documentCommand>
+      <documentCommandHeader type="ADD">
+        <documentCommandIdentification>
+          <entityIdentification>6eea4119-0727-461b-a3b3-49ac935d7481</entityIdentification>
+          <contentOwner>
+            <gln>1234567890128</gln>
+          </contentOwner>
+        </documentCommandIdentification>
+      </documentCommandHeader>
+      <catalogue_item_notification:catalogueItemNotification>
+        <creationDateTime>2026-07-16T06:22:25.377+00:00</creationDateTime>
+        <documentStatusCode>ORIGINAL</documentStatusCode>
+        <catalogueItemNotificationIdentification>
+          <entityIdentification>6733be2e-590f-4c9b-bd42-a38aeb79b39c</entityIdentification>
+          <contentOwner>
+            <gln>1234567890128</gln>
+          </contentOwner>
+        </catalogueItemNotificationIdentification>
+        <isReload>false</isReload>
+        <catalogueItem>
+          <dataRecipient>9501101020665</dataRecipient>
+          <sourceDataPool>2100000000005</sourceDataPool>
+          <catalogueItemState>
+            <catalogueItemStateCode>REGISTERED</catalogueItemStateCode>
+          </catalogueItemState>
+          <tradeItem>
+            <gtin>25196100024882</gtin>
+            <contextIdentification>DP006</contextIdentification>
+            <isTradeItemABaseUnit>false</isTradeItemABaseUnit>
+            <isTradeItemAConsumerUnit>false</isTradeItemAConsumerUnit>
+            <isTradeItemADespatchUnit>true</isTradeItemADespatchUnit>
+            <isTradeItemAnInvoiceUnit>true</isTradeItemAnInvoiceUnit>
+            <isTradeItemAnOrderableUnit>true</isTradeItemAnOrderableUnit>
+            <tradeItemUnitDescriptorCode>CASE</tradeItemUnitDescriptorCode>
+            <brandOwner>
+              <gln>1234567890128</gln>
+            </brandOwner>
+            <informationProviderOfTradeItem>
+              <gln>1234567890128</gln>
+              <partyName>Data Source</partyName>
+            </informationProviderOfTradeItem>
+            <gdsnTradeItemClassification>
+              <gpcCategoryCode>10000002</gpcCategoryCode>
+              <gpcCategoryDefinition>Fruit – Unprepared/Unprocessed (Frozen)</gpcCategoryDefinition>
+            </gdsnTradeItemClassification>
+            <nextLowerLevelTradeItemInformation>
+              <quantityOfChildren>1</quantityOfChildren>
+              <totalQuantityOfNextLowerLevelTradeItem>20</totalQuantityOfNextLowerLevelTradeItem>
+              <childTradeItem>
+                <gtin>25196100024899</gtin>
+                <quantityOfNextLowerLevelTradeItem>20</quantityOfNextLowerLevelTradeItem>
+              </childTradeItem>
+            </nextLowerLevelTradeItemInformation>
+            <targetMarket>
+              <targetMarketCountryCode>840</targetMarketCountryCode>
+            </targetMarket>
+            <tradeItemInformation>
+              <extension>
+                <delivery_purchasing_information:deliveryPurchasingInformationModule xmlns:delivery_purchasing_information="urn:gs1:gdsn:delivery_purchasing_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd">
+                  <deliveryPurchasingInformation>
+                    <startAvailabilityDateTime>2026-07-11T04:41:53.737+00:00</startAvailabilityDateTime>
+                  </deliveryPurchasingInformation>
+                </delivery_purchasing_information:deliveryPurchasingInformationModule>
+                <trade_item_description:tradeItemDescriptionModule xmlns:trade_item_description="urn:gs1:gdsn:trade_item_description:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd">
+                  <tradeItemDescriptionInformation>
+                    <functionalName languageCode="en">Fruit – Unprepared/Unprocessed</functionalName>
+                    <brandNameInformation>
+                      <brandName>Kiln_TT9</brandName>
+                    </brandNameInformation>
+                  </tradeItemDescriptionInformation>
+                </trade_item_description:tradeItemDescriptionModule>
+                <trade_item_measurements:tradeItemMeasurementsModule xmlns:trade_item_measurements="urn:gs1:gdsn:trade_item_measurements:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd">
+                  <tradeItemMeasurements>
+  <depth measurementUnitCode="MMT">10</depth>
+  <height measurementUnitCode="MMT">5</height>
+  <netContent measurementUnitCode="H87">20</netContent>
+  <width measurementUnitCode="MMT">10</width>
+  <tradeItemWeight>
+    <grossWeight measurementUnitCode="KGM">20</grossWeight>
+  </tradeItemWeight>
+</tradeItemMeasurements>
+                </trade_item_measurements:tradeItemMeasurementsModule>
+                <variable_trade_item_information:variableTradeItemInformationModule xmlns:variable_trade_item_information="urn:gs1:gdsn:variable_trade_item_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd">
+                  <variableTradeItemInformation>
+                    <isTradeItemAVariableUnit>false</isTradeItemAVariableUnit>
+                  </variableTradeItemInformation>
+                </variable_trade_item_information:variableTradeItemInformationModule>
+              </extension>
+            </tradeItemInformation>
+            <tradeItemSynchronisationDates>
+              <lastChangeDateTime>2026-07-11T04:41:53.737+00:00</lastChangeDateTime>
+              <effectiveDateTime>2026-07-11T04:41:53.737+00:00</effectiveDateTime>
+            </tradeItemSynchronisationDates>
+          </tradeItem>
+          <catalogueItemChildItemLink>
+            <quantity>20</quantity>
+            <catalogueItem>
+              <dataRecipient>9501101020665</dataRecipient>
+              <sourceDataPool>2100000000005</sourceDataPool>
+              <catalogueItemState>
+                <catalogueItemStateCode>REGISTERED</catalogueItemStateCode>
+              </catalogueItemState>
+              <tradeItem>
+                <gtin>25196100024899</gtin>
+                <contextIdentification>DP006</contextIdentification>
+                <isTradeItemABaseUnit>true</isTradeItemABaseUnit>
+                <isTradeItemAConsumerUnit>true</isTradeItemAConsumerUnit>
+                <isTradeItemADespatchUnit>false</isTradeItemADespatchUnit>
+                <isTradeItemAnInvoiceUnit>false</isTradeItemAnInvoiceUnit>
+                <isTradeItemAnOrderableUnit>false</isTradeItemAnOrderableUnit>
+                <tradeItemUnitDescriptorCode>BASE_UNIT_OR_EACH</tradeItemUnitDescriptorCode>
+                <brandOwner>
+                  <gln>1234567890128</gln>
+                </brandOwner>
+                <informationProviderOfTradeItem>
+                  <gln>1234567890128</gln>
+                  <partyName>Data Source</partyName>
+                </informationProviderOfTradeItem>
+                <gdsnTradeItemClassification>
+                  <gpcCategoryCode>10000002</gpcCategoryCode>
+                  <gpcCategoryDefinition>Fruit – Unprepared/Unprocessed (Frozen)</gpcCategoryDefinition>
+                </gdsnTradeItemClassification>
+                <targetMarket>
+                  <targetMarketCountryCode>840</targetMarketCountryCode>
+                </targetMarket>
+                <tradeItemInformation>
+                  <extension>
+                    <delivery_purchasing_information:deliveryPurchasingInformationModule xmlns:delivery_purchasing_information="urn:gs1:gdsn:delivery_purchasing_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd">
+                      <deliveryPurchasingInformation>
+                        <startAvailabilityDateTime>2026-07-11T04:41:53.737+00:00</startAvailabilityDateTime>
+                      </deliveryPurchasingInformation>
+                    </delivery_purchasing_information:deliveryPurchasingInformationModule>
+                    <trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule xmlns:trade_item_data_carrier_and_identification="urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDataCarrierAndIdentificationModule.xsd">
+                      <dataCarrier>
+  <dataCarrierTypeCode>ITF_14</dataCarrierTypeCode>
+</dataCarrier>
+                    </trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule>
+                    <trade_item_description:tradeItemDescriptionModule xmlns:trade_item_description="urn:gs1:gdsn:trade_item_description:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd">
+                      <tradeItemDescriptionInformation>
+                        <functionalName languageCode="en">Fruit – Unprepared/Unprocessed</functionalName>
+                        <brandNameInformation>
+                          <brandName>Kiln_TT9</brandName>
+                        </brandNameInformation>
+                      </tradeItemDescriptionInformation>
+                    </trade_item_description:tradeItemDescriptionModule>
+                    <trade_item_measurements:tradeItemMeasurementsModule xmlns:trade_item_measurements="urn:gs1:gdsn:trade_item_measurements:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd">
+                      <tradeItemMeasurements>
+  <depth measurementUnitCode="MMT">1</depth>
+  <height measurementUnitCode="MMT">1</height>
+  <netContent measurementUnitCode="H87">1</netContent>
+  <width measurementUnitCode="MMT">1</width>
+  <tradeItemWeight>
+    <grossWeight measurementUnitCode="KGM">1</grossWeight>
+  </tradeItemWeight>
+</tradeItemMeasurements>
+                    </trade_item_measurements:tradeItemMeasurementsModule>
+                    <variable_trade_item_information:variableTradeItemInformationModule xmlns:variable_trade_item_information="urn:gs1:gdsn:variable_trade_item_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd">
+                      <variableTradeItemInformation>
+                        <isTradeItemAVariableUnit>false</isTradeItemAVariableUnit>
+                      </variableTradeItemInformation>
+                    </variable_trade_item_information:variableTradeItemInformationModule>
+                  </extension>
+                </tradeItemInformation>
+                <tradeItemSynchronisationDates>
+                  <lastChangeDateTime>2026-07-11T04:41:53.737+00:00</lastChangeDateTime>
+                  <effectiveDateTime>2026-07-11T04:41:53.737+00:00</effectiveDateTime>
+                </tradeItemSynchronisationDates>
+              </tradeItem>
+            </catalogueItem>
+          </catalogueItemChildItemLink>
+        </catalogueItem>
+      </catalogue_item_notification:catalogueItemNotification>
+    </documentCommand>
+  </transaction>
+</catalogue_item_notification:catalogueItemNotificationMessage>
+
