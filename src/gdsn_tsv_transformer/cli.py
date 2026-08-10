@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import html
 import json
 import re
@@ -225,10 +226,16 @@ class GdsnTransformer:
         self.by_name: dict[str, list[dict[str, Any]]] = defaultdict(list)
         for cls in self.classes:
             self.by_name[clean_name(cls.get("name"))].append(cls)
+        self.extended_code_names = {
+            clean_name(row.get("name"))
+            for row in self.extended_code_values
+            if clean_name(row.get("name"))
+        }
         self.code_class_ids = {cv.get("classId") for cv in self.code_values if cv.get("classId") in self.by_id}
         self.type4_ids = {c["id"] for c in self.classes if c.get("type") == 4}
         self.type5_ids = {c["id"] for c in self.classes if c.get("type") == 5}
         self.enum_ids = self.code_class_ids | self.type4_ids | self.type5_ids
+        self.synthetic_datatypes: dict[tuple[str, tuple[tuple[str, str], ...]], str] = {}
         self.output = OutputSet()
 
     def transform(self) -> OutputSet:
@@ -529,6 +536,7 @@ class GdsnTransformer:
                 definition=ext_attr.get("definition"),
                 multiplicity=ext_attr.get("multiplicity"),
                 limit=ext_attr.get("limit"),
+                convert_limit_facets=False,
             )
             add_annotation(self.output.annotations, curie, "gdsn:groupName", group_name)
             for prop in ["example", "validationRules", "hierarchyLevel"]:
@@ -545,9 +553,18 @@ class GdsnTransformer:
         definition: Any,
         multiplicity: Any,
         limit: Any,
+        convert_limit_facets: bool = True,
     ) -> None:
         min_mult, max_mult, mult_warning = parse_multiplicity(multiplicity)
-        facets, limit_warning = parse_limit(limit, self.is_string_like(range_ref))
+        if convert_limit_facets:
+            facets, limit_warning = parse_limit(limit, self.is_string_like(range_ref))
+        else:
+            facets, limit_warning = {}, None
+        if facets:
+            datatype_ref = self.synthetic_datatype_for_facets(range_ref, facets)
+            if datatype_ref:
+                range_ref = datatype_ref
+                facets = {}
         row = blank_row(ATTRIBUTES_HEADER)
         row.update(
             {
@@ -604,6 +621,47 @@ class GdsnTransformer:
             return {"MaxLength": match.group(1)}
         return {}
 
+    def synthetic_datatype_for_facets(self, range_ref: str, facets: dict[str, str]) -> str:
+        if not range_ref.startswith("xsd:"):
+            return ""
+        key = (range_ref, tuple(sorted(facets.items())))
+        existing = self.synthetic_datatypes.get(key)
+        if existing:
+            return existing
+
+        base_name = range_ref.removeprefix("xsd:")
+        parts = [base_name]
+        if facets.get("Pattern"):
+            pattern_token = hashlib.sha1(facets["Pattern"].encode("utf-8")).hexdigest()[:12]
+            parts.append(f"Pattern{pattern_token}")
+        for field in [
+            "MinLength",
+            "MaxLength",
+            "MinInclusive",
+            "MaxInclusive",
+            "MinExclusive",
+            "MaxExclusive",
+            "TotalDigits",
+            "FractionDigits",
+        ]:
+            if facets.get(field):
+                parts.append(f"{field}{facets[field]}")
+        name = "".join(part[:1].upper() + part[1:] for part in parts)
+        curie = f"gdsn:dt_{local_token('_'.join(parts))}"
+        row = blank_row(DATATYPES_HEADER)
+        row.update(
+            {
+                "Curie": curie,
+                "Name": name,
+                "BaseDatatype": range_ref,
+                "Definition": f"Synthetic datatype for {range_ref} attribute limits.",
+            }
+        )
+        row.update(facets)
+        self.output.datatypes.append(row)
+        self.synthetic_datatypes[key] = curie
+        return curie
+
     def range_for_class_id(self, class_id: Any) -> str:
         cls = self.by_id.get(class_id)
         if not cls:
@@ -623,6 +681,8 @@ class GdsnTransformer:
         name = clean_name(type_name)
         if name in XSD_TYPES:
             return f"xsd:{name}"
+        if name in self.extended_code_names:
+            return f"gdsn:extCode_{local_token(name)}"
         matches = self.by_name.get(name) or []
         if matches:
             preferred = sorted(matches, key=lambda c: (c.get("type") not in {3, 4, 5}, str(c.get("id"))))[0]
@@ -644,6 +704,8 @@ class GdsnTransformer:
         try:
             cid = int(range_ref.removeprefix("gdsn:c"))
         except ValueError:
+            return False
+        if cid in self.enum_ids:
             return False
         cls = self.by_id.get(cid)
         return bool(cls and self.ultimate_xsd_base(cls) == "xsd:string")

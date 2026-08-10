@@ -8,6 +8,7 @@ version = "0.1.0"
 description = "Transform GDSN UML JSON dumps into uml2semantics TSV artefacts."
 requires-python = ">=3.10"
 dependencies = [
+  "lxml==6.1.1",
   "pyshacl==0.40.1",
   "rdflib==7.6.0",
   "xml2rfc==3.34.0",
@@ -16,6 +17,7 @@ dependencies = [
 [project.scripts]
 gdsn-json-to-tsv = "gdsn_tsv_transformer.cli:main"
 gs1-gdsn-holon = "gdsn_tsv_transformer.holon:main"
+gdsn-xml-to-rdf = "gdsn_tsv_transformer.xml_to_rdf:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

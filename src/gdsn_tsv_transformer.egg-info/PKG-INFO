@@ -4,6 +4,7 @@ Version: 0.1.0
 Summary: Transform GDSN UML JSON dumps into uml2semantics TSV artefacts.
 Requires-Python: >=3.10
 License-File: LICENSE
+Requires-Dist: lxml==6.1.1
 Requires-Dist: pyshacl==0.40.1
 Requires-Dist: rdflib==7.6.0
 Requires-Dist: xml2rfc==3.34.0

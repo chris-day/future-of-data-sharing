@@ -1,3 +1,4 @@
+lxml==6.1.1
 pyshacl==0.40.1
 rdflib==7.6.0
 xml2rfc==3.34.0

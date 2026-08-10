@@ -1,3 +1,4 @@
 [console_scripts]
 gdsn-json-to-tsv = gdsn_tsv_transformer.cli:main
+gdsn-xml-to-rdf = gdsn_tsv_transformer.xml_to_rdf:main
 gs1-gdsn-holon = gdsn_tsv_transformer.holon:main

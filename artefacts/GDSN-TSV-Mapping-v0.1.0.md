@@ -176,7 +176,7 @@ Recommended columns for `gdsn_classAttributes.json`:
 | `MinMultiplicity` | Parsed lower bound from `multiplicity` |
 | `MaxMultiplicity` | Parsed upper bound from `multiplicity` |
 | `Definition` | Cleaned `definition` |
-| Facets | Parsed from `limit`, when reliable |
+| Facets | Leave blank; parsed limits are represented as named datatypes where reliable |
 
 Recommended columns for association extensions:
 
@@ -251,6 +251,12 @@ Recommended columns:
 | `Definition` | Class `definition` or `codeListDefinition` |
 
 Approximate count from GDSN code-valued existing classes: 551 rows.
+
+Extended code-value groups should use generated enumeration CURIEs of the form
+`gdsn:extCode_{groupName}`. When an AVP or extended attribute has a
+`dataTypeClassName` matching a `gdsn_extendedCodeValues.json` group name, its
+`ClassEnumOrPrimitiveType` should reference that generated enumeration rather
+than falling back to `xsd:string`.
 
 One missing code-list class was observed:
 
@@ -359,11 +365,23 @@ also pattern-like or malformed values:
 
 Recommended policy:
 
-- Convert `{n..m}` to `MinLength = n`, `MaxLength = m` for string-like ranges.
+- Convert `{n..m}` on primitive string-like attribute ranges to a generated
+  named datatype in `Datatypes.tsv`, then reference that datatype from
+  `ClassEnumOrPrimitiveType`. Do not emit inline attribute facets. This avoids
+  anonymous datatype restrictions in generated OWL, which Protege can display
+  as `ErrorNN`.
 - Convert `{\\d{8}}` to `Pattern = \\d{8}` if XML Schema regex compatibility
   is confirmed.
 - Emit diagnostics for malformed limit values and preserve the original in
   annotations.
+
+Example generated datatype for a source `xsd:string` attribute with
+`limit = {1..200}`:
+
+| TSV file | Relevant output |
+|---|---|
+| `Attributes.tsv` | `ClassEnumOrPrimitiveType = gdsn:dt_string_MinLength1_MaxLength200` |
+| `Datatypes.tsv` | `Curie = gdsn:dt_string_MinLength1_MaxLength200`, `BaseDatatype = xsd:string`, `MinLength = 1`, `MaxLength = 200` |
 
 ## 7. GPC and Country Artefacts
 
@@ -424,7 +442,23 @@ existing GDSN UML classes unless a reliable source relation is found later.
 
 `gdsn_extendedCodeValues.json` contains 2,610 rows across 352 groups. These can
 map to optional enumerations, but their owning model context should be decided
-before merging them with core GDSN code lists.
+before merging them with core GDSN code lists. Attribute ranges may still
+reference these generated extended-code enumerations directly when the source
+`dataTypeClassName` exactly matches the extended-code group name.
+
+Observed Carrefour example from `gdsn_extendedAttributes.json`:
+
+| Source ID | Attribute name | Source `dataTypeClassName` | TSV `ClassEnumOrPrimitiveType` |
+|---|---|---|---|
+| `1084` | `maximumRange` | `maximumRange` | `gdsn:extCode_maximumRange` |
+| `1115` | `voltageRatingCode` | `voltageRatingCode` | `gdsn:extCode_voltageRatingCode` |
+
+String-like extended attributes, such as Carrefour `additionalTaxAgencyCode`
+or US FoodService `notSignificantSourceOfNutrient`, continue to map to
+`xsd:string`. Do not convert `gdsn_extendedAttributes.json` `limit` values into
+datatype facets. Preserve the original limit as `gdsn:originalLimit`; this
+avoids generating anonymous datatype restrictions for synthetic extended
+attribute containers.
 
 ## 9. Identifier Policy
 
