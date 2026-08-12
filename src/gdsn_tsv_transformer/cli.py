@@ -235,6 +235,8 @@ class GdsnTransformer:
         self.type4_ids = {c["id"] for c in self.classes if c.get("type") == 4}
         self.type5_ids = {c["id"] for c in self.classes if c.get("type") == 5}
         self.enum_ids = self.code_class_ids | self.type4_ids | self.type5_ids
+        self.structured_type3_ids = self.detect_structured_type3_ids()
+        self.extension_module_ids = self.detect_extension_module_ids()
         self.synthetic_datatypes: dict[tuple[str, tuple[tuple[str, str], ...]], str] = {}
         self.output = OutputSet()
 
@@ -268,6 +270,7 @@ class GdsnTransformer:
             "gdsn:externalLink": ("External link", "Source external reference link."),
             "gdsn:hierarchyLevel": ("Hierarchy level", "Source hierarchy-level marker."),
             "gdsn:targetMarket": ("Target market", "Source target-market marker."),
+            "gdsn:valueDatatype": ("Value datatype", "Primitive datatype used for rdf:value on structured GS1-defined value classes."),
             "gpc:level": ("GPC level", "GPC hierarchy level."),
             "gpc:active": ("GPC active", "GPC active status."),
             "gpc:contextCode": ("GPC context code", "GPC context code associated with a brick."),
@@ -284,20 +287,25 @@ class GdsnTransformer:
     def generate_classes(self) -> None:
         for cls in self.classes:
             cid = cls["id"]
-            if cls.get("type") != 2 or cid in self.enum_ids:
+            if (cls.get("type") != 2 and cid not in self.structured_type3_ids) or cid in self.enum_ids:
                 continue
+            parents = self.parent_curies(cls)
+            if cid in self.extension_module_ids:
+                parents.append("gdsn:GDSNExtensionModule")
             curie = gdsn_class_curie(cid)
             row = blank_row(CLASSES_HEADER)
             row.update(
                 {
                     "Curie": curie,
                     "Name": clean_name(cls.get("name")),
-                    "ParentNames": "|".join(self.parent_curies(cls)),
+                    "ParentNames": "|".join(parents),
                     "Definition": clean_text(cls.get("definition")),
                 }
             )
             self.output.classes.append(row)
             self.annotate_source(curie, "gdsn_classes.json", cid, cls.get("type"))
+            if cid in self.structured_type3_ids:
+                add_annotation(self.output.annotations, curie, "gdsn:valueDatatype", self.ultimate_xsd_base(cls))
 
         self.output.classes.extend(
             [
@@ -319,13 +327,22 @@ class GdsnTransformer:
                     "ChoiceOf": "",
                     "ChoiceSemantics": "",
                 },
+                {
+                    "Curie": "gdsn:GDSNExtensionModule",
+                    "Name": "GDSN Extension Module",
+                    "ParentNames": "",
+                    "Definition": "Synthetic superclass for concrete GDSN extension module classes attached below TradeItemInformation.",
+                    "IsAbstract": "",
+                    "ChoiceOf": "",
+                    "ChoiceSemantics": "",
+                },
             ]
         )
 
     def generate_datatypes(self) -> None:
         for cls in self.classes:
             cid = cls["id"]
-            if cls.get("type") != 3 or cid in self.enum_ids:
+            if cls.get("type") != 3 or cid in self.enum_ids or cid in self.structured_type3_ids:
                 continue
             curie = gdsn_class_curie(cid)
             row = blank_row(DATATYPES_HEADER)
@@ -428,7 +445,11 @@ class GdsnTransformer:
                 self.annotate_source(curie, "gdsn_extendedCodeValues.json", row_data.get("id"), "extendedCodeValue")
 
     def generate_attributes(self) -> None:
-        class_ids = {c["id"] for c in self.classes if c.get("type") == 2 and c["id"] not in self.enum_ids}
+        class_ids = {
+            c["id"]
+            for c in self.classes
+            if ((c.get("type") == 2 or c["id"] in self.structured_type3_ids) and c["id"] not in self.enum_ids)
+        }
         for attr in self.attributes:
             parent_id = attr.get("parentClassId")
             curie = gdsn_attribute_curie(attr.get("id"))
@@ -480,6 +501,18 @@ class GdsnTransformer:
                     multiplicity=ext.get("multiplicity"),
                     limit=None,
                 )
+
+        self.add_attribute_row(
+            source_file="synthetic",
+            source_id="extensionModule",
+            owner_curie="gdsn:c1352305416",
+            curie="gdsn:extensionModule",
+            name="extensionModule",
+            range_ref="gdsn:GDSNExtensionModule",
+            definition="Synthetic object property linking TradeItemInformation to concrete GDSN extension module instances.",
+            multiplicity="0..*",
+            limit=None,
+        )
 
     def generate_avp_and_extended_attributes(self) -> None:
         for avp in self.avps:
@@ -709,6 +742,40 @@ class GdsnTransformer:
             return False
         cls = self.by_id.get(cid)
         return bool(cls and self.ultimate_xsd_base(cls) == "xsd:string")
+
+    def detect_extension_module_ids(self) -> set[Any]:
+        extension_root_module_ids = set()
+        for inst in self.instances:
+            cls = self.by_id.get(inst.get("classId"))
+            if not cls:
+                continue
+            if "/tradeItemInformation/extension/*" not in clean_text(inst.get("xPath")):
+                continue
+            if cls.get("type") == 2 and clean_name(cls.get("name")).endswith("Module"):
+                extension_root_module_ids.add(inst.get("classId"))
+
+        module_like_ids = {
+            cls["id"]
+            for cls in self.classes
+            if cls.get("type") == 2 and clean_name(cls.get("name")).endswith("Module")
+        }
+
+        # The v3.1.35 dump has one module class with no gdsn_instances XPath:
+        # FoodAndBeveragePropertiesInformationModule. Include orphan module-like
+        # classes so the generated superclass covers the full 77-module inventory.
+        return extension_root_module_ids | (module_like_ids - extension_root_module_ids)
+
+    def detect_structured_type3_ids(self) -> set[Any]:
+        type3_ids = {
+            cls["id"]
+            for cls in self.classes
+            if cls.get("type") == 3 and cls["id"] not in self.enum_ids
+        }
+        return {
+            attr.get("parentClassId")
+            for attr in self.attributes
+            if attr.get("parentClassId") in type3_ids
+        }
 
     def annotate_source(self, curie: str, source_file: str, source_id: Any, source_type: Any) -> None:
         add_annotation(self.output.annotations, curie, "gdsn:sourceId", source_id)

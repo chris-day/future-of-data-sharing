@@ -14,6 +14,7 @@ class GdsnTsvTransformerTests(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.output = GdsnTransformer(INPUT_DIR).transform()
         cls.attributes = {row["Curie"]: row for row in cls.output.attributes}
+        cls.classes = {row["Curie"]: row for row in cls.output.classes}
         cls.datatypes = {row["Curie"]: row for row in cls.output.datatypes}
         cls.enumerations = {row["Curie"] for row in cls.output.enumerations}
 
@@ -65,6 +66,33 @@ class GdsnTsvTransformerTests(unittest.TestCase):
         self.assertEqual(row["MaxMultiplicity"], "*")
         self.assertEqual(row["MinLength"], "")
         self.assertEqual(row["MaxLength"], "")
+
+    def test_extension_module_detection_marks_77_module_classes(self) -> None:
+        module_classes = [
+            row
+            for row in self.classes.values()
+            if "gdsn:GDSNExtensionModule" in row["ParentNames"].split("|")
+        ]
+
+        self.assertEqual(len(module_classes), 77)
+        self.assertIn("gdsn:GDSNExtensionModule", self.classes)
+        self.assertIn("gdsn:extensionModule", self.attributes)
+        self.assertIn(
+            "gdsn:GDSNExtensionModule",
+            self.classes["gdsn:c2147348283"]["ParentNames"].split("|"),
+        )
+
+    def test_structured_type3_records_are_value_classes(self) -> None:
+        self.assertIn("gdsn:c1490", self.classes)
+        self.assertNotIn("gdsn:c1490", self.datatypes)
+        self.assertEqual(self.classes["gdsn:c1490"]["Name"], "Measurement")
+        self.assertEqual(self.attributes["gdsn:a7085"]["Class"], "gdsn:c1490")
+        self.assertEqual(self.attributes["gdsn:a7085"]["Name"], "measurementUnitCode")
+
+        self.assertIn("gdsn:c1441", self.classes)
+        self.assertNotIn("gdsn:c1441", self.datatypes)
+        self.assertEqual(self.attributes["gdsn:a7139"]["Class"], "gdsn:c1441")
+        self.assertEqual(self.attributes["gdsn:a7139"]["Name"], "languageCode")
 
 
 if __name__ == "__main__":

@@ -149,7 +149,7 @@ epilog="""examples:
     parser.add_argument(
         "--instance-max-depth",
         type=int,
-        default=4,
+        default=5,
         help="Maximum outgoing GDSN object-property depth to traverse from the selected GTIN instance.",
     )
     parser.add_argument(
@@ -522,7 +522,7 @@ def add_gdsn_gtin_bridge(
     if gtin_property is None:
         raise SystemExit("Could not locate the TradeItem GTIN property in gdsn.ttl")
     range_ref = next(gdsn_graph.objects(gtin_property, RDFS.range), None)
-    gtin_value = Literal(gtin, datatype=range_ref) if range_ref is not None else Literal(gtin)
+    gtin_value = Literal(gtin, datatype=shacl_datatype(gdsn_graph, range_ref if isinstance(range_ref, URIRef) else None))
 
     property_shape = BNode()
     shapes.add((shape, SH.property, property_shape))
@@ -604,7 +604,7 @@ def add_gdsn_trade_item_shape(
         if high and high != "*":
             shapes.add((property_shape, SH.maxCount, Literal(int(high), datatype=XSD.integer)))
         if prop_type == OWL.DatatypeProperty:
-            shapes.add((property_shape, SH.datatype, range_ref if range_ref is not None else XSD.string))
+            shapes.add((property_shape, SH.datatype, shacl_datatype(gdsn_graph, range_ref if isinstance(range_ref, URIRef) else None)))
         elif prop_type == OWL.ObjectProperty and range_ref is not None:
             shapes.add((property_shape, SH["class"], range_ref))
         if domain is not None:
@@ -658,6 +658,21 @@ def property_allowed_values(gdsn_graph: Graph, range_ref: URIRef | None) -> list
     return sorted(values, key=lambda value: label(gdsn_graph, value))
 
 
+def shacl_datatype(gdsn_graph: Graph, datatype: URIRef | None) -> URIRef:
+    if datatype is None:
+        return XSD.string
+    if str(datatype).startswith(str(XSD)):
+        return datatype
+    equivalent = next(gdsn_graph.objects(datatype, OWL.equivalentClass), None)
+    if isinstance(equivalent, URIRef) and str(equivalent).startswith(str(XSD)):
+        return equivalent
+    if equivalent is not None:
+        base = next(gdsn_graph.objects(equivalent, OWL.onDatatype), None)
+        if isinstance(base, URIRef):
+            return base
+    return datatype
+
+
 def add_cardinality(shapes: Graph, gdsn_graph: Graph, property_shape: BNode, prop: URIRef, observed_count: int) -> tuple[int | None, int | None]:
     multiplicity = next(gdsn_graph.objects(prop, GDSN.originalMultiplicity), None)
     low, high = parse_multiplicity(multiplicity)
@@ -696,8 +711,8 @@ def add_instance_property_shape(
     if prop_type == OWL.DatatypeProperty or literal_values:
         datatype = range_ref if isinstance(range_ref, URIRef) else None
         if datatype is None and literal_values:
-            datatype = literal_values[0].datatype
-        shapes.add((property_shape, SH.datatype, datatype if datatype is not None else XSD.string))
+            datatype = RDF.langString if literal_values[0].language else literal_values[0].datatype
+        shapes.add((property_shape, SH.datatype, shacl_datatype(gdsn_graph, datatype)))
         for value in literal_values:
             shapes.add((property_shape, SH.hasValue, value))
     elif prop_type == OWL.ObjectProperty or object_values:
@@ -709,9 +724,8 @@ def add_instance_property_shape(
         elif len(nested_shapes) > 1:
             if range_ref is not None:
                 shapes.add((property_shape, SH["class"], range_ref))
-            union_node = BNode()
-            Collection(shapes, union_node, nested_shapes)
-            shapes.add((property_shape, SH["or"], union_node))
+            for value in object_values:
+                shapes.add((property_shape, SH.hasValue, value))
         allowed_values = property_allowed_values(gdsn_graph, range_ref if isinstance(range_ref, URIRef) else None)
         non_nested_values = [value for value in object_values if value not in child_shapes]
         if allowed_values and all(value in allowed_values for value in non_nested_values):
@@ -751,6 +765,10 @@ def reachable_instance_nodes(instance_graph: Graph, root: URIRef, max_depth: int
     return sorted(seen, key=str)
 
 
+def is_instance_shape_property(prop: URIRef) -> bool:
+    return prop == RDF.value or str(prop).startswith(str(GDSN))
+
+
 def add_instance_object_shapes(
     shapes: Graph,
     gdsn_graph: Graph,
@@ -766,6 +784,7 @@ def add_instance_object_shapes(
     for node in nodes:
         shape = child_shapes[node]
         shapes.add((shape, RDF.type, SH.NodeShape))
+        shapes.add((shape, SH.targetNode, node))
         node_type = first_gdsn_type(instance_graph, node)
         if node_type is not None:
             shapes.add((shape, SH["class"], node_type))
@@ -778,7 +797,7 @@ def add_instance_object_shapes(
             {
                 prop
                 for prop, value in instance_graph.predicate_objects(node)
-                if isinstance(prop, URIRef) and str(prop).startswith(str(GDSN))
+                if isinstance(prop, URIRef) and is_instance_shape_property(prop)
             },
             key=str,
         )
@@ -857,12 +876,12 @@ def build_validation_graphs(gpc_graph: Graph, brick_code: str, include_gdsn: boo
         conforming.add((trade_ok, GDSN["assoc_863999331_-1698192853_1"], ok_classification))
         conforming.add((ok_classification, GDSN.a289210221, Literal(brick_code)))
         if gtin:
-            conforming.add((trade_ok, GDSN.a5339, Literal(gtin, datatype=GDSN.c1450)))
+            conforming.add((trade_ok, GDSN.a5339, Literal(gtin, datatype=XSD.string)))
         broken.add((trade_bad, RDF.type, GDSN.c863999331))
         broken.add((trade_bad, GDSN["assoc_863999331_-1698192853_1"], bad_classification))
         broken.add((bad_classification, GDSN.a289210221, Literal("__WRONG_GPC_BRICK__")))
         if gtin:
-            broken.add((trade_bad, GDSN.a5339, Literal("__WRONG_GTIN__", datatype=GDSN.c1450)))
+            broken.add((trade_bad, GDSN.a5339, Literal("__WRONG_GTIN__", datatype=XSD.string)))
         broken.add((trade_bad, GDSN.a212299678, Literal("not-a-float")))
         broken.add((trade_bad, GDSN.a212299678, Literal("also-not-a-float")))
     return conforming, broken

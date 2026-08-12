@@ -149,7 +149,7 @@ class GpcBrickShapeTests(unittest.TestCase):
         self.assertEqual(report["gtin_bridge"]["gtin_property"], "urn:gs1:std:gdsn:a5339")
         self.assertEqual(report["gtin_bridge"]["datatype"], "urn:gs1:std:gdsn:c1450")
         self.assertTrue((None, SH.hasValue, Literal("10000030")) in shapes)
-        self.assertTrue((None, SH.hasValue, Literal("09506000134352", datatype=URIRef("urn:gs1:std:gdsn:c1450"))) in shapes)
+        self.assertTrue((None, SH.hasValue, Literal("09506000134352", datatype=URIRef("http://www.w3.org/2001/XMLSchema#string"))) in shapes)
 
         Graph().parse(data=shapes.serialize(format="turtle"), format="turtle")
         conforming, broken = build_validation_graphs(
@@ -200,6 +200,8 @@ class GpcBrickShapeTests(unittest.TestCase):
             self.assertTrue((None, SH.targetNode, root) in shapes)
             self.assertTrue((None, SH.path, GDSN["assoc_863999331_652864357_8"]) in shapes)
             self.assertTrue((None, SH.path, GDSN.a5682) in shapes)
+            self.assertTrue((None, SH.path, GDSN.extensionModule) in shapes)
+            self.assertTrue((None, SH.path, GDSN.a1727163091) in shapes)
 
 
 if __name__ == "__main__":

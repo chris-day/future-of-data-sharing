@@ -17,6 +17,14 @@ GPC = Namespace("urn:gs1:std:gpc:")
 ISO3166 = Namespace("urn:iso:std:iso:3166")
 
 
+SUPPORTED_EXTENSION_MODULES = {
+    "deliveryPurchasingInformationModule",
+    "tradeItemDataCarrierAndIdentificationModule",
+    "tradeItemDescriptionModule",
+    "tradeItemMeasurementsModule",
+}
+
+
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         prog="gdsn-xml-to-rdf",
@@ -48,8 +56,10 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--format", choices=["turtle", "xml", "nt", "json-ld"], default="turtle", help="RDF output format.")
     parser.add_argument("--base-iri", default="urn:gs1:sample:kato:", help="Base IRI for generated instance resources.")
     parser.add_argument("--prefix", default="kato", help="Prefix to bind for --base-iri.")
-    parser.add_argument("--extension-report", type=Path, help="Write ignored extension module contents to JSON.")
-    parser.add_argument("--print-extensions", action="store_true", help="Print a concise summary of ignored extension modules.")
+    parser.add_argument("--gdsn-import-iri", default=str(GDSN), help="Ontology IRI imported by the generated instance ontology for GDSN.")
+    parser.add_argument("--gpc-import-iri", default=str(GPC), help="Ontology IRI imported by the generated instance ontology for GPC.")
+    parser.add_argument("--extension-report", type=Path, help="Write all extension module contents found in the XML to JSON.")
+    parser.add_argument("--print-extensions", action="store_true", help="Print a concise summary of extension modules found in the XML.")
     parser.add_argument("--report-json", type=Path, help="Write conversion summary and diagnostics to JSON.")
     parser.add_argument("--no-validate", action="store_true", help="Skip RDF parse validation of generated output.")
     parser.add_argument(
@@ -125,6 +135,8 @@ class OntologyIndex:
         self.type_by_property: dict[URIRef, URIRef] = {}
         self.code_values: dict[tuple[URIRef, str], URIRef] = {}
         self.iso_by_numeric: dict[str, URIRef] = {}
+        self.value_datatype_by_class: dict[URIRef, URIRef] = {}
+        self.literal_datatype_by_datatype: dict[URIRef, URIRef] = {}
         self._index()
 
     def _index(self) -> None:
@@ -147,6 +159,36 @@ class OntologyIndex:
         for country, numeric in self.gdsn.subject_objects(ISO3166.numericCode):
             if isinstance(country, URIRef):
                 self.iso_by_numeric[str(numeric)] = country
+
+        for cls, datatype in self.gdsn.subject_objects(GDSN.valueDatatype):
+            if isinstance(cls, URIRef):
+                self.value_datatype_by_class[cls] = self.curie_or_uri(str(datatype))
+
+        for datatype in self.gdsn.subjects(RDF.type, RDFS.Datatype):
+            if not isinstance(datatype, URIRef):
+                continue
+            equivalent = next(self.gdsn.objects(datatype, OWL.equivalentClass), None)
+            if isinstance(equivalent, URIRef) and str(equivalent).startswith(str(XSD)):
+                self.literal_datatype_by_datatype[datatype] = equivalent
+            elif equivalent is not None:
+                base = next(self.gdsn.objects(equivalent, OWL.onDatatype), None)
+                if isinstance(base, URIRef):
+                    self.literal_datatype_by_datatype[datatype] = base
+
+    @staticmethod
+    def curie_or_uri(value: str) -> URIRef:
+        if value.startswith("xsd:"):
+            return URIRef(str(XSD) + value.removeprefix("xsd:"))
+        if value.startswith("gdsn:"):
+            return GDSN[value.removeprefix("gdsn:")]
+        if value.startswith("http:") or value.startswith("https:") or value.startswith("urn:"):
+            return URIRef(value)
+        return URIRef(value)
+
+    def literal_datatype(self, datatype: URIRef | None) -> URIRef | None:
+        if datatype is None:
+            return None
+        return self.literal_datatype_by_datatype.get(datatype, datatype)
 
     def prop(self, domain: URIRef, label: str) -> URIRef:
         value = self.properties_by_label.get((domain, label))
@@ -175,7 +217,46 @@ class OntologyIndex:
             else:
                 graph.add((subject, prop, obj))
             return
-        graph.add((subject, prop, literal_for(lexical, range_ref)))
+        graph.add((subject, prop, literal_for(lexical, self.literal_datatype(range_ref))))
+
+    def add_qualified_value(
+        self,
+        graph: Graph,
+        subject: URIRef,
+        domain: URIRef,
+        label: str,
+        xml: etree._Element,
+        diagnostics: list[str],
+        value_node: URIRef | None = None,
+    ) -> None:
+        lexical = text(xml)
+        if lexical == "":
+            return
+        prop = self.prop(domain, label)
+        prop_type = self.type_by_property.get(prop)
+        range_ref = self.range_by_property.get(prop)
+        if prop_type != OWL.ObjectProperty or range_ref not in self.value_datatype_by_class:
+            self.add_value(graph, subject, prop, lexical, diagnostics)
+            return
+
+        value_node = value_node or URIRef(f"{subject}/{quote(label, safe='')}")
+        graph.add((subject, prop, value_node))
+        graph.add((value_node, RDF.type, range_ref))
+        value_datatype = self.value_datatype_by_class[range_ref]
+        lang = xml.attrib.get("languageCode")
+        if lang and value_datatype == XSD.string:
+            graph.add((value_node, RDF.value, Literal(lexical, lang=lang.lower())))
+        else:
+            graph.add((value_node, RDF.value, literal_for(lexical, self.literal_datatype(value_datatype))))
+
+        for raw_name, raw_value in xml.attrib.items():
+            qualifier_name = etree.QName(raw_name).localname
+            try:
+                qualifier_prop = self.prop(range_ref, qualifier_name)
+            except KeyError:
+                diagnostics.append(f"Unresolved structured value qualifier {qualifier_name!r} for {range_ref}")
+                continue
+            self.add_value(graph, value_node, qualifier_prop, raw_value, diagnostics)
 
 
 def add_text_value(index: OntologyIndex, graph: Graph, subject: URIRef, domain: URIRef, label: str, value: str, diagnostics: list[str]) -> None:
@@ -236,6 +317,139 @@ def add_next_lower_level(index: OntologyIndex, graph: Graph, base: str, trade_it
         add_text_value(index, graph, child, GDSN.c282496455, "quantityOfNextLowerLevelTradeItem", text(child_trade_item, "quantityOfNextLowerLevelTradeItem"), diagnostics)
 
 
+def add_leaf_value(
+    index: OntologyIndex,
+    graph: Graph,
+    subject: URIRef,
+    domain: URIRef,
+    label: str,
+    xml: etree._Element | None,
+    diagnostics: list[str],
+    value_node: URIRef | None = None,
+) -> None:
+    if xml is None:
+        return
+    index.add_qualified_value(graph, subject, domain, label, xml, diagnostics, value_node)
+
+
+def add_extension_module_link(graph: Graph, trade_item_information: URIRef, module: URIRef) -> None:
+    graph.add((trade_item_information, GDSN.extensionModule, module))
+
+
+def add_delivery_purchasing_information(index: OntologyIndex, graph: Graph, base: str, trade_item_information: URIRef, module_xml: etree._Element, gtin: str, diagnostics: list[str]) -> None:
+    module = resource(base, "extension", gtin, "deliveryPurchasingInformationModule")
+    info = resource(base, "extension", gtin, "deliveryPurchasingInformation")
+    graph.add((module, RDF.type, GDSN.GDSNExtensionModule))
+    graph.add((module, RDF.type, GDSN.c1952808552))
+    add_extension_module_link(graph, trade_item_information, module)
+    graph.add((info, RDF.type, GDSN.c1362))
+    graph.add((module, index.prop(GDSN.c1952808552, "deliveryPurchasingInformation"), info))
+    info_xml = child(module_xml, "deliveryPurchasingInformation")
+    add_leaf_value(index, graph, info, GDSN.c1362, "startAvailabilityDateTime", child(info_xml, "startAvailabilityDateTime") if info_xml is not None else None, diagnostics)
+
+
+def add_trade_item_data_carrier_module(index: OntologyIndex, graph: Graph, base: str, trade_item_information: URIRef, module_xml: etree._Element, gtin: str, diagnostics: list[str]) -> None:
+    module = resource(base, "extension", gtin, "tradeItemDataCarrierAndIdentificationModule")
+    graph.add((module, RDF.type, GDSN.GDSNExtensionModule))
+    graph.add((module, RDF.type, GDSN["c-1966439330"]))
+    add_extension_module_link(graph, trade_item_information, module)
+    for position, data_carrier_xml in enumerate(children(module_xml, "dataCarrier"), start=1):
+        data_carrier = resource(base, "extension", gtin, "dataCarrier", str(position))
+        graph.add((data_carrier, RDF.type, GDSN["c-1841074127"]))
+        graph.add((module, index.prop(GDSN["c-1966439330"], "dataCarrier"), data_carrier))
+        add_leaf_value(index, graph, data_carrier, GDSN["c-1841074127"], "dataCarrierTypeCode", child(data_carrier_xml, "dataCarrierTypeCode"), diagnostics)
+
+
+def add_trade_item_description_module(index: OntologyIndex, graph: Graph, base: str, trade_item_information: URIRef, module_xml: etree._Element, gtin: str, diagnostics: list[str]) -> None:
+    module = resource(base, "extension", gtin, "tradeItemDescriptionModule")
+    description = resource(base, "extension", gtin, "tradeItemDescriptionInformation")
+    graph.add((module, RDF.type, GDSN.GDSNExtensionModule))
+    graph.add((module, RDF.type, GDSN.c1343046870))
+    add_extension_module_link(graph, trade_item_information, module)
+    graph.add((description, RDF.type, GDSN.c1204161147))
+    graph.add((module, index.prop(GDSN.c1343046870, "tradeItemDescriptionInformation"), description))
+    description_xml = child(module_xml, "tradeItemDescriptionInformation")
+    if description_xml is None:
+        return
+    add_leaf_value(
+        index,
+        graph,
+        description,
+        GDSN.c1204161147,
+        "functionalName",
+        child(description_xml, "functionalName"),
+        diagnostics,
+        resource(base, "value", gtin, "functionalName"),
+    )
+    brand_xml = child(description_xml, "brandNameInformation")
+    if brand_xml is not None:
+        brand = resource(base, "extension", gtin, "brandNameInformation")
+        graph.add((brand, RDF.type, GDSN.c1350303678))
+        graph.add((description, index.prop(GDSN.c1204161147, "brandNameInformation"), brand))
+        add_leaf_value(index, graph, brand, GDSN.c1350303678, "brandName", child(brand_xml, "brandName"), diagnostics)
+
+
+def add_trade_item_measurements_module(index: OntologyIndex, graph: Graph, base: str, trade_item_information: URIRef, module_xml: etree._Element, gtin: str, diagnostics: list[str]) -> None:
+    module = resource(base, "extension", gtin, "tradeItemMeasurementsModule")
+    measurements = resource(base, "extension", gtin, "tradeItemMeasurements")
+    graph.add((module, RDF.type, GDSN.GDSNExtensionModule))
+    graph.add((module, RDF.type, GDSN["c-1559145472"]))
+    add_extension_module_link(graph, trade_item_information, module)
+    graph.add((measurements, RDF.type, GDSN["c-1443794077"]))
+    graph.add((module, index.prop(GDSN["c-1559145472"], "tradeItemMeasurements"), measurements))
+    measurements_xml = child(module_xml, "tradeItemMeasurements")
+    if measurements_xml is None:
+        return
+    for name in ["depth", "height", "netContent", "width"]:
+        add_leaf_value(
+            index,
+            graph,
+            measurements,
+            GDSN["c-1443794077"],
+            name,
+            child(measurements_xml, name),
+            diagnostics,
+            resource(base, "value", gtin, name),
+        )
+    weight_xml = child(measurements_xml, "tradeItemWeight")
+    if weight_xml is not None:
+        weight = resource(base, "extension", gtin, "tradeItemWeight")
+        graph.add((weight, RDF.type, GDSN["c-113081611"]))
+        graph.add((measurements, index.prop(GDSN["c-1443794077"], "tradeItemWeight"), weight))
+        add_leaf_value(
+            index,
+            graph,
+            weight,
+            GDSN["c-113081611"],
+            "grossWeight",
+            child(weight_xml, "grossWeight"),
+            diagnostics,
+            resource(base, "value", gtin, "grossWeight"),
+        )
+
+
+def add_supported_extension_modules(index: OntologyIndex, graph: Graph, base: str, trade_item: URIRef, xml: etree._Element, gtin: str, diagnostics: list[str]) -> None:
+    extension = child(child(xml, "tradeItemInformation"), "extension")
+    if extension is None:
+        return
+    supported = [module for module in extension if local_name(module) in SUPPORTED_EXTENSION_MODULES]
+    if not supported:
+        return
+    trade_item_information = resource(base, "tradeItemInformation", gtin)
+    graph.add((trade_item_information, RDF.type, GDSN.c1352305416))
+    graph.add((trade_item, index.prop(GDSN.c863999331, "tradeItemInformation"), trade_item_information))
+    for module in supported:
+        module_name = local_name(module)
+        if module_name == "deliveryPurchasingInformationModule":
+            add_delivery_purchasing_information(index, graph, base, trade_item_information, module, gtin, diagnostics)
+        elif module_name == "tradeItemDataCarrierAndIdentificationModule":
+            add_trade_item_data_carrier_module(index, graph, base, trade_item_information, module, gtin, diagnostics)
+        elif module_name == "tradeItemDescriptionModule":
+            add_trade_item_description_module(index, graph, base, trade_item_information, module, gtin, diagnostics)
+        elif module_name == "tradeItemMeasurementsModule":
+            add_trade_item_measurements_module(index, graph, base, trade_item_information, module, gtin, diagnostics)
+
+
 def add_trade_item(index: OntologyIndex, graph: Graph, base: str, xml: etree._Element, diagnostics: list[str]) -> tuple[URIRef, str, str]:
     gtin = text(xml, "gtin")
     trade_item = resource(base, "gtin", gtin or "unknown")
@@ -273,6 +487,8 @@ def add_trade_item(index: OntologyIndex, graph: Graph, base: str, xml: etree._El
     nlli_xml = child(xml, "nextLowerLevelTradeItemInformation")
     if nlli_xml is not None:
         add_next_lower_level(index, graph, base, trade_item, nlli_xml, gtin, diagnostics)
+
+    add_supported_extension_modules(index, graph, base, trade_item, xml, gtin, diagnostics)
 
     return trade_item, gtin, brick_code
 
@@ -382,7 +598,16 @@ def summarize_trade_items(graph: Graph, gpc_graph: Graph) -> list[dict[str, str]
     return summary
 
 
-def convert(xml_path: Path, gdsn_path: Path, gpc_path: Path, base_iri: str, prefix: str, include_message_envelope: bool = True) -> tuple[Graph, dict[str, Any]]:
+def convert(
+    xml_path: Path,
+    gdsn_path: Path,
+    gpc_path: Path,
+    base_iri: str,
+    prefix: str,
+    include_message_envelope: bool = True,
+    gdsn_import_iri: str = str(GDSN),
+    gpc_import_iri: str = str(GPC),
+) -> tuple[Graph, dict[str, Any]]:
     tree = etree.parse(str(xml_path))
     root = tree.getroot()
     gdsn_graph = load_graph(gdsn_path)
@@ -393,6 +618,10 @@ def convert(xml_path: Path, gdsn_path: Path, gpc_path: Path, base_iri: str, pref
     ontology = resource(base_iri, "ontology")
     graph.add((ontology, RDF.type, OWL.Ontology))
     graph.add((ontology, DCTERMS.source, Literal(str(xml_path))))
+    if gdsn_import_iri:
+        graph.add((ontology, OWL.imports, URIRef(gdsn_import_iri)))
+    if gpc_import_iri:
+        graph.add((ontology, OWL.imports, URIRef(gpc_import_iri)))
 
     diagnostics: list[str] = []
     notification = descendants(root, "catalogueItemNotification")[0]
@@ -413,6 +642,10 @@ def convert(xml_path: Path, gdsn_path: Path, gpc_path: Path, base_iri: str, pref
         "trade_items": summarize_trade_items(graph, gpc_graph),
         "triple_count": len(graph),
         "diagnostics": diagnostics,
+        "imports": {
+            "gdsn": gdsn_import_iri,
+            "gpc": gpc_import_iri,
+        },
         "extension_modules": extension_report(root),
     }
     report["extension_summary"] = summarize_extensions(report["extension_modules"])
@@ -421,7 +654,16 @@ def convert(xml_path: Path, gdsn_path: Path, gpc_path: Path, base_iri: str, pref
 
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
-    graph, report = convert(args.input, args.gdsn, args.gpc, args.base_iri, args.prefix, args.include_message_envelope)
+    graph, report = convert(
+        args.input,
+        args.gdsn,
+        args.gpc,
+        args.base_iri,
+        args.prefix,
+        args.include_message_envelope,
+        args.gdsn_import_iri,
+        args.gpc_import_iri,
+    )
     text_output = graph.serialize(format=args.format)
     if not args.no_validate:
         Graph().parse(data=text_output, format=args.format)

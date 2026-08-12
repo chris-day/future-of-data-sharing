@@ -91,26 +91,32 @@ validation metadata, or ontology annotations.
 | 5 | 12 | Enumeration classes |
 
 In this document, `type-n` means the numeric `type` field present on records
-in the GDSN UML JSON dump. The source files do not include a local legend for
-these numeric values, so the meanings below are inferred from record names,
-definitions, generalizations, attribute ranges, and code-value references.
+in the GDSN UML JSON dump. The meanings below use the known GDSN UML dump type
+legend.
 
-| Shorthand | JSON field value | Meaning in this investigation | Typical TSV treatment |
+| Shorthand | JSON field value | Meaning | Typical TSV treatment |
 |---|---:|---|---|
-| `type-1` | `1` | XML Schema primitive-like datatype record, such as `string`, `decimal`, `date`, or `boolean` | Usually referenced as `xsd:` primitive, not emitted as a GDSN class |
-| `type-2` | `2` | UML business class or aggregate class, such as `CatalogueItem`, `PartyIdentification`, or module classes | Emit to `Classes.tsv`, unless the record is actually code-valued |
-| `type-3` | `3` | GDSN named datatype or structured simple type, such as `GTIN`, `GLN`, `Description500`, or `GS1Code` | Emit to `Datatypes.tsv` using the same named-datatype approach as ISO 20022 |
-| `type-4` | `4` | GS1 code-list class, usually generalizing `GS1Code` | Emit to `Enumerations.tsv` |
-| `type-5` | `5` | UML enumeration class, such as `DocumentStatusEnumeration` | Emit to `Enumerations.tsv` |
+| `type-1` | `1` | Data class / primitive-like datatype record, such as `string`, `decimal`, `date`, or `boolean` | Usually referenced as `xsd:` primitive, not emitted as a GDSN class |
+| `type-2` | `2` | Real UML class or aggregate class, such as `CatalogueItem`, `PartyIdentification`, or module classes | Emit to `Classes.tsv`, unless the record is actually code-valued |
+| `type-3` | `3` | GS1-defined datatype or structured value type, such as `GTIN`, `GLN`, `Description35`, `Measurement`, or `GS1Code` | Emit simple records to `Datatypes.tsv`; emit records with owned attributes to `Classes.tsv` as structured value classes |
+| `type-4` | `4` | GS1 code list, usually generalizing `GS1Code` | Emit to `Enumerations.tsv` |
+| `type-5` | `5` | Enumeration | Emit to `Enumerations.tsv` |
+| `type-6` | `6` | Message | Emit to `Classes.tsv` only when present in the source class list and needed for message-level modelling |
+
+In `gdsn_classes.json` v3.1.35, class `extensions` records observed during
+this investigation use only extension types `1` and `2`; no class-extension
+records with `type == 6` were present. Type 6 remains part of the known source
+legend for message records.
 
 There is a related `type` field on `gdsn_classAttributes.json`. In the sampled
 data, attribute `type-1` records are normal owned attributes and attribute
 `type-2` records are owned attributes of GDSN type-3 records. The latter are
-important because they expose structured details such as `languageCode` and
-`codeListVersion`. Following the ISO 20022 approach, type-3 records remain
-named datatypes; structured details that cannot be represented as datatype
-facets should be preserved as annotations or diagnostics rather than promoting
-the type-3 record to a class by default.
+important because they expose structured details such as `languageCode`,
+`measurementUnitCode`, `codeListVersion`, and `formattingPattern`. A type-3
+record with owned attributes is therefore treated as a structured value class,
+not as a datatype. The scalar lexical value is represented by `rdf:value`, and
+the generated class carries `gdsn:valueDatatype` to identify the primitive
+datatype to use for that scalar value.
 
 Generalizations are represented as class `extensions` records with:
 
@@ -198,8 +204,8 @@ Approximate base count:
 
 ### 5.3 Datatypes.tsv
 
-Map GDSN type-3 records to `Datatypes.tsv` using the same approach as the
-ISO 20022 TSV artefacts: generate named datatype rows with stable datatype
+Map simple GDSN type-3 records to `Datatypes.tsv` using the same approach as
+the ISO 20022 TSV artefacts: generate named datatype rows with stable datatype
 CURIEs, human-readable names, XSD base datatypes, definitions, and any reliable
 facets.
 
@@ -207,6 +213,8 @@ Recommended source rows:
 
 - `gdsn_classes.json` records with `type == 3`
 - Exclude any type-3 class referenced by `gdsn_codeValues.json`
+- Exclude structured type-3 records that own attributes in
+  `gdsn_classAttributes.json`; those are emitted to `Classes.tsv`
 
 Recommended columns:
 
@@ -218,14 +226,53 @@ Recommended columns:
 | `Definition` | Cleaned `definition` |
 | Facets | Derived from datatype name, inherited simple type, or `limit` where reliable |
 
-Approximate non-code type-3 count: 69 rows.
+Approximate non-code type-3 count: 69 rows. In v3.1.35, 44 of those records
+own attributes and are structured value classes rather than datatype rows.
 
-Important caveat: 43 non-code type-3 records have owned attributes such as
-`languageCode`, `codeListVersion`, or `formattingPattern`. `Datatypes.tsv` can
-represent lexical restrictions, but it cannot represent owned attributes on a
-datatype. Following the ISO 20022 approach, keep the type-3 record as a named
-datatype and preserve those structured details as annotations or conversion
-diagnostics where needed.
+Structured type-3 records are emitted to `Classes.tsv` and their owned
+attributes are emitted to `Attributes.tsv`. The generated class receives a
+`gdsn:valueDatatype` annotation containing the primitive value datatype. For
+example, `gdsn:c1490 Measurement` is a class with `gdsn:valueDatatype
+"xsd:decimal"` and an owned `measurementUnitCode` attribute, while
+`gdsn:c1441 Description35` is a class with `gdsn:valueDatatype "xsd:string"`
+and an owned `languageCode` attribute. XML-to-RDF conversion emits these as
+value nodes:
+
+```turtle
+<urn:gs1:sample:kato:gtin/25196100024899>
+  gdsn:a-611376925 <urn:gs1:sample:kato:value/25196100024899/height> .
+
+<urn:gs1:sample:kato:value/25196100024899/height>
+  a gdsn:c1490 ;
+  rdf:value "1.0"^^xsd:decimal ;
+  gdsn:a7085 "MMT"^^xsd:string .
+```
+
+For generated instance data, literal values should use primitive RDF datatypes
+for tool interoperability. The GDSN ontology retains the richer generated
+datatype ranges on properties and the `gdsn:valueDatatype` annotation on
+structured value classes.
+
+The KATO sample contains these GTIN trade item instances:
+
+| GTIN | Generated instance URN |
+| --- | --- |
+| `25196100024882` | `urn:gs1:sample:kato:gtin/25196100024882` |
+| `25196100024899` | `urn:gs1:sample:kato:gtin/25196100024899` |
+
+The sample `product-gpc-map.csv` used by `gs1-gdsn-holon` contains these GTIN
+to GPC Brick mappings:
+
+| GTIN | GPC Brick | Brick label |
+| --- | --- | --- |
+| `09506000134352` | `10000030` | Cheese (Frozen) |
+| `00195950643718` | `10001198` | Smartphones |
+| `00083783000085` | `10000159` | Beer |
+| `04005500023340` | `10000043` | Sugar/Sugar Substitutes (Shelf Stable) |
+| `05000119096753` | `10000217` | Jams/Marmalades (Shelf Stable) |
+| `05000169015254` | `10000025` | Milk (Perishable) |
+| `25196100024882` | `10000002` | Fruit - Unprepared/Unprocessed (Frozen) |
+| `25196100024899` | `10000002` | Fruit - Unprepared/Unprocessed (Frozen) |
 
 ### 5.4 Enumerations.tsv
 
@@ -383,6 +430,68 @@ Example generated datatype for a source `xsd:string` attribute with
 | `Attributes.tsv` | `ClassEnumOrPrimitiveType = gdsn:dt_string_MinLength1_MaxLength200` |
 | `Datatypes.tsv` | `Curie = gdsn:dt_string_MinLength1_MaxLength200`, `BaseDatatype = xsd:string`, `MinLength = 1`, `MaxLength = 200` |
 
+### 6.3 Extension Module Bridge
+
+GDSN XML extension modules appear below:
+
+```text
+TradeItem
+  -> TradeItemInformation
+     -> extension
+        -> <concrete module element>
+```
+
+The generated UML ontology has concrete module classes and their internal
+module-specific associations, but the XML `extension` element itself is a
+string-valued placeholder in the source model. Do not use the generated
+`extension` datatype property to connect module instances.
+
+Decision: add a synthetic extension-module bridge to the generated GDSN TSVs:
+
+| TSV file | Row |
+|---|---|
+| `Classes.tsv` | `gdsn:GDSNExtensionModule`, name `GDSN Extension Module` |
+| `Classes.tsv` | detected concrete module classes have `gdsn:GDSNExtensionModule` in `ParentNames` |
+| `Attributes.tsv` | `gdsn:extensionModule`, class `gdsn:c1352305416` (`TradeItemInformation`), range `gdsn:GDSNExtensionModule`, multiplicity `0..*` |
+
+Module detection rules for the v3.1.35 JSON dump:
+
+1. Primary source: inspect `gdsn_instances.json` for class rows whose `xPath`
+   contains `/tradeItemInformation/extension/*`.
+2. Filter those rows to generated type-2 classes whose source class name ends
+   in `Module`; this finds 76 concrete extension-root modules.
+3. Add module-like type-2 classes with names ending in `Module` that have no
+   `gdsn_instances.json` extension-root XPath. In v3.1.35 this adds one
+   orphan class, `gdsn:c2147348283`
+   (`FoodAndBeveragePropertiesInformationModule`), giving a 77-module
+   inventory.
+
+Class `1297183996` is the datatype named `extension`; it has no class
+`extensions` entries. The usable source link is the `TradeItemInformation`
+attribute named `extension` (`gdsn:a-167571918`) whose `dataClassId` is
+`1297183996`, plus the concrete module XPaths in `gdsn_instances.json`.
+
+Instance conversion should then attach supported modules as:
+
+```text
+TradeItem
+  -> tradeItemInformation
+     TradeItemInformation
+       -> extensionModule
+          <ConcreteModule>
+```
+
+Once inside a concrete module, use the existing GDSN ontology associations and
+datatype/object properties. For the KATO XML sample, the implemented module
+paths are:
+
+| XML module | GDSN path |
+|---|---|
+| `deliveryPurchasingInformationModule` | `DeliveryPurchasingInformationModule -> deliveryPurchasingInformation -> DeliveryPurchasingInformation -> startAvailabilityDateTime` |
+| `tradeItemDescriptionModule` | `TradeItemDescriptionModule -> tradeItemDescriptionInformation -> TradeItemDescriptionInformation -> functionalName`, plus `brandNameInformation -> BrandNameInformation -> brandName` |
+| `tradeItemMeasurementsModule` | `TradeItemMeasurementsModule -> tradeItemMeasurements -> TradeItemMeasurements -> depth/height/netContent/width`, plus `tradeItemWeight -> TradeItemWeight -> grossWeight` |
+| `tradeItemDataCarrierAndIdentificationModule` | `TradeItemDataCarrierAndIdentificationModule -> dataCarrier -> DataCarrier -> dataCarrierTypeCode` |
+
 ## 7. GPC and Country Artefacts
 
 ### 7.1 GPC
@@ -495,11 +604,11 @@ Duplicate class names were observed, including:
 3. Generate `Enumerations.tsv` and `EnumerationNamedValues.tsv` from
    code-valued classes first.
 4. Generate `Classes.tsv` for UML business classes.
-5. Generate `Datatypes.tsv` for type-3 named datatypes using the ISO 20022
-   named-datatype approach.
+5. Generate `Datatypes.tsv` for simple type-3 named datatypes and
+   `Classes.tsv`/`Attributes.tsv` for structured type-3 value classes.
 6. Generate `Attributes.tsv` from owned attributes and association extensions.
 7. Generate annotation property and annotation TSVs for traceability.
 8. Emit a diagnostics report for malformed multiplicities, malformed limits,
-   duplicate names, missing code-list classes, and type-3 details preserved
-   outside datatype facets.
+   duplicate names, missing code-list classes, and structured type-3 value
+   classes.
 9. Run the generated TSVs through `uml2semantics-python` validation/build.

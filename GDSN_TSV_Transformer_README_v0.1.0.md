@@ -124,6 +124,17 @@ The generated model uses stable source-ID based CURIEs:
 - synthetic AVP container: `gdsn:GDSNAVP`
 - synthetic extended attribute container: `gdsn:GDSNExtendedAttribute`
 
+Source class `type` values are interpreted as:
+
+| Type | Meaning | Main TSV treatment |
+|---:|---|---|
+| `1` | Data class / primitive | Reference as `xsd:` primitive or primitive-backed range |
+| `2` | Real class | Emit to `Classes.tsv` |
+| `3` | GS1-defined datatype | Emit to `Datatypes.tsv` |
+| `4` | Code list | Emit to `Enumerations.tsv` |
+| `5` | Enumeration | Emit to `Enumerations.tsv` |
+| `6` | Message | Emit only when present and needed for message-level modelling |
+
 ## 6. Generated GPC TSVs
 
 The GPC output directory is:
@@ -136,7 +147,27 @@ It contains the same TSV file set, but only the relevant files are populated.
 The GPC hierarchy is represented as a separate ontology module using `gpc:`
 CURIEs, with hierarchy encoded through class parent relationships.
 
-## 7. Diagnostics
+## 7. Generated Google Product Taxonomy TSVs
+
+The Google Product Taxonomy output directory is:
+
+```text
+build/gdsn-tsv/google/
+```
+
+Generate it from the Google text taxonomy with:
+
+```bash
+.venv/bin/google-taxonomy-to-tsv \
+  --input-file artefacts/google/taxonomy-with-ids.en-GB.txt \
+  --output-dir build/gdsn-tsv
+```
+
+The Google taxonomy is represented as a separate ontology module using
+`google:` CURIEs, with hierarchy encoded through class parent relationships.
+See `Google_Product_Taxonomy.md` for the semantic mapping notes.
+
+## 8. Diagnostics
 
 Each module includes:
 
@@ -149,7 +180,7 @@ For GDSN, diagnostics capture conversion warnings such as:
 - malformed multiplicities left blank in `Attributes.tsv`
 - limits that could not be safely converted to datatype facets
 - missing code-list class records
-- type-3 details preserved outside datatype facets
+- structured type-3 value classes emitted to `Classes.tsv`
 
 Extended attributes can use generated extended-code enumerations as their
 range. If an extended attribute `dataTypeClassName` matches a
@@ -173,7 +204,7 @@ Malformed multiplicities are not guessed. The transformer leaves
 `MinMultiplicity` and `MaxMultiplicity` blank, preserves the original value as
 `gdsn:originalMultiplicity`, and emits `gdsn:conversionWarning`.
 
-## 8. Build the GDSN Ontology
+## 9. Build the GDSN Ontology
 
 After generating TSVs, run `uml2semantics-python` against the GDSN module.
 
@@ -214,7 +245,7 @@ with that environment's executable, for example:
   --profile generic
 ```
 
-## 9. Build the GPC Ontology
+## 10. Build the GPC Ontology
 
 Run `uml2semantics-python` against the separate GPC module:
 
@@ -238,7 +269,44 @@ The GPC module currently has empty attributes, datatypes, enumerations, and
 named values TSVs. They are still passed explicitly so the command remains
 stable if those files are populated later.
 
-## 10. Validation Checks
+## 11. GraphDB Import Named Graphs
+
+The generated Turtle files are ordinary RDF graphs. They do not contain named
+graph wrappers; the named graph is assigned by GraphDB at import time.
+
+Recommended GraphDB import sequence:
+
+1. Import `build/gpc.ttl`.
+2. Import `build/gdsn.ttl`.
+3. Import `build/google-product-taxonomy.ttl`, if using Google Product
+   Taxonomy.
+4. Import `build/KATO/kato-instances.ttl`, if using KATO instance data.
+5. Load generated SHACL shapes separately for validation, not as ontology
+   schema.
+
+Recommended named graphs:
+
+| File | Named graph |
+| --- | --- |
+| `build/gpc.ttl` | `urn:gs1:std:gpc:` |
+| `build/gdsn.ttl` | `urn:gs1:std:gdsn:` |
+| `build/google-product-taxonomy.ttl` | `urn:google:product-taxonomy:` |
+| `build/KATO/kato-instances.ttl` | `urn:gs1:sample:kato:ontology` |
+| generated holon SHACL shapes | `urn:gs1:shapes:gpc:` |
+
+The KATO instance file declares ontology imports for GDSN and GPC, but those
+imports are ontology triples, not GraphDB named graph declarations. In GraphDB,
+choose the target named graph during import or via the import API.
+
+For KATO product instances generated with base IRI `urn:gs1:sample:kato:`, the
+sample GTIN resources are:
+
+```text
+urn:gs1:sample:kato:gtin/25196100024882
+urn:gs1:sample:kato:gtin/25196100024899
+```
+
+## 12. Validation Checks
 
 Basic transformer checks:
 
@@ -265,7 +333,7 @@ for base in [Path("build/gdsn-tsv/gdsn"), Path("build/gdsn-tsv/gpc")]:
 PY
 ```
 
-## 11. Generate RDF Instance Graphs
+## 13. Generate RDF Instance Graphs
 
 The package installs a GDSN XML instance converter:
 
@@ -293,8 +361,26 @@ Notification sample:
   --print-extensions
 ```
 
-The output file is an instance graph only. It imports no generated ontology
-content and does not rewrite `build/gdsn.ttl` or `build/gpc.ttl`.
+The KATO sample contains these GTIN trade item instances:
+
+| GTIN | Generated instance URN |
+| --- | --- |
+| `25196100024882` | `urn:gs1:sample:kato:gtin/25196100024882` |
+| `25196100024899` | `urn:gs1:sample:kato:gtin/25196100024899` |
+
+The output file is an instance graph only. It does not embed or rewrite
+`build/gdsn.ttl` or `build/gpc.ttl`; instead, the generated instance ontology
+imports the reusable GDSN and GPC ontology IRIs:
+
+```turtle
+kato:ontology a owl:Ontology ;
+  owl:imports
+    <urn:gs1:std:gdsn:> ,
+    <urn:gs1:std:gpc:> .
+```
+
+In Protege, map those import IRIs to the local `gdsn.ttl` and `gpc.ttl` files
+through the ontology catalog.
 
 Current instance mapping scope:
 
@@ -309,13 +395,60 @@ Current instance mapping scope:
   ontology range provides a code-list class.
 - ISO 3166 numeric target-market country codes are resolved to ISO country
   resources when present in the generated ontology.
+- supported extension modules are attached below `TradeItemInformation` through
+  the synthetic `gdsn:extensionModule` object property.
+- structured type-3 values are emitted as typed value nodes. For example,
+  `functionalName` points to a `gdsn:c1441` node with language-tagged
+  `rdf:value` and `languageCode`; measurements point to `gdsn:c1490` nodes
+  with decimal `rdf:value` and `measurementUnitCode`.
 
-Extension modules are deliberately ignored for RDF generation because their
-instance ownership and module-to-core traversal rules need revisiting. The
-converter still records what it finds for reference in `--extension-report` and
-the summary JSON. In the KATO sample this currently includes delivery
-purchasing, trade item description, measurements, variable trade item
-information, and child data-carrier details.
+The value-node pattern preserves XML qualifiers that would be lost if the
+converter emitted only datatype literals. A KATO height such as
+`<height measurementUnitCode="MMT">1</height>` becomes:
+
+```turtle
+<urn:gs1:sample:kato:value/25196100024899/height>
+  a gdsn:c1490 ;
+  rdf:value "1.0"^^xsd:decimal ;
+  gdsn:a7085 "MMT"^^xsd:string .
+```
+
+Instance literals are emitted with primitive RDF datatypes such as
+`xsd:string`, `xsd:decimal`, and `xsd:dateTime` for SHACL and tool
+interoperability. The generated GDSN ontology still declares the richer GDSN
+datatype range, and the holon report retains that source range.
+
+The generated GDSN TSVs include a synthetic `gdsn:GDSNExtensionModule`
+superclass and `gdsn:extensionModule` property. Module classes are detected
+from the JSON dump using these rules:
+
+1. inspect `gdsn_instances.json` for class rows whose `xPath` contains
+   `/tradeItemInformation/extension/*`;
+2. filter those rows to type-2 classes whose source class name ends in
+   `Module`;
+3. add module-like type-2 classes with names ending in `Module` that have no
+   extension-root XPath. In v3.1.35 this adds
+   `FoodAndBeveragePropertiesInformationModule`, giving 77 module classes.
+
+Class `1297183996` is the datatype named `extension`; it has no class
+`extensions` records. The concrete module roots are identified from
+`gdsn_instances.json`, using the `TradeItemInformation.extension` attribute as
+the core bridge point. Detected module classes are made subclasses of
+`gdsn:GDSNExtensionModule`, so instance traversal can move from `TradeItem` to
+`TradeItemInformation` and then to any implemented concrete module.
+
+The KATO converter currently materialises these extension modules:
+
+| XML module | GDSN path emitted |
+| --- | --- |
+| `deliveryPurchasingInformationModule` | `TradeItemInformation -> extensionModule -> DeliveryPurchasingInformationModule -> deliveryPurchasingInformation -> DeliveryPurchasingInformation -> startAvailabilityDateTime` |
+| `tradeItemDescriptionModule` | `TradeItemInformation -> extensionModule -> TradeItemDescriptionModule -> tradeItemDescriptionInformation -> TradeItemDescriptionInformation -> functionalName`, plus `brandNameInformation -> BrandNameInformation -> brandName` |
+| `tradeItemMeasurementsModule` | `TradeItemInformation -> extensionModule -> TradeItemMeasurementsModule -> tradeItemMeasurements -> TradeItemMeasurements -> depth/height/netContent/width`, plus `tradeItemWeight -> TradeItemWeight -> grossWeight` |
+| `tradeItemDataCarrierAndIdentificationModule` | `TradeItemInformation -> extensionModule -> TradeItemDataCarrierAndIdentificationModule -> dataCarrier -> DataCarrier -> dataCarrierTypeCode` |
+
+`--extension-report` still records every extension module found in the XML. In
+the KATO sample, `variableTradeItemInformationModule` is currently report-only
+and is not yet emitted as RDF instance data.
 
 To inspect the generated KATO instances in Protege, load `build/gdsn.ttl`,
 `build/gpc.ttl`, and `build/KATO/kato-instances.ttl` into the same Protege
@@ -389,6 +522,193 @@ WHERE {
 ORDER BY ?subject ?predicate ?object
 ```
 
+To retrieve both KATO GTINs with reachable instance properties, values, and
+ontology labels/comments for clarity, use this Protege-compatible query. It
+uses full GTIN IRIs rather than `kato:` prefixed local names because some
+Protege SPARQL parsers reject `/` in prefixed local names.
+
+```sparql
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX gdsn: <urn:gs1:std:gdsn:>
+PREFIX gpc:  <urn:gs1:std:gpc:>
+
+SELECT DISTINCT
+  ?gtin
+  ?subject
+  ?subjectType
+  ?subjectTypeLabel
+  ?property
+  ?propertyLabel
+  ?propertyComment
+  ?value
+  ?valueType
+  ?valueLabel
+  ?valueComment
+WHERE {
+  VALUES ?root {
+    <urn:gs1:sample:kato:gtin/25196100024882>
+    <urn:gs1:sample:kato:gtin/25196100024899>
+  }
+
+  ?root gdsn:a5339 ?gtin .
+
+  {
+    BIND(?root AS ?subject)
+    ?subject ?property ?value .
+  }
+  UNION
+  {
+    ?root ?p1 ?subject .
+    ?subject ?property ?value .
+  }
+  UNION
+  {
+    ?root ?p1 ?n1 .
+    ?n1 ?p2 ?subject .
+    ?subject ?property ?value .
+  }
+  UNION
+  {
+    ?root ?p1 ?n1 .
+    ?n1 ?p2 ?n2 .
+    ?n2 ?p3 ?subject .
+    ?subject ?property ?value .
+  }
+  UNION
+  {
+    ?root ?p1 ?n1 .
+    ?n1 ?p2 ?n2 .
+    ?n2 ?p3 ?n3 .
+    ?n3 ?p4 ?subject .
+    ?subject ?property ?value .
+  }
+
+  OPTIONAL { ?subject rdf:type ?subjectType . }
+  OPTIONAL { ?subjectType rdfs:label ?subjectTypeLabel . }
+
+  OPTIONAL { ?property rdfs:label ?propertyLabel . }
+  OPTIONAL { ?property rdfs:comment ?propertyComment . }
+
+  OPTIONAL { ?value rdf:type ?valueType . }
+  OPTIONAL { ?value rdfs:label ?valueLabel . }
+  OPTIONAL { ?value rdfs:comment ?valueComment . }
+
+  FILTER(?property != rdf:type)
+}
+ORDER BY ?gtin ?subject ?property ?value
+```
+
+To retrieve the underlying source data used for the Holons of both KATO sample
+GTINs, use this combined query. It returns the GTIN-rooted GDSN instance facts
+and the GPC Brick attribute/value slots that feed the GPC part of the Holon
+shape.
+
+```sparql
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX gdsn: <urn:gs1:std:gdsn:>
+PREFIX gpc:  <urn:gs1:std:gpc:>
+
+SELECT DISTINCT
+  ?section
+  ?gtin
+  ?brick
+  ?brickLabel
+  ?subject
+  ?subjectType
+  ?subjectTypeLabel
+  ?property
+  ?propertyLabel
+  ?propertyComment
+  ?value
+  ?valueType
+  ?valueLabel
+  ?valueComment
+  ?attributeType
+  ?attributeTypeLabel
+  ?allowedValue
+  ?allowedValueLabel
+WHERE {
+  VALUES ?root {
+    <urn:gs1:sample:kato:gtin/25196100024882>
+    <urn:gs1:sample:kato:gtin/25196100024899>
+  }
+
+  ?root gdsn:a5339 ?gtin .
+
+  OPTIONAL {
+    ?root rdf:type ?brick .
+    ?brick gpc:level 4 .
+    OPTIONAL { ?brick rdfs:label ?brickLabel . }
+  }
+
+  {
+    BIND("GDSN instance fact" AS ?section)
+
+    {
+      BIND(?root AS ?subject)
+      ?subject ?property ?value .
+    }
+    UNION
+    {
+      ?root ?p1 ?subject .
+      ?subject ?property ?value .
+    }
+    UNION
+    {
+      ?root ?p1 ?n1 .
+      ?n1 ?p2 ?subject .
+      ?subject ?property ?value .
+    }
+    UNION
+    {
+      ?root ?p1 ?n1 .
+      ?n1 ?p2 ?n2 .
+      ?n2 ?p3 ?subject .
+      ?subject ?property ?value .
+    }
+    UNION
+    {
+      ?root ?p1 ?n1 .
+      ?n1 ?p2 ?n2 .
+      ?n2 ?p3 ?n3 .
+      ?n3 ?p4 ?subject .
+      ?subject ?property ?value .
+    }
+
+    FILTER(?property != rdf:type)
+
+    OPTIONAL { ?subject rdf:type ?subjectType . }
+    OPTIONAL { ?subjectType rdfs:label ?subjectTypeLabel . }
+
+    OPTIONAL { ?property rdfs:label ?propertyLabel . }
+    OPTIONAL { ?property rdfs:comment ?propertyComment . }
+
+    OPTIONAL { ?value rdf:type ?valueType . }
+    OPTIONAL { ?value rdfs:label ?valueLabel . }
+    OPTIONAL { ?value rdfs:comment ?valueComment . }
+  }
+  UNION
+  {
+    BIND("GPC holon attribute/value" AS ?section)
+
+    ?root rdf:type ?brick .
+    ?brick gpc:level 4 .
+    OPTIONAL { ?brick rdfs:label ?brickLabel . }
+
+    ?attributeType rdfs:subClassOf ?brick .
+    ?attributeType gpc:level 5 .
+    OPTIONAL { ?attributeType rdfs:label ?attributeTypeLabel . }
+
+    ?allowedValue rdfs:subClassOf ?attributeType .
+    ?allowedValue gpc:level 6 .
+    OPTIONAL { ?allowedValue rdfs:label ?allowedValueLabel . }
+  }
+}
+ORDER BY ?gtin ?section ?subject ?property ?attributeTypeLabel ?allowedValueLabel
+```
+
 To retrieve the GPC attribute slots and allowed values that would be used in a
 Holon SHACL shape for GTIN `25196100024882`, query the trade item's level-4
 Brick, then its level-5 Attribute Types and level-6 Attribute Values:
@@ -428,13 +748,15 @@ Useful options:
 | `--format` | RDF serialisation: `turtle`, `xml`, `nt`, or `json-ld` |
 | `--base-iri` | Base IRI for generated instance resources |
 | `--prefix` | Prefix bound to `--base-iri` |
-| `--extension-report` | JSON file containing ignored extension-module values |
+| `--gdsn-import-iri` | GDSN ontology IRI imported by the generated instance ontology |
+| `--gpc-import-iri` | GPC ontology IRI imported by the generated instance ontology |
+| `--extension-report` | JSON file containing all extension-module values found in the source XML |
 | `--print-extensions` | Print a concise extension-module summary |
 | `--report-json` | JSON conversion report with trade items, diagnostics, and validation status |
 | `--no-validate` | Skip RDF parse validation of generated output |
 | `--include-message-envelope` / `--no-include-message-envelope` | Include or omit notification/catalogue item envelope instances |
 
-## 12. Generate SHACL Holon Shapes
+## 14. Generate SHACL Holon Shapes
 
 The package also installs a SHACL generator executable:
 
@@ -536,7 +858,7 @@ identity bridge on the root trade item GTIN property:
 
 ```turtle
 sh:path gdsn:a5339 ;
-sh:hasValue "09506000134352"^^gdsn:c1450 ;
+sh:hasValue "09506000134352"^^xsd:string ;
 sh:minCount 1 ;
 sh:maxCount 1 .
 ```
@@ -572,6 +894,19 @@ Or supply a local CSV or JSON lookup file:
   --output build/shacl/gtin-09506000134352.shacl.ttl
 ```
 
+The sample `product-gpc-map.csv` contains these holon examples:
+
+| GTIN | GPC Brick | Brick label |
+| --- | --- | --- |
+| `09506000134352` | `10000030` | Cheese (Frozen) |
+| `00195950643718` | `10001198` | Smartphones |
+| `00083783000085` | `10000159` | Beer |
+| `04005500023340` | `10000043` | Sugar/Sugar Substitutes (Shelf Stable) |
+| `05000119096753` | `10000217` | Jams/Marmalades (Shelf Stable) |
+| `05000169015254` | `10000025` | Milk (Perishable) |
+| `25196100024882` | `10000002` | Fruit - Unprepared/Unprocessed (Frozen) |
+| `25196100024899` | `10000002` | Fruit - Unprepared/Unprocessed (Frozen) |
+
 When RDF instance data is available, `gs1-gdsn-holon` can generate an
 instance-aware holon. This mode resolves the selected GTIN resource from the
 instance base IRI, discovers reachable outgoing GDSN objects and properties,
@@ -603,16 +938,27 @@ GPC ontology context.
 The KATO instance-aware holon currently discovers and shapes the parent
 `TradeItem`, `GDSNTradeItemClassification`, `TargetMarket`,
 `TradeItemSynchronisationDates`, `NextLowerLevelTradeItemInformation`,
-`ChildTradeItem`, and the reachable `PartyInRole` objects. Extension modules
-remain excluded until their ownership and traversal rules are revisited.
+`ChildTradeItem`, reachable `PartyInRole` objects, and implemented extension
+modules reached through `TradeItemInformation -> extensionModule`.
 
-The default `--instance-max-depth 4` covers the theoretical outgoing
-object-property depth from `gdsn:TradeItem` in the generated GDSN ontology. In
-the KATO instance data the actual outgoing depth is smaller: GTIN
-`25196100024882` reaches all outgoing product-instance GDSN resources by depth
-2, and GTIN `25196100024899` reaches all outgoing product-instance GDSN
-resources by depth 1. Depth 4 therefore covers all outgoing GTIN-rooted product
-data in `build/KATO/kato-instances.ttl`.
+The default `--instance-max-depth 5` covers the outgoing product-instance depth
+used by the generated KATO graph, including structured type-3 value nodes. The
+longest implemented KATO path is:
+
+```text
+TradeItem
+  -> tradeItemInformation
+  -> extensionModule
+  -> tradeItemMeasurements
+  -> tradeItemWeight
+  -> grossWeight value node
+```
+
+Depth 4 still reaches the `grossWeight` property assertion, but depth 5 is
+needed to emit a nested SHACL node shape for the `gdsn:c1490 Measurement` value
+node itself. Depth 5 therefore covers all outgoing GTIN-rooted product data in
+`build/KATO/kato-instances.ttl`, including the implemented extension module
+objects and their structured value nodes.
 
 This does not include inverse or envelope context such as `CatalogueItem`,
 `CatalogueItemState`, `CatalogueItemChildItemLink`, and
@@ -634,7 +980,7 @@ instance graph instead of the synthetic in-memory examples.
 Use `--no-validate` only when generating shapes in a context where validation
 cost is not acceptable.
 
-## 13. Maintenance
+## 15. Maintenance
 
 When changing the transformer:
 

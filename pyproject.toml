@@ -16,6 +16,7 @@ dependencies = [
 
 [project.scripts]
 gdsn-json-to-tsv = "gdsn_tsv_transformer.cli:main"
+google-taxonomy-to-tsv = "gdsn_tsv_transformer.google_taxonomy:main"
 gs1-gdsn-holon = "gdsn_tsv_transformer.holon:main"
 gdsn-xml-to-rdf = "gdsn_tsv_transformer.xml_to_rdf:main"
 
