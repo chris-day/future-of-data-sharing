@@ -12,6 +12,38 @@ site_description = "Semantic TSV, ontology, RDF instance, and SHACL holon toolin
 
 nav = [
   { "Overview" = "index.md" },
+  { "Product Holon Architecture" = [
+    { "Overview" = "architecture/index.md" },
+    { "Purpose and Scope" = "architecture/purpose-and-scope.md" },
+    { "Drivers and Principles" = "architecture/drivers-and-principles.md" },
+    { "Conceptual Model" = "architecture/conceptual-model.md" },
+    { "Architecture Overview" = "architecture/architecture-overview.md" },
+    { "Semantic Foundation" = "architecture/semantic-foundation.md" },
+    { "Holon Construction" = "architecture/product-holon-construction.md" },
+    { "Semantic Bridge" = "architecture/semantic-bridge.md" },
+    { "Publication and Consumption" = "architecture/publication-and-consumption.md" },
+    { "Governance and Conformance" = "architecture/governance-and-conformance.md" },
+    { "Reference Implementation" = "architecture/reference-implementation.md" },
+    { "Roadmap" = "architecture/roadmap.md" },
+    { "Terms" = "architecture/terms.md" },
+    { "Evidence" = [
+      { "Evidence Overview" = "architecture/evidence/index.md" },
+      { "Evidence Basis" = "architecture/evidence/evidence-basis.md" },
+      { "Semantic Source Evidence" = "architecture/evidence/semantic-source-evidence.md" },
+      { "Ontology and SHACL Pipeline" = "architecture/evidence/ontology-and-shacl-pipeline.md" },
+      { "SHACL Validation" = "architecture/evidence/shacl-validation.md" },
+      { "Worked Product Holons" = "architecture/evidence/worked-product-holons.md" },
+      { "Semantic Bridge Evidence" = "architecture/evidence/semantic-bridge.md" },
+      { "Bridge Exhibits" = "architecture/evidence/bridge-technical-exhibits.md" },
+      { "Mapping Evidence" = "architecture/evidence/mapping-experiment-evidence.md" },
+      { "Architecture Decisions" = "architecture/evidence/adrs.md" },
+      { "AI and Retrieval" = "architecture/evidence/ai-retrieval-and-publication.md" },
+      { "Verifiable Publication Evidence" = "architecture/evidence/verifiable-publication-evidence.md" },
+      { "Evidence Matrix and Open Issues" = "architecture/evidence/evidence-matrix-and-open-issues.md" },
+      { "Migration and Traceability" = "architecture/evidence/migration-and-traceability.md" },
+      { "References" = "architecture/evidence/references.md" },
+    ] },
+  ] },
   { "Getting Started" = "getting-started.md" },
   { "TSV Generation" = [
     { "GDSN, GPC, and Google" = "tsv/generation.md" },
@@ -41,7 +73,8 @@ nav = [
 [project.theme]
 # variant = "classic"
 # custom_dir = "overrides"
-# favicon = "images/favicon.png"
+favicon = "assets/images/GS1_Corporate_RGB_2014-12-17.svg"
+logo = "assets/images/GS1_Corporate_RGB_2014-12-17.svg"
 language = "en"
 features = [
   "announce.dismiss",
@@ -71,8 +104,6 @@ features = [
   # "toc.follow",
   # "toc.integrate",
 ]
-
-# logo = "assets/logo.png"
 
 # [project.theme.icon]
 # logo = "lucide/smile"
