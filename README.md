@@ -29,6 +29,7 @@ The programme addresses how GS1 identifiers, standards, vocabularies, registries
 - [Cross-cutting principles](#cross-cutting-principles)
 - [Repository scope](#repository-scope)
 - [Artefact status and versioning](#artefact-status-and-versioning)
+- [Zensical documentation site](#zensical-documentation-site)
 - [Contributing](#contributing)
 - [Governance and usage](#governance-and-usage)
 
@@ -273,6 +274,34 @@ Recommended semantic-versioning practice:
 - increment **minor** for backward-compatible material additions;
 - increment **patch** for corrections that do not change meaning or conformance;
 - increment **major** for incompatible structural, semantic or governance changes.
+
+## Zensical documentation site
+
+The curated documentation site is maintained under `docs/` and configured by `zensical.toml`. The generated static site is written to `site/`, which is treated as build output and is not intended to be committed.
+
+Use the project virtual environment when running Zensical:
+
+```bash
+.venv/bin/zensical serve --dev-addr localhost:8000
+```
+
+This builds the documentation and serves it locally at `http://localhost:8000/`.
+
+To run a production-style build without starting a local server:
+
+```bash
+.venv/bin/zensical build --clean
+```
+
+The GitHub Pages deployment is handled by `.github/workflows/docs.yml`. On pushes to `main` or `master`, the workflow:
+
+1. checks out the repository;
+2. installs Python and `zensical`;
+3. runs `zensical build --clean`;
+4. uploads the generated `site/` directory as a Pages artifact;
+5. deploys it using GitHub Pages.
+
+For GitHub Pages to publish correctly, configure the repository Pages source to use **GitHub Actions**.
 
 ## Contributing
 

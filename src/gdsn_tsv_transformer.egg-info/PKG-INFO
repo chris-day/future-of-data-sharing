@@ -8,4 +8,5 @@ Requires-Dist: lxml==6.1.1
 Requires-Dist: pyshacl==0.40.1
 Requires-Dist: rdflib==7.6.0
 Requires-Dist: xml2rfc==3.34.0
+Requires-Dist: zensical
 Dynamic: license-file

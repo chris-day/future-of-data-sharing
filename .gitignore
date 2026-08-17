@@ -13,6 +13,7 @@ __pycache__/
 
 # Generated outputs
 build/
+site/
 
 # Codex Session
 helper.txt
