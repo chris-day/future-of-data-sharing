@@ -1,12 +1,12 @@
 [project]
-site_url = "https://www.example.com/"
+site_url = "https://gs1.github.io/gs1-future-of-data-sharing"
 site_name = "GS1 Future of Data Sharing"
 site_description = "Semantic TSV, ontology, RDF instance, and SHACL holon tooling for GS1 data sharing experiments."
 # site_author = "Your name"
 
 # copyright = "Copyright &copy; 2026 Your name"
 
-# repo_url = "https://github.com/user/repo"
+repo_url = "https://github.com/gs1/gs1-future-of-data-sharing"
 # repo_name = "user/repo"
 # edit_uri = "edit/main/docs/"
 
@@ -92,7 +92,7 @@ features = [
   "navigation.indexes",
   "navigation.instant",
   "navigation.instant.prefetch",
-  # "navigation.instant.progress",
+  "navigation.instant.progress",
   "navigation.path",
   # "navigation.prune",
   "navigation.sections",
