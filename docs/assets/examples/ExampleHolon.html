@@ -1,0 +1,1738 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173f2d">
+  <meta name="color-scheme" content="light">
+  <title>Dal Giardino Risotto Rice with Mushrooms | Verifiable Product Record</title>
+  <meta name="description" content="A self-contained product page for Dal Giardino Risotto Rice with Mushrooms, GTIN 09506000134352, with an embedded W3C Verifiable Credential, Schema.org merchant-listing data and GS1 Web Vocabulary terms.">
+  <meta property="og:type" content="product">
+  <meta property="og:title" content="Dal Giardino Risotto Rice with Mushrooms">
+  <meta property="og:description" content="A delicious mix of fragrant rice with Italian mushrooms.">
+  <meta property="og:image" content="https://dalgiardino.com/risotto-rice-with-mushrooms/Dal_Giardino_Risotto_Rice_With_Nett_260.png">
+  <meta property="product:price:amount" content="4.49">
+  <meta property="product:price:currency" content="GBP">
+
+  <!--
+    Source grounding embedded as comments so the delivered artefact remains code-only:
+    product identity and GTIN: :contentReference[oaicite:0]{index=0}
+    Google merchant-listing model: :contentReference[oaicite:1]{index=1}
+    W3C VC 2.0 and Data Integrity: :contentReference[oaicite:2]{index=2}
+    GS1 Web Vocabulary terms and namespace: :contentReference[oaicite:3]{index=3}
+    project architecture basis — publish, resolve and consume a product holon: :contentReference[oaicite:4]{index=4}
+  -->
+
+  <script id="product-credential" type="application/ld+json">
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://schema.org",
+    {
+      "w3c": "https://w3.org",
+      "gs1": {
+        "@id": "https://gs1.org/voc/",
+        "@prefix": true
+      },
+      "ProductCredential": "https://dalgiardino.com/vocab/ProductCredential"
+    }
+  ],
+  "id": "https://dalgiardino.com/credentials/products/09506000134352/2026-08-14",
+  "type": [
+    "VerifiableCredential",
+    "ProductCredential"
+  ],
+  "name": "Dal Giardino product information credential",
+  "description": "A demonstration W3C Verifiable Credential envelope containing a Schema.org and GS1 Web Vocabulary product record.",
+  "issuer": "https://dalgiardino.com/#brand-owner",
+  "validFrom": "2026-08-14T12:00:00Z",
+  "validUntil": "2027-08-14T23:59:59Z",
+  "credentialSubject": {
+    "id": "https://id.gs1.org/01/09506000134352",
+    "type": [
+      "Product",
+      "gs1:Product"
+    ],
+    "name": "Dal Giardino Risotto Rice with Mushrooms",
+    "url": "https://dalgiardino.com/risotto-rice-with-mushrooms/",
+    "sku": "DG-RRM-411-GB",
+    "gtin14": "09506000134352",
+    "brand": {
+      "type": "Brand",
+      "name": "Dal Giardino",
+      "url": "https://dalgiardino.com/"
+    },
+    "description": "A delicious mix of fragrant rice with Italian mushrooms.",
+    "image": {
+      "type": "ImageObject",
+      "url": "https://dalgiardino.com/risotto-rice-with-mushrooms/Dal_Giardino_Risotto_Rice_With_Nett_260.png",
+      "contentUrl": "https://dalgiardino.com/risotto-rice-with-mushrooms/Dal_Giardino_Risotto_Rice_With_Nett_260.png",
+      "caption": "Packshot of Dal Giardino Risotto Rice with Mushrooms, 411 g",
+      "width": 260,
+      "height": 260
+    },
+    "offers": {
+      "type": "Offer",
+      "url": "https://shop.dalgiardino.example/products/09506000134352",
+      "priceCurrency": "GBP",
+      "price": 4.49,
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": "2027-06-30",
+      "itemCondition": "https://schema.org/NewCondition",
+      "seller": {
+        "type": "Organization",
+        "name": "Dal Giardino Demonstration Store",
+        "url": "https://shop.dalgiardino.example/"
+      },
+      "shippingDetails": {
+        "type": "OfferShippingDetails",
+        "shippingRate": {
+          "type": "MonetaryAmount",
+          "value": 0,
+          "currency": "GBP"
+        },
+        "shippingDestination": {
+          "type": "DefinedRegion",
+          "addressCountry": "GB"
+        },
+        "deliveryTime": {
+          "type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "DAY"
+          },
+          "transitTime": {
+            "type": "QuantitativeValue",
+            "minValue": 2,
+            "maxValue": 4,
+            "unitCode": "DAY"
+          }
+        }
+      },
+      "hasMerchantReturnPolicy": {
+        "type": "MerchantReturnPolicy",
+        "applicableCountry": "GB",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 30,
+        "returnMethod": [
+          "https://schema.org/ReturnByMail",
+          "https://schema.org/ReturnInStore"
+        ],
+        "returnFees": "https://schema.org/FreeReturn"
+      }
+    },
+    "review": [
+      {
+        "type": "Review",
+        "name": "Creamy and well seasoned",
+        "reviewBody": "Earthy mushroom flavour, a creamy texture and straightforward preparation for a quick supper.",
+        "datePublished": "2026-07-18",
+        "author": {
+          "type": "Person",
+          "name": "Maya Patel"
+        },
+        "reviewRating": {
+          "type": "Rating",
+          "ratingValue": 5,
+          "bestRating": 5,
+          "worstRating": 1
+        }
+      },
+      {
+        "type": "Review",
+        "name": "Convenient pantry meal",
+        "reviewBody": "A useful cupboard staple with a balanced mushroom taste; I added fresh parsley before serving.",
+        "datePublished": "2026-08-02",
+        "author": {
+          "type": "Person",
+          "name": "Oliver Evans"
+        },
+        "reviewRating": {
+          "type": "Rating",
+          "ratingValue": 4,
+          "bestRating": 5,
+          "worstRating": 1
+        }
+      }
+    ],
+    "aggregateRating": {
+      "type": "AggregateRating",
+      "ratingValue": 4.5,
+      "bestRating": 5,
+      "worstRating": 1,
+      "reviewCount": 2,
+      "ratingCount": 2
+    },
+    "gs1:gtin": "09506000134352",
+    "gs1:brandName": "Dal Giardino",
+    "gs1:functionalName": "Risotto rice with mushrooms",
+    "gs1:netContent": {
+      "type": [
+        "QuantitativeValue",
+        "gs1:QuantitativeValue"
+      ],
+      "value": 411,
+      "unitCode": "GRM"
+    },
+    "gs1:ingredientStatement": "Rice, Italian mushrooms, onion, sunflower oil, vegetable stock (salt, yeast extract, celery and herbs), garlic, parsley and black pepper.",
+    "gs1:allergenStatement": "Contains celery. Gluten free."
+  },
+  "evidence": [
+    {
+      "id": "https://id.gs1.org/01/09506000134352",
+      "type": "WebPage",
+      "name": "GS1 Digital Link identity anchor"
+    },
+    {
+      "id": "https://dalgiardino.com/risotto-rice-with-mushrooms/",
+      "type": "WebPage",
+      "name": "Brand product information page"
+    }
+  ],
+  "proof": {
+    "type": "DataIntegrityProof",
+    "cryptosuite": "eddsa-rdfc-2022",
+    "created": "2026-08-14T12:00:00Z",
+    "expires": "2027-08-14T23:59:59Z",
+    "verificationMethod": "https://dalgiardino.com/.well-known/verification-methods/product-issuer-2026#key-1",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "zmaxg1PTSm8A26xtZCwXzvEZSsjrtxpH7jrMGMAvPMimdZmVqGGY5gw1UDxqcg4eTagcEdiMRerosaUtnFKyBbRT2"
+  }
+}
+  </script>
+
+  <style>
+    :root {
+      --forest-950: #0e2b1f;
+      --forest-900: #143b2a;
+      --forest-800: #194b34;
+      --forest-700: #236443;
+      --leaf-500: #3b9460;
+      --leaf-100: #e9f4ed;
+      --cream-50: #fdfcf8;
+      --cream-100: #f7f3e8;
+      --cream-200: #eee5d2;
+      --mushroom-700: #5a4435;
+      --mushroom-500: #80624f;
+      --gold-500: #dca62b;
+      --gold-100: #fff5d8;
+      --red-100: #fff0ed;
+      --red-700: #913c2f;
+      --ink-950: #17231d;
+      --ink-700: #44534a;
+      --ink-500: #6b786f;
+      --line: #d9e2db;
+      --white: #fff;
+      --shadow-sm: 0 10px 28px rgba(18, 55, 37, .08);
+      --shadow-lg: 0 24px 64px rgba(18, 55, 37, .14);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 30px;
+      --page: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 86px;
+      background: var(--cream-50);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink-950);
+      background:
+        radial-gradient(circle at 88% 2%, rgba(59, 148, 96, .14), transparent 28rem),
+        radial-gradient(circle at 2% 18%, rgba(128, 98, 79, .10), transparent 24rem),
+        var(--cream-50);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--forest-700);
+      text-decoration-thickness: 1px;
+      text-underline-offset: .18em;
+    }
+
+    a:hover {
+      color: var(--forest-950);
+    }
+
+    button {
+      font: inherit;
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(59, 148, 96, .46);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: .75rem;
+      left: .75rem;
+      z-index: 1000;
+      padding: .75rem 1rem;
+      color: var(--white);
+      background: var(--forest-950);
+      border-radius: var(--radius-sm);
+      transform: translateY(-180%);
+      transition: transform .16s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--page));
+      margin-inline: auto;
+    }
+
+    .demo-banner {
+      padding: .72rem 1rem;
+      color: #553d00;
+      background: var(--gold-100);
+      border-bottom: 1px solid #ead697;
+      text-align: center;
+      font-size: .88rem;
+      font-weight: 700;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(253, 252, 248, .9);
+      border-bottom: 1px solid rgba(217, 226, 219, .9);
+      backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: .8rem;
+      color: var(--forest-950);
+      text-decoration: none;
+      font-weight: 850;
+      letter-spacing: -.02em;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      color: var(--white);
+      background: var(--forest-800);
+      border-radius: 50% 50% 46% 54% / 48% 48% 52% 52%;
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .28);
+      font-family: Georgia, serif;
+      font-size: 1.15rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.15rem;
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+    }
+
+    .basket-button,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      min-height: 46px;
+      padding: .72rem 1rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+    }
+
+    .basket-button {
+      color: var(--forest-900);
+      background: var(--white);
+      border-color: var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .button.primary {
+      color: var(--white);
+      background: var(--forest-800);
+      box-shadow: 0 12px 28px rgba(25, 75, 52, .22);
+    }
+
+    .button.secondary {
+      color: var(--forest-900);
+      background: var(--white);
+      border-color: var(--line);
+    }
+
+    .basket-button:hover,
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .count {
+      display: grid;
+      place-items: center;
+      min-width: 1.55rem;
+      height: 1.55rem;
+      padding-inline: .35rem;
+      color: var(--white);
+      background: var(--leaf-500);
+      border-radius: 999px;
+      font-size: .76rem;
+    }
+
+    .hero {
+      padding: clamp(2.5rem, 5vw, 5rem) 0 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+    }
+
+    .product-stage {
+      position: relative;
+      min-height: 560px;
+      display: grid;
+      place-items: center;
+      padding: 2.4rem;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(255, 255, 255, .98) 0 25%, rgba(247, 243, 232, .93) 58%, rgba(238, 229, 210, .9) 100%);
+      border: 1px solid rgba(217, 226, 219, .9);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .product-stage::before,
+    .product-stage::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(.2px);
+    }
+
+    .product-stage::before {
+      width: 250px;
+      height: 250px;
+      top: -85px;
+      right: -70px;
+      background: rgba(59, 148, 96, .14);
+    }
+
+    .product-stage::after {
+      width: 220px;
+      height: 220px;
+      bottom: -100px;
+      left: -60px;
+      background: rgba(128, 98, 79, .12);
+    }
+
+    .packshot {
+      position: relative;
+      z-index: 2;
+      width: min(100%, 390px);
+      filter: drop-shadow(0 28px 24px rgba(48, 39, 31, .22));
+    }
+
+    .image-source {
+      position: absolute;
+      left: 1.25rem;
+      right: 1.25rem;
+      bottom: 1rem;
+      z-index: 3;
+      margin: 0;
+      color: var(--ink-500);
+      text-align: center;
+      font-size: .74rem;
+    }
+
+    .eyebrow {
+      margin: 0 0 .75rem;
+      color: var(--forest-700);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 15ch;
+      margin-bottom: 1rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.45rem, 5vw, 4.7rem);
+      line-height: .98;
+      letter-spacing: -.045em;
+    }
+
+    h2 {
+      margin-bottom: .65rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      line-height: 1.04;
+      letter-spacing: -.035em;
+    }
+
+    h3 {
+      margin-bottom: .5rem;
+      font-size: 1.05rem;
+      line-height: 1.3;
+    }
+
+    .lede {
+      max-width: 62ch;
+      margin-bottom: 1.25rem;
+      color: var(--ink-700);
+      font-size: 1.12rem;
+    }
+
+    .trust-row,
+    .badge-row,
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .65rem;
+      align-items: center;
+    }
+
+    .trust-row {
+      margin-bottom: 1.2rem;
+    }
+
+    .badge-row {
+      margin: 1.2rem 0;
+    }
+
+    .action-row {
+      margin-top: 1.25rem;
+    }
+
+    .chip,
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .48rem .72rem;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 800;
+    }
+
+    .chip {
+      color: var(--forest-800);
+      background: var(--leaf-100);
+      border: 1px solid #cfe2d5;
+    }
+
+    .badge {
+      color: var(--mushroom-700);
+      background: var(--cream-100);
+      border: 1px solid var(--cream-200);
+    }
+
+    .identity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .75rem;
+      margin: 1.3rem 0;
+    }
+
+    .identity-item,
+    .offer-card,
+    .metric-card,
+    .panel,
+    .review,
+    .credential-card,
+    .proof-card,
+    .json-panel {
+      background: rgba(255, 255, 255, .94);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .identity-item {
+      padding: .9rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .identity-item span,
+    .kv dt,
+    .meta-label {
+      display: block;
+      margin-bottom: .25rem;
+      color: var(--ink-500);
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .identity-item strong,
+    .identity-item code {
+      display: block;
+      color: var(--forest-950);
+      font-size: .92rem;
+      overflow-wrap: anywhere;
+    }
+
+    .offer-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.2rem;
+      align-items: center;
+      padding: 1.15rem;
+      border-radius: var(--radius-md);
+    }
+
+    .price {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .stock {
+      color: var(--forest-700);
+      font-weight: 900;
+    }
+
+    .offer-card small {
+      display: block;
+      margin-top: .25rem;
+      color: var(--ink-500);
+    }
+
+    .section {
+      padding: clamp(3rem, 6vw, 5.5rem) 0;
+    }
+
+    .section.alt {
+      background: rgba(247, 243, 232, .72);
+      border-block: 1px solid rgba(238, 229, 210, .95);
+    }
+
+    .section.dark {
+      color: var(--white);
+      background:
+        radial-gradient(circle at 85% 15%, rgba(59, 148, 96, .22), transparent 24rem),
+        linear-gradient(145deg, var(--forest-950), var(--forest-800));
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, .72fr);
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: 2rem;
+    }
+
+    .section-heading > p {
+      margin-bottom: .25rem;
+      color: var(--ink-700);
+    }
+
+    .section.dark .eyebrow,
+    .section.dark .section-heading > p {
+      color: #cde5d6;
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .panel {
+      grid-column: span 6;
+      padding: 1.45rem;
+      border-radius: var(--radius-md);
+    }
+
+    .panel.wide {
+      grid-column: span 12;
+    }
+
+    .panel.third {
+      grid-column: span 4;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .panel-icon {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 42px;
+      height: 42px;
+      color: var(--forest-800);
+      background: var(--leaf-100);
+      border-radius: 12px;
+      font-size: 1.2rem;
+    }
+
+    .kv {
+      display: grid;
+      grid-template-columns: minmax(150px, .42fr) minmax(0, 1fr);
+      gap: 0;
+      margin: 0;
+    }
+
+    .kv dt,
+    .kv dd {
+      margin: 0;
+      padding: .72rem 0;
+      border-top: 1px solid #edf0ed;
+    }
+
+    .kv dt {
+      padding-right: 1rem;
+    }
+
+    .kv dd {
+      overflow-wrap: anywhere;
+    }
+
+    .kv code {
+      font-size: .84rem;
+    }
+
+    .notice {
+      padding: .95rem 1rem;
+      color: var(--red-700);
+      background: var(--red-100);
+      border: 1px solid #f0c6bf;
+      border-radius: var(--radius-sm);
+      font-size: .88rem;
+      font-weight: 700;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: .75fr 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .metric-card,
+    .review {
+      padding: 1.35rem;
+      border-radius: var(--radius-md);
+    }
+
+    .rating-number {
+      display: block;
+      margin: .25rem 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .stars {
+      color: var(--gold-500);
+      letter-spacing: .08em;
+      font-size: 1.2rem;
+    }
+
+    .review blockquote {
+      margin: .8rem 0 1rem;
+      color: var(--ink-700);
+    }
+
+    .review footer {
+      color: var(--ink-500);
+      font-size: .84rem;
+    }
+
+    .credential-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+      gap: 1rem;
+    }
+
+    .credential-card,
+    .proof-card {
+      padding: 1.45rem;
+      color: var(--ink-950);
+      border-radius: var(--radius-md);
+    }
+
+    .credential-list {
+      display: grid;
+      gap: .8rem;
+    }
+
+    .credential-row {
+      padding-bottom: .8rem;
+      border-bottom: 1px solid #edf0ed;
+    }
+
+    .credential-row:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .credential-row strong,
+    .credential-row code,
+    .credential-row a {
+      display: block;
+      overflow-wrap: anywhere;
+    }
+
+    .proof-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .proof-note {
+      max-width: 19rem;
+      padding: .4rem .58rem;
+      color: #654900;
+      background: var(--gold-100);
+      border: 1px solid #ead697;
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .75rem;
+      margin-bottom: 1rem;
+    }
+
+    .proof-grid > div {
+      padding: .85rem;
+      background: var(--cream-50);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+    }
+
+    .proof-value {
+      display: block;
+      width: 100%;
+      margin-top: .4rem;
+      padding: .85rem;
+      color: #d8f3e2;
+      background: var(--forest-950);
+      border-radius: var(--radius-sm);
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      word-break: break-all;
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: .79rem;
+      line-height: 1.55;
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .evidence-link {
+      display: block;
+      padding: 1rem;
+      color: var(--forest-950);
+      background: var(--leaf-100);
+      border: 1px solid #cfe2d5;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .evidence-link span {
+      display: block;
+      margin-top: .25rem;
+      color: var(--ink-700);
+      font-size: .8rem;
+    }
+
+    .json-panel {
+      overflow: hidden;
+      border-radius: var(--radius-md);
+    }
+
+    .json-panel summary {
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      color: var(--forest-950);
+      background: var(--white);
+      font-weight: 850;
+    }
+
+    .json-toolbar {
+      display: flex;
+      justify-content: flex-end;
+      padding: .75rem 1rem;
+      background: #eff5f1;
+      border-top: 1px solid var(--line);
+    }
+
+    pre {
+      max-height: 760px;
+      margin: 0;
+      padding: 1.25rem;
+      overflow: auto;
+      color: #d8f3e2;
+      background: #0b2419;
+      white-space: pre;
+      tab-size: 2;
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: .79rem;
+      line-height: 1.55;
+    }
+
+    .footer {
+      padding: 2.2rem 0;
+      color: #d6e6dc;
+      background: #0a2118;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .footer p {
+      margin-bottom: 0;
+    }
+
+    .footer nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: .75rem 1rem;
+    }
+
+    .footer a {
+      color: #d6e6dc;
+    }
+
+    .toast {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 100;
+      max-width: min(390px, calc(100% - 2rem));
+      padding: .9rem 1rem;
+      color: var(--white);
+      background: var(--forest-950);
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      transform: translateY(1rem);
+      pointer-events: none;
+      transition: opacity .18s ease, transform .18s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .credential-layout,
+      .section-heading,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-stage {
+        min-height: 480px;
+      }
+
+      .panel,
+      .panel.third {
+        grid-column: span 12;
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer nav {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav-links a:not(.basket-button) {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 2rem;
+      }
+
+      .product-stage {
+        min-height: 420px;
+        padding: 1.4rem;
+      }
+
+      .identity-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .offer-card {
+        grid-template-columns: 1fr;
+      }
+
+      .kv {
+        grid-template-columns: 1fr;
+      }
+
+      .kv dt {
+        padding-bottom: .15rem;
+      }
+
+      .kv dd {
+        padding-top: 0;
+        border-top: 0;
+      }
+
+      .proof-grid,
+      .evidence-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-head {
+        display: block;
+      }
+
+      .proof-note {
+        margin-top: .75rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to product information</a>
+
+  <div class="demo-banner">
+    GS1 demonstration product profile — offer, ingredient, allergen, delivery, return and review values are illustrative and are visibly matched to the embedded JSON-LD.
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-lockup" href="#top" aria-label="Dal Giardino product page home">
+        <span class="brand-mark" aria-hidden="true">DG</span>
+        <span>Dal Giardino</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Page sections">
+        <a href="#product-facts">Product facts</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#credential">Credential</a>
+        <button class="basket-button" id="basketButton" type="button" aria-label="Open demonstration basket">
+          Basket <span class="count" id="basketCount">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <figure class="product-stage" aria-labelledby="packshot-title packshot-caption">
+          <svg class="packshot" viewBox="0 0 520 650" role="img" aria-labelledby="packshot-title packshot-desc">
+            <title id="packshot-title">Dal Giardino Risotto Rice with Mushrooms, 411 gram pack</title>
+            <desc id="packshot-desc">A stylised self-contained pack illustration corresponding to the product image referenced in the structured data.</desc>
+
+            <defs>
+              <linearGradient id="pack" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#fffef8"></stop>
+                <stop offset="1" stop-color="#eee6d3"></stop>
+              </linearGradient>
+
+              <linearGradient id="label" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#173f2d"></stop>
+                <stop offset="1" stop-color="#236443"></stop>
+              </linearGradient>
+
+              <radialGradient id="rice" cx="50%" cy="42%" r="65%">
+                <stop offset="0" stop-color="#fffdf0"></stop>
+                <stop offset="1" stop-color="#d9caa7"></stop>
+              </radialGradient>
+
+              <filter id="softShadow" x="-30%" y="-30%" width="160%" height="180%">
+                <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#2f261f" flood-opacity=".24"></feDropShadow>
+              </filter>
+            </defs>
+
+            <ellipse cx="260" cy="592" rx="155" ry="27" fill="#513f34" opacity=".18"></ellipse>
+
+            <g filter="url(#softShadow)">
+              <path d="M124 52h272l28 58v438c0 25-20 45-45 45H141c-25 0-45-20-45-45V110z" fill="url(#pack)" stroke="#d3c7ad" stroke-width="4"></path>
+              <path d="M124 52h272l28 58H96z" fill="#f5f0e3" stroke="#d3c7ad" stroke-width="4"></path>
+              <path d="M96 110h328v232H96z" fill="url(#label)"></path>
+              <rect x="112" y="326" width="296" height="171" rx="18" fill="url(#rice)"></rect>
+
+              <g opacity=".95">
+                <ellipse cx="170" cy="392" rx="42" ry="26" fill="#8d6545" transform="rotate(-18 170 392)"></ellipse>
+                <ellipse cx="179" cy="380" rx="26" ry="12" fill="#b58a63" transform="rotate(-18 179 380)"></ellipse>
+                <rect x="167" y="399" width="17" height="36" rx="8" fill="#d2b18c" transform="rotate(-18 176 417)"></rect>
+
+                <ellipse cx="332" cy="417" rx="48" ry="28" fill="#71503a" transform="rotate(20 332 417)"></ellipse>
+                <ellipse cx="321" cy="404" rx="28" ry="13" fill="#a17958" transform="rotate(20 321 404)"></ellipse>
+                <rect x="326" y="425" width="18" height="39" rx="8" fill="#c9a881" transform="rotate(20 335 445)"></rect>
+
+                <circle cx="249" cy="414" r="8" fill="#f8f0d6"></circle>
+                <circle cx="272" cy="442" r="8" fill="#f8f0d6"></circle>
+                <circle cx="227" cy="454" r="8" fill="#f8f0d6"></circle>
+                <circle cx="293" cy="388" r="8" fill="#f8f0d6"></circle>
+
+                <path d="M208 374c22-35 42-40 64-35-17 11-30 25-40 44z" fill="#4d8757"></path>
+                <path d="M278 466c18-25 37-29 55-23-14 7-26 18-35 33z" fill="#4d8757"></path>
+              </g>
+
+              <circle cx="260" cy="95" r="38" fill="#fff" stroke="#d7caa9" stroke-width="3"></circle>
+              <path d="M246 103c-13-9-12-24 2-32 6 13 10 23-2 32zm8 1c14-14 31-8 34 7-16 3-28 3-34-7z" fill="#3b9460"></path>
+
+              <text x="260" y="168" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="31" font-weight="700" letter-spacing="2">DAL GIARDINO</text>
+              <text x="260" y="218" text-anchor="middle" fill="#f4df9d" font-family="Arial, sans-serif" font-size="22" font-weight="700">RISOTTO RICE</text>
+              <text x="260" y="254" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="25" font-weight="800">WITH MUSHROOMS</text>
+              <text x="260" y="296" text-anchor="middle" fill="#d5eadc" font-family="Arial, sans-serif" font-size="15">Fragrant rice · Italian mushrooms</text>
+
+              <rect x="183" y="516" width="154" height="44" rx="22" fill="#fff" stroke="#d3c7ad" stroke-width="2"></rect>
+              <text x="260" y="546" text-anchor="middle" fill="#173f2d" font-family="Arial, sans-serif" font-size="26" font-weight="800">411 g</text>
+            </g>
+          </svg>
+
+          <figcaption class="image-source" id="packshot-caption">
+            Structured image URL:
+            <a href="https://dalgiardino.com/risotto-rice-with-mushrooms/Dal_Giardino_Risotto_Rice_With_Nett_260.png">canonical 260 × 260 packshot</a>
+          </figcaption>
+        </figure>
+
+        <div>
+          <p class="eyebrow">Verified product statement · demonstration</p>
+
+          <div class="trust-row" aria-label="Semantic profile">
+            <span class="chip">W3C VC 2.0</span>
+            <span class="chip">Schema.org Product</span>
+            <span class="chip">GS1 Web Vocabulary</span>
+          </div>
+
+          <h1>Risotto Rice with Mushrooms</h1>
+          <p class="lede">A delicious mix of fragrant rice with Italian mushrooms.</p>
+
+          <div class="identity-grid" aria-label="Product identity">
+            <div class="identity-item">
+              <span>Brand</span>
+              <strong>Dal Giardino</strong>
+            </div>
+
+            <div class="identity-item">
+              <span>GTIN-14</span>
+              <code>09506000134352</code>
+            </div>
+
+            <div class="identity-item">
+              <span>Merchant SKU</span>
+              <code>DG-RRM-411-GB</code>
+            </div>
+          </div>
+
+          <div class="badge-row" aria-label="GS1 product facts">
+            <span class="badge">Functional name: Risotto rice with mushrooms</span>
+            <span class="badge">Net content: 411 GRM</span>
+          </div>
+
+          <div class="offer-card" aria-label="Current illustrative offer">
+            <div class="price">£4.49</div>
+            <div>
+              <div class="stock">In stock</div>
+              <small>GBP · new condition · price valid until 30 June 2027</small>
+              <small>Seller: Dal Giardino Demonstration Store</small>
+            </div>
+          </div>
+
+          <div class="action-row">
+            <button class="button primary" id="addToBasket" type="button">Add to demo basket</button>
+            <a class="button secondary" href="https://id.gs1.org/01/09506000134352">Resolve GTIN</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="product-facts" aria-labelledby="facts-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Content-matched product data</p>
+            <h2 id="facts-title">Every published field is visible</h2>
+          </div>
+
+          <p>The visible product page mirrors the values embedded in the Product node so a person, search engine or agent receives the same identity, product, offer, delivery and policy information.</p>
+        </div>
+
+        <div class="facts-grid">
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <h3>Schema.org product identity</h3>
+                <p>Product-level values used by merchant listings.</p>
+              </div>
+              <span class="panel-icon" aria-hidden="true">P</span>
+            </div>
+
+            <dl class="kv">
+              <dt>Name</dt>
+              <dd>Dal Giardino Risotto Rice with Mushrooms</dd>
+
+              <dt>Product URL</dt>
+              <dd><a href="https://dalgiardino.com/risotto-rice-with-mushrooms/">https://dalgiardino.com/risotto-rice-with-mushrooms/</a></dd>
+
+              <dt>SKU</dt>
+              <dd><code>DG-RRM-411-GB</code></dd>
+
+              <dt>GTIN-14</dt>
+              <dd><code>09506000134352</code></dd>
+
+              <dt>Brand</dt>
+              <dd>Dal Giardino</dd>
+
+              <dt>Brand URL</dt>
+              <dd><a href="https://dalgiardino.com/">https://dalgiardino.com/</a></dd>
+
+              <dt>Description</dt>
+              <dd>A delicious mix of fragrant rice with Italian mushrooms.</dd>
+
+              <dt>Image</dt>
+              <dd>
+                <a href="https://dalgiardino.com/risotto-rice-with-mushrooms/Dal_Giardino_Risotto_Rice_With_Nett_260.png">
+                  260 × 260 packshot — “Packshot of Dal Giardino Risotto Rice with Mushrooms, 411 g”
+                </a>
+              </dd>
+
+              <dt>Subject ID</dt>
+              <dd><a href="https://id.gs1.org/01/09506000134352">https://id.gs1.org/01/09506000134352</a></dd>
+
+              <dt>Subject types</dt>
+              <dd><code>Product</code> and <code>gs1:Product</code></dd>
+            </dl>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <h3>Merchant offer</h3>
+                <p>Offer-level values are seller-owned, not manufacturer product facts.</p>
+              </div>
+              <span class="panel-icon" aria-hidden="true">£</span>
+            </div>
+
+            <dl class="kv">
+              <dt>Offer URL</dt>
+              <dd><a href="https://shop.dalgiardino.example/products/09506000134352">https://shop.dalgiardino.example/products/09506000134352</a></dd>
+
+              <dt>Price</dt>
+              <dd>4.49 GBP</dd>
+
+              <dt>Availability</dt>
+              <dd>In stock — <code>https://schema.org/InStock</code></dd>
+
+              <dt>Price valid until</dt>
+              <dd><time datetime="2027-06-30">30 June 2027</time></dd>
+
+              <dt>Item condition</dt>
+              <dd>New — <code>https://schema.org/NewCondition</code></dd>
+
+              <dt>Seller</dt>
+              <dd>Dal Giardino Demonstration Store</dd>
+
+              <dt>Seller URL</dt>
+              <dd><a href="https://shop.dalgiardino.example/">https://shop.dalgiardino.example/</a></dd>
+            </dl>
+
+            <p class="notice">This is a non-transactional demonstration offer. The basket interaction does not create an order or take payment.</p>
+          </article>
+
+          <article class="panel third">
+            <div class="panel-header">
+              <div>
+                <h3>GS1 identifiers</h3>
+                <p>GS1 Web Vocabulary properties.</p>
+              </div>
+              <span class="panel-icon" aria-hidden="true">01</span>
+            </div>
+
+            <dl class="kv">
+              <dt>gs1:gtin</dt>
+              <dd><code>09506000134352</code></dd>
+
+              <dt>gs1:brandName</dt>
+              <dd>Dal Giardino</dd>
+
+              <dt>gs1:functionalName</dt>
+              <dd>Risotto rice with mushrooms</dd>
+            </dl>
+          </article>
+
+          <article class="panel third">
+            <div class="panel-header">
+              <div>
+                <h3>Net content</h3>
+                <p>Quantitative value with a UN/CEFACT unit code.</p>
+              </div>
+              <span class="panel-icon" aria-hidden="true">g</span>
+            </div>
+
+            <dl class="kv">
+              <dt>Property</dt>
+              <dd><code>gs1:netContent</code></dd>
+
+              <dt>Types</dt>
+              <dd><code>QuantitativeValue</code>, <code>gs1:QuantitativeValue</code></dd>
+
+              <dt>Value</dt>
+              <dd>411</dd>
+
+              <dt>Unit code</dt>
+              <dd><code>GRM</code></dd>
+            </dl>
+          </article>
+
+          <article class="panel third">
+            <div class="panel-header">
+              <div>
+                <h3>Ingredients and allergens</h3>
+                <p>Illustrative label statements reproduced verbatim in JSON-LD.</p>
+              </div>
+              <span class="panel-icon" aria-hidden="true">!</span>
+            </div>
+
+            <p>
+              <strong>gs1:ingredientStatement</strong><br>
+              Rice, Italian mushrooms, onion, sunflower oil, vegetable stock (salt, yeast extract, celery and herbs), garlic, parsley and black pepper.
+            </p>
+
+            <p>
+              <strong>gs1:allergenStatement</strong><br>
+              Contains celery. Gluten free.
+            </p>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <h3>Shipping details</h3>
+                <p>Schema.org <code>OfferShippingDetails</code>.</p>
+              </div>
+              <span class="panel-icon" aria-hidden="true">→</span>
+            </div>
+
+            <dl class="kv">
+              <dt>Destination</dt>
+              <dd>United Kingdom (<code>GB</code>)</dd>
+
+              <dt>Shipping rate</dt>
+              <dd>0 GBP — free standard delivery</dd>
+
+              <dt>Handling time</dt>
+              <dd>Minimum 0, maximum 1 <code>DAY</code></dd>
+
+              <dt>Transit time</dt>
+              <dd>Minimum 2, maximum 4 <code>DAY</code></dd>
+
+              <dt>Estimated total</dt>
+              <dd>Usually 2–5 days after ordering</dd>
+            </dl>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <h3>Merchant return policy</h3>
+                <p>Schema.org <code>MerchantReturnPolicy</code>.</p>
+              </div>
+              <span class="panel-icon" aria-hidden="true">↩</span>
+            </div>
+
+            <dl class="kv">
+              <dt>Applicable country</dt>
+              <dd>United Kingdom (<code>GB</code>)</dd>
+
+              <dt>Policy category</dt>
+              <dd><code>MerchantReturnFiniteReturnWindow</code></dd>
+
+              <dt>Return window</dt>
+              <dd>30 days</dd>
+
+              <dt>Return methods</dt>
+              <dd>By mail and in store</dd>
+
+              <dt>Return fees</dt>
+              <dd>Free return — <code>FreeReturn</code></dd>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Ratings and reviews</p>
+            <h2 id="reviews-title">Illustrative customer feedback</h2>
+          </div>
+
+          <p>The two visible reviews and the aggregate rating exactly match the nested <code>review</code> and <code>aggregateRating</code> blocks.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="metric-card" aria-label="Aggregate product rating">
+            <span class="meta-label">Aggregate rating</span>
+            <span class="rating-number">4.5</span>
+            <div class="stars" aria-label="4.5 out of 5 stars">★★★★★</div>
+            <p>
+              4.5 out of 5<br>
+              2 ratings · 2 reviews<br>
+              Best 5 · worst 1
+            </p>
+          </article>
+
+          <article class="review">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <h3>Creamy and well seasoned</h3>
+            <blockquote>“Earthy mushroom flavour, a creamy texture and straightforward preparation for a quick supper.”</blockquote>
+            <footer>Maya Patel · 5/5 · <time datetime="2026-07-18">18 July 2026</time></footer>
+          </article>
+
+          <article class="review">
+            <div class="stars" aria-label="4 out of 5 stars">★★★★☆</div>
+            <h3>Convenient pantry meal</h3>
+            <blockquote>“A useful cupboard staple with a balanced mushroom taste; I added fresh parsley before serving.”</blockquote>
+            <footer>Oliver Evans · 4/5 · <time datetime="2026-08-02">2 August 2026</time></footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="credential" aria-labelledby="credential-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Trust envelope</p>
+            <h2 id="credential-title">W3C Verifiable Credential metadata</h2>
+          </div>
+
+          <p>The credential binds the issuer’s statement to the product graph. The demonstration proof has the required Data Integrity shape, but its mock proof value is not a real signature.</p>
+        </div>
+
+        <div class="credential-layout">
+          <article class="credential-card">
+            <h3>Credential envelope</h3>
+
+            <div class="credential-list">
+              <div class="credential-row">
+                <span class="meta-label">ID</span>
+                <code>https://dalgiardino.com/credentials/products/09506000134352/2026-08-14</code>
+              </div>
+
+              <div class="credential-row">
+                <span class="meta-label">Type array</span>
+                <strong>VerifiableCredential · ProductCredential</strong>
+              </div>
+
+              <div class="credential-row">
+                <span class="meta-label">Name</span>
+                <strong>Dal Giardino product information credential</strong>
+              </div>
+
+              <div class="credential-row">
+                <span class="meta-label">Description</span>
+                <span>A demonstration W3C Verifiable Credential envelope containing a Schema.org and GS1 Web Vocabulary product record.</span>
+              </div>
+
+              <div class="credential-row">
+                <span class="meta-label">Issuer</span>
+                <a href="https://dalgiardino.com/#brand-owner">https://dalgiardino.com/#brand-owner</a>
+              </div>
+
+              <div class="credential-row">
+                <span class="meta-label">Valid from</span>
+                <time datetime="2026-08-14T12:00:00Z">2026-08-14T12:00:00Z</time>
+              </div>
+
+              <div class="credential-row">
+                <span class="meta-label">Valid until</span>
+                <time datetime="2027-08-14T23:59:59Z">2027-08-14T23:59:59Z</time>
+              </div>
+
+              <div class="credential-row">
+                <span class="meta-label">Context 1 — mandatory VC base context</span>
+                <a href="https://www.w3.org/ns/credentials/v2">https://www.w3.org/ns/credentials/v2</a>
+              </div>
+
+              <div class="credential-row">
+                <span class="meta-label">Context 2 — Schema.org</span>
+                <a href="https://schema.org">https://schema.org</a>
+              </div>
+
+              <div class="credential-row">
+                <span class="meta-label">Context 3 — namespace mappings</span>
+                <code>w3c → https://w3.org</code>
+                <code>gs1 → https://gs1.org/voc/</code>
+              </div>
+            </div>
+          </article>
+
+          <article class="proof-card">
+            <div class="proof-head">
+              <div>
+                <p class="eyebrow">Embedded proof</p>
+                <h3>DataIntegrityProof</h3>
+              </div>
+
+              <span class="proof-note">Mock proof value — not cryptographically verifiable</span>
+            </div>
+
+            <div class="proof-grid">
+              <div>
+                <span class="meta-label">Cryptosuite</span>
+                <strong>eddsa-rdfc-2022</strong>
+              </div>
+
+              <div>
+                <span class="meta-label">Proof purpose</span>
+                <strong>assertionMethod</strong>
+              </div>
+
+              <div>
+                <span class="meta-label">Created</span>
+                <time datetime="2026-08-14T12:00:00Z">2026-08-14T12:00:00Z</time>
+              </div>
+
+              <div>
+                <span class="meta-label">Expires</span>
+                <time datetime="2027-08-14T23:59:59Z">2027-08-14T23:59:59Z</time>
+              </div>
+            </div>
+
+            <span class="meta-label">Verification method</span>
+            <code class="proof-value" id="verificationMethodValue">https://dalgiardino.com/.well-known/verification-methods/product-issuer-2026#key-1</code>
+
+            <span class="meta-label" style="margin-top: 1rem;">Full proof value</span>
+            <code class="proof-value" id="proofValue">zmaxg1PTSm8A26xtZCwXzvEZSsjrtxpH7jrMGMAvPMimdZmVqGGY5gw1UDxqcg4eTagcEdiMRerosaUtnFKyBbRT2</code>
+
+            <div class="action-row">
+              <button class="button secondary" id="copyProof" type="button">Copy full proof value</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="evidence-grid" aria-label="Credential evidence">
+          <a class="evidence-link" href="https://id.gs1.org/01/09506000134352">
+            <strong>Evidence 1 · GS1 Digital Link identity anchor</strong>
+            <span>https://id.gs1.org/01/09506000134352</span>
+          </a>
+
+          <a class="evidence-link" href="https://dalgiardino.com/risotto-rice-with-mushrooms/">
+            <strong>Evidence 2 · Brand product information page</strong>
+            <span>https://dalgiardino.com/risotto-rice-with-mushrooms/</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" aria-labelledby="json-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Machine-readable publication</p>
+            <h2 id="json-title">Complete embedded JSON-LD</h2>
+          </div>
+
+          <p>The panel below is generated from the exact <code>application/ld+json</code> script in the document head. No property or proof value is shortened.</p>
+        </div>
+
+        <details class="json-panel" open>
+          <summary>W3C VC + Schema.org Product + GS1 Web Vocabulary</summary>
+
+          <div class="json-toolbar">
+            <button class="button secondary" id="copyJson" type="button">Copy JSON-LD</button>
+          </div>
+
+          <pre id="jsonPreview" aria-label="Complete embedded JSON-LD credential"></pre>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <p>Dal Giardino is a GS1 demonstration brand. Product identity, GTIN and description are grounded in the public demo; the merchant offer, ingredients, allergens, delivery, returns and reviews are illustrative values intentionally rendered in both the visible body and the structured data.</p>
+
+      <nav aria-label="Technical source links">
+        <a href="https://dalgiardino.com/risotto-rice-with-mushrooms/">Product page</a>
+        <a href="https://id.gs1.org/01/09506000134352">Digital Link</a>
+        <a href="https://www.w3.org/TR/vc-data-model-2.0/">VC 2.0</a>
+        <a href="https://developers.google.com/search/docs/appearance/structured-data/merchant-listing">Merchant listings</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const credentialScript = document.getElementById("product-credential");
+      const jsonPreview = document.getElementById("jsonPreview");
+      const toast = document.getElementById("toast");
+      const basketCount = document.getElementById("basketCount");
+
+      let parsedCredential = null;
+      let basketQuantity = 0;
+      let toastTimer = null;
+
+      const showToast = (message) => {
+        toast.textContent = message;
+        toast.classList.add("show");
+
+        window.clearTimeout(toastTimer);
+
+        toastTimer = window.setTimeout(() => {
+          toast.classList.remove("show");
+        }, 3000);
+      };
+
+      const copyText = async (text) => {
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const helper = document.createElement("textarea");
+
+            helper.value = text;
+            helper.setAttribute("readonly", "");
+            helper.style.position = "fixed";
+            helper.style.opacity = "0";
+
+            document.body.appendChild(helper);
+            helper.select();
+
+            const copied = document.execCommand("copy");
+
+            helper.remove();
+
+            if (!copied) {
+              throw new Error("Copy command rejected");
+            }
+          }
+
+          showToast("Copied to clipboard.");
+        } catch (error) {
+          showToast("Copy was unavailable. Select the text and copy it manually.");
+        }
+      };
+
+      try {
+        parsedCredential = JSON.parse(credentialScript.textContent);
+        jsonPreview.textContent = JSON.stringify(parsedCredential, null, 2);
+      } catch (error) {
+        jsonPreview.textContent = "The embedded JSON-LD could not be parsed.";
+      }
+
+      document.getElementById("copyJson").addEventListener("click", () => {
+        copyText(credentialScript.textContent.trim());
+      });
+
+      document.getElementById("copyProof").addEventListener("click", () => {
+        const proofValue =
+          parsedCredential?.proof?.proofValue ||
+          document.getElementById("proofValue").textContent;
+
+        copyText(proofValue);
+      });
+
+      document.getElementById("addToBasket").addEventListener("click", () => {
+        basketQuantity += 1;
+        basketCount.textContent = String(basketQuantity);
+
+        showToast(
+          `Demo basket updated: ${basketQuantity} item${basketQuantity === 1 ? "" : "s"}. No payment or real order has been created.`
+        );
+      });
+
+      document.getElementById("basketButton").addEventListener("click", () => {
+        showToast(
+          basketQuantity
+            ? `Demo basket contains ${basketQuantity} item${basketQuantity === 1 ? "" : "s"}.`
+            : "The demonstration basket is empty."
+        );
+      });
+    })();
+  </script>
+</body>
+</html>
