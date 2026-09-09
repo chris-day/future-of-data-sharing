@@ -161,3 +161,9 @@ Phase 2 produces:
 ---
 
 ## Part III — Governed semantic alignment
+
+The next phase aligns GDSN/GPC semantics with target vocabularies through a
+governed semantic bridge. It covers reviewed mappings, structural transformations,
+publication routes, and bridge release controls.
+
+Continue to [Semantic Bridge](semantic-bridge.md) for Phase 3.

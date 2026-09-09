@@ -153,3 +153,8 @@ The detailed decision records are retained in the companion technical evidence p
 ---
 
 ## Part I — Semantic foundation
+
+The following section describes the semantic foundation used to construct and
+validate Product Holons.
+
+Continue to [Semantic Foundation](semantic-foundation.md) for Phase 1.

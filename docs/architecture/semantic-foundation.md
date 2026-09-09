@@ -136,3 +136,8 @@ Phase 1 produces:
 ---
 
 ## Part II — Product Holon construction
+
+The next phase uses the semantic foundation to construct bounded Product Holon
+instances, validate them, and record their provenance and release status.
+
+Continue to [Holon Construction](product-holon-construction.md) for Phase 2.

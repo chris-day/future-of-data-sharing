@@ -197,3 +197,8 @@ Phase 3 produces a released governed semantic bridge package, including its SSSO
 ---
 
 ## Part IV — Publication and consumption
+
+The next phase applies the governed bridge to publication and consumption of
+Product Holon representations.
+
+Continue to [Publication and Consumption](publication-and-consumption.md).
