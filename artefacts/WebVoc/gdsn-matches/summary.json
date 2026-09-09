@@ -1,0 +1,54 @@
+{
+  "gdsn_triples": 207400,
+  "webvoc_triples": 18749,
+  "webvoc_terms": 2539,
+  "match_pairs": 298,
+  "gdsn_labelled_terms_examined": 21391,
+  "unmatched_gdsn_labelled_terms": 21100,
+  "matched_webvoc_terms": 191,
+  "matched_gdsn_resources": 291,
+  "pairs_by_method": {
+    "exact": 187,
+    "case-insensitive": 92,
+    "normalized": 19
+  },
+  "distinct_webvoc_terms_by_method": {
+    "exact": 156,
+    "case-insensitive": 76,
+    "normalized": 14
+  },
+  "distinct_gdsn_terms_by_method": {
+    "exact": 187,
+    "case-insensitive": 91,
+    "normalized": 19
+  },
+  "pairs_by_kind": {
+    "datatype -> individual/other": 1,
+    "individual/other -> object property": 34,
+    "individual/other -> class": 34,
+    "individual/other -> individual/other": 13,
+    "class -> individual/other": 4,
+    "individual/other -> datatype property": 2,
+    "class -> object property": 3,
+    "class -> class": 5,
+    "datatype property -> datatype property": 58,
+    "object property -> object property": 48,
+    "object property -> class": 14,
+    "datatype property -> object property": 41,
+    "object property -> individual/other": 24,
+    "datatype property -> individual/other": 8,
+    "datatype property -> class": 4,
+    "datatype property -> datatype": 1,
+    "annotation property -> individual/other": 2,
+    "object property -> datatype property": 1,
+    "object property -> annotation property": 1
+  },
+  "ambiguous_webvoc_terms": 68,
+  "unmatched_webvoc_terms": 2348,
+  "object_to_langstring_pairs": 29,
+  "structured_language_range_rows": 29,
+  "confirmed_structured_language_rows": 29,
+  "structured_language_webvoc_terms": 29,
+  "structured_language_gdsn_terms": 29,
+  "structured_language_range_classes": 8
+}
