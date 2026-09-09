@@ -59,6 +59,7 @@ nav = [
   ] },
   { "Holon Shapes" = [
     { "SHACL Holons" = "holon/shacl.md" },
+    { "Example Product Holon" = "holon/example/index.md" },
   ] },
   { "Reference" = [
     { "Sample GTINs" = "reference/sample-gtins.md" },
