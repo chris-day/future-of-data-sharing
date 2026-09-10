@@ -1,7 +1,5 @@
 ---
 title: API Agent Projections
-subtitle: A profile family for FAIR, linked-data, Markdown and agent-ready publication
-  of GS1 standards and data assets
 document_id: GS1_8_3b_Semantic_Publication_Profiles
 version: 1.2.0
 status: Draft for discussion and validation

@@ -96,6 +96,7 @@ def main():
                 body.append(line)
         assert not fenced, path
         page_meta = dict(metadata)
+        page_meta.pop("subtitle", None)
         page_meta.update(title=title, source=str(SOURCE.relative_to(ROOT)),
                          source_sections=[lines[start].strip().lstrip("# ") for start, _ in spans],
                          source_sha256=manifest["source_sha256"], icon="lucide/book-open")

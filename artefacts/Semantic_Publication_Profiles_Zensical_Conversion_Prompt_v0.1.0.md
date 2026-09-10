@@ -54,7 +54,9 @@ the source's reference versions without silently updating their technical basis.
 
 Retain source metadata on every page, including version, draft status, original
 date, language, programme and publication terms. Add the source path, source
-section headings and SHA-256 digest for traceability. Keep the internal-publication
+section headings and SHA-256 digest for traceability. Omit the source subtitle
+from generated page metadata to keep the Zensical navigation uncluttered.
+Keep the internal-publication
 terms visible on the overview. Building documentation is distinct from approving
 external publication or claiming semantic Markdown overlay conformance.
 
