@@ -1,0 +1,276 @@
+{
+  "source": "artefacts/GS1_8_3b_Semantic_Publication_Profiles_v1.2.0.md",
+  "source_version": "1.2.0",
+  "source_sha256": "956bd350a32f98a231b3f2908ec7f44303f5c81a455a5618f3afa2676fb19b3a",
+  "pages": [
+    {
+      "path": "docs/publication-profiles/index.md",
+      "title": "Semantic Publication Profiles",
+      "source_line_spans": [
+        [
+          131,
+          190
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/workstream-boundaries.md",
+      "title": "Workstream Boundaries",
+      "source_line_spans": [
+        [
+          191,
+          236
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/core-profile.md",
+      "title": "Core Requirements and Profile Family",
+      "source_line_spans": [
+        [
+          237,
+          338
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/profiles/standards-artefacts.md",
+      "title": "Standards Artefacts",
+      "source_line_spans": [
+        [
+          341,
+          370
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/profiles/controlled-vocabularies.md",
+      "title": "Controlled Vocabularies and Code Lists",
+      "source_line_spans": [
+        [
+          371,
+          402
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/profiles/ontologies.md",
+      "title": "Ontologies and Web Vocabularies",
+      "source_line_spans": [
+        [
+          403,
+          432
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/profiles/context-data-products.md",
+      "title": "Context Data Products",
+      "source_line_spans": [
+        [
+          433,
+          474
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/profiles/semantic-mappings.md",
+      "title": "Semantic Mappings",
+      "source_line_spans": [
+        [
+          475,
+          502
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/profiles/registry-records.md",
+      "title": "Registry Records",
+      "source_line_spans": [
+        [
+          503,
+          523
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/profiles/verifiable-claims.md",
+      "title": "Verifiable Claims",
+      "source_line_spans": [
+        [
+          524,
+          553
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/profiles/api/index.md",
+      "title": "GenAI-Enabled API Contract",
+      "source_line_spans": [
+        [
+          554,
+          663
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/profiles/api/semantic-context.md",
+      "title": "API Semantic Context",
+      "source_line_spans": [
+        [
+          664,
+          872
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/profiles/api/agent-projections.md",
+      "title": "API Agent Projections",
+      "source_line_spans": [
+        [
+          873,
+          937
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/profiles/api/publication-and-conformance.md",
+      "title": "API Publication and Conformance",
+      "source_line_spans": [
+        [
+          938,
+          1008
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/overlays/fair.md",
+      "title": "FAIR Conformance",
+      "source_line_spans": [
+        [
+          1009,
+          1057
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/overlays/linked-data.md",
+      "title": "Linked Data Serialisation",
+      "source_line_spans": [
+        [
+          1058,
+          1123
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/overlays/markdown.md",
+      "title": "Markdown Serialisation",
+      "source_line_spans": [
+        [
+          1124,
+          1197
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/overlays/agentic-interfaces.md",
+      "title": "Agentic Interfaces",
+      "source_line_spans": [
+        [
+          1198,
+          1383
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/overlays/ai-retrieval.md",
+      "title": "AI-Retrievable Standards",
+      "source_line_spans": [
+        [
+          1384,
+          1421
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/worked-examples.md",
+      "title": "Worked Examples",
+      "source_line_spans": [
+        [
+          1422,
+          1465
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/conformance.md",
+      "title": "Conformance and Readiness",
+      "source_line_spans": [
+        [
+          1466,
+          1507
+        ],
+        [
+          1647,
+          1669
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/pilots.md",
+      "title": "Pilots and Deliverables",
+      "source_line_spans": [
+        [
+          1508,
+          1557
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/governance.md",
+      "title": "Governance and Risks",
+      "source_line_spans": [
+        [
+          1558,
+          1605
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/decisions-and-measures.md",
+      "title": "Measures and Decisions",
+      "source_line_spans": [
+        [
+          1606,
+          1646
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/references.md",
+      "title": "References",
+      "source_line_spans": [
+        [
+          1670,
+          1709
+        ]
+      ]
+    },
+    {
+      "path": "docs/publication-profiles/changelog.md",
+      "title": "Changes and Roadmap",
+      "source_line_spans": [
+        [
+          1710,
+          1736
+        ]
+      ]
+    }
+  ],
+  "coverage": {
+    "source_body_lines": 1604,
+    "mapped_once": 1604,
+    "excluded": "Original front matter/title/TOC and empty section 7 grouping heading; metadata retained on every page."
+  }
+}
