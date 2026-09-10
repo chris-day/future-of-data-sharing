@@ -4,6 +4,12 @@ source: artefacts/GS1_Product_Holon_Architecture_v2.1.0.md
 ---
 
 # Publication and Consumption
+
+For the broader draft profile family, see [Semantic Publication Profiles](../publication-profiles/index.md)
+and its [Verifiable Claims profile](../publication-profiles/profiles/verifiable-claims.md).
+The documents retain their separate proposed workstream allocations; see
+[Workstream Boundaries](../publication-profiles/workstream-boundaries.md).
+
 ## 8. Phase 4 — Publish, resolve and consume
 
 ### 8.1 Objective

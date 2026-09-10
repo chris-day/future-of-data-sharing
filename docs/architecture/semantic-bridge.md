@@ -4,6 +4,10 @@ source: artefacts/GS1_Product_Holon_Architecture_v2.1.0.md
 ---
 
 # Semantic Bridge
+
+The draft [Semantic Mapping Publication Profile](../publication-profiles/profiles/semantic-mappings.md)
+describes publication requirements for mapping artefacts beyond this Product Holon application.
+
 ## 7. Phase 3 — Align through a governed semantic bridge
 
 ### 7.1 Objective

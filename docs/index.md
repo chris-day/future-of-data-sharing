@@ -10,6 +10,7 @@ semantic TSV bundles, OWL ontologies, RDF instance data, and SHACL holon shapes.
 The current pipeline covers:
 
 - Product Holon architecture and companion technical evidence.
+- [Semantic Publication Profiles](publication-profiles/index.md), including base profiles, overlays, API contracts, and conformance proposals.
 - GDSN UML JSON dumps to `uml2semantics-python` TSV.
 - GPC taxonomy extraction as a separate ontology module.
 - Google Product Taxonomy extraction as a separate ontology module.

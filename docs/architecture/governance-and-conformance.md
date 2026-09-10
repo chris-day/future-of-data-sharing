@@ -4,6 +4,11 @@ source: artefacts/GS1_Product_Holon_Architecture_v2.1.0.md
 ---
 
 # Governance and Conformance
+
+The broader [publication profile conformance model](../publication-profiles/conformance.md)
+defines separate publication classes. These do not replace or establish equivalence
+with the Product Holon `PH-C` levels below.
+
 ## 9. Cross-cutting governance and conformance
 
 ### 9.1 Governance domains
