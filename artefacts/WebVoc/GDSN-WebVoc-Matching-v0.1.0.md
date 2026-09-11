@@ -180,6 +180,9 @@ instances. This investigation does not justify automatically emitting
 
 ## Reproduction and outputs
 
+The counts above describe the original label-based search. The additional
+source-backed code-value search below has its own output and combined totals.
+
 From the repository root:
 
 ```bash
@@ -204,3 +207,112 @@ Focused checks also verified inherited language qualifiers, cycle handling,
 value path construction, and rejection of a numeric structured value as text.
 All 29 exported language candidates were checked for exact name matches,
 confirmed structured text, and a discovered language qualifier.
+
+## Source-Backed Code-List Matching
+
+The supplied description of the GDSN-to-Web-Vocabulary process adds a stronger
+candidate-generation mechanism: identify code individuals using the pair
+`(codeListName, codeValue)`, rather than comparing an entire Web Vocabulary
+IRI local name with a GDSN label. This corroborates a transformation pattern;
+it does not establish that the supplied implementation produced this exact
+version of `gs1Voc.ttl`.
+
+The source dump contains 13,125 code records in 557 code lists. No duplicate
+`(codeListName, codeValue)` keys were found in this dump. The generated GDSN
+ontology uses the code as the individual's label, while the supplied producer
+uses the human-readable source `name` as the Web Vocabulary label. This explains
+why the initial label search missed most code correspondences.
+
+The new matcher uses the actual namespace in this file,
+`https://ref.gs1.org/voc/`, and checks:
+
+1. The Web Vocabulary individual's `rdf:type` identifies the code list.
+2. `gs1:originalCodeValue`, when present, supplies the exact original code.
+3. When that annotation is absent, the percent-decoded IRI must follow
+   `<codeListName>-<codeValue>` for that declared type, and the code must exist
+   in the source JSON. No fuzzy matching or case normalization is used.
+4. The source record ID must resolve to a GDSN code individual via `gdsn:sourceId`.
+   Its actual class membership, `gdsn:codeListName`, and label must agree with
+   the source `classId`, list name, and code respectively.
+5. Preserve `owl:deprecated` and `dct:isReplacedBy` as separate evidence. A
+   deprecated name match is not automatically the preferred publication IRI.
+
+`originalCodeValue` is present on only 475 Web Vocabulary terms. Where present,
+it takes precedence over an IRI suffix or `skos:prefLabel`, which can retain a
+legacy name. The matcher records those fields for review rather than treating
+them as interchangeable keys. Code-list renamings or values that require an
+unapproved alias mapping remain unmatched.
+
+| Search category | Distinct Web Vocabulary terms | Distinct GDSN terms | Distinct pairs |
+| --- | ---: | ---: | ---: |
+| Original label-based search | 191 | 291 | 298 |
+| Source-backed code-value search | 982 | 813 | 982 |
+| Code-value subset without `owl:deprecated true` | 811 | 811 | 811 |
+| Combined label and code-value search | 1,173 | 1,098 | 1,280 |
+
+The code-value matches span 27 code lists: 470 pairs use type plus
+`originalCodeValue`, and 512 use type plus IRI suffix. Of the 982 matched
+Web Vocabulary terms, 171 are marked deprecated. Absence of that flag does not
+independently prove approval or currency. Only 802 of the pairs follow the
+current IRI construction pattern; original-code annotations allow matching
+the others without inventing equivalence from a legacy suffix.
+
+The matcher examined 1,012 Web Vocabulary candidates: terms with original-code
+annotations or types whose local names exactly match a source code-list name.
+Thirty remain unmatched, including five with an original-code annotation.
+These are not all unmatched vocabulary terms, only the candidates for this
+additional search. There is no pair overlap with the original label search,
+but six GDSN resources occur in both result sets, so distinct term counts
+must be computed as unions rather than added.
+
+Examples:
+
+| Web Vocabulary individual | GDSN individual | Evidence |
+| --- | --- | --- |
+| `gs1:AllergenTypeCode-AA` | `gdsn:cv168947` | Type `AllergenTypeCode`, original code `AA`, source ID 168947. |
+| `gs1:CompulsoryAdditionalLabelInformationTypeCode-CAFFEINE` | `gdsn:cv180965` | Declared type and IRI suffix identify source code `CAFFEINE`. |
+
+These are source-backed correspondence candidates, not automatically approved
+`owl:sameAs` assertions. Definitions, lifecycle, release differences and intended
+publication context still require review.
+
+### Attribute Domain and Range Context
+
+The supplied `parentClassId` and `dataClassId` indexing explains how to
+disambiguate repeated property names. In this source, all 2,288 class-attribute
+records resolve both identifiers to entries in `gdsn_classes.json`.
+
+For mapping review, use `parentClassId` to recover the GDSN owner and traversal
+context, and `dataClassId` to identify primitive, structured or code-list value
+semantics. Compare these with the actual generated ontology domains and ranges:
+the TSV transformer can turn a primitive into an XSD or constrained datatype,
+or retain a structured type-3 class. A shared name alone does not resolve those
+differences or identify a Web Vocabulary equivalent.
+
+The ID-to-class lookup and alphabetical UI sorting improve lookup and display;
+they do not add mapping evidence. Keep the original JSON unchanged, retain
+source IDs, and use code-list-qualified indexes rather than indexing by code
+alone, since the same code may occur in different lists.
+
+### Reproduce the Additional Search
+
+Run the label matcher first when refreshing combined counts, then:
+
+```bash
+.venv/bin/python artefacts/WebVoc/match_gdsn_code_values.py \
+  --gdsn build/gdsn.ttl \
+  --webvoc artefacts/WebVoc/gs1Voc.ttl \
+  --source-dir artefacts/GDSN_Current_v3.1.35 \
+  --output-dir artefacts/WebVoc/gdsn-matches
+```
+
+- [Code-value candidate table](gdsn-matches/code-value-matches.tsv).
+- [Unmatched code candidates](gdsn-matches/unmatched-webvoc-code-values.tsv).
+- [Code-value and combined counts](gdsn-matches/code-value-summary.json).
+- [Source-backed matcher](match_gdsn_code_values.py).
+
+The script reads the existing label table for combined totals; regenerate that
+table against the same input ontologies before comparing a different release.
+Both ontologies parsed successfully using `.venv`. Exported code pairs were
+checked for uniqueness, distinct GDSN counts and lifecycle counts. The original
+label and structured-language tables are unchanged.

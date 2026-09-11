@@ -1,0 +1,24 @@
+{
+  "source_records": 13125,
+  "source_code_lists": 557,
+  "webvoc_terms_with_original_code": 475,
+  "webvoc_code_candidates_examined": 1012,
+  "code_match_pairs": 982,
+  "matched_webvoc_terms": 982,
+  "matched_gdsn_terms": 813,
+  "matched_code_lists": 27,
+  "nondeprecated_webvoc_terms": 811,
+  "gdsn_terms_with_nondeprecated_matches": 811,
+  "deprecated_webvoc_terms": 171,
+  "pairs_matching_iri_pattern": 802,
+  "unmatched_webvoc_code_candidates": 30,
+  "unmatched_webvoc_terms_with_original_code": 5,
+  "pairs_by_method": {
+    "type-and-original-code": 470,
+    "type-and-iri-code": 512
+  },
+  "label_code_pair_overlap": 0,
+  "combined_pairs": 1280,
+  "combined_webvoc_terms": 1173,
+  "combined_gdsn_terms": 1098
+}

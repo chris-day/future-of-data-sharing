@@ -1,0 +1,31 @@
+webvoc_iri	types	original_codes
+https://ref.gs1.org/voc/AllergenTypeCode-GLUTEN	https://ref.gs1.org/voc/AllergenTypeCode	AX
+https://ref.gs1.org/voc/AllergenTypeCode-METHYL_2_OCTYNOATE	https://ref.gs1.org/voc/AllergenTypeCode	MO
+https://ref.gs1.org/voc/AllergenTypeCode-QUEENSLAND_NUTS	https://ref.gs1.org/voc/AllergenTypeCode	SQ
+https://ref.gs1.org/voc/AllergenTypeCode-TREE_NUT_TRACES	https://ref.gs1.org/voc/AllergenTypeCode	TN
+https://ref.gs1.org/voc/OrganicClaimAgencyCode-BFA	https://ref.gs1.org/voc/OrganicClaimAgencyCode	
+https://ref.gs1.org/voc/OrganicClaimAgencyCode-BIOLAND	https://ref.gs1.org/voc/OrganicClaimAgencyCode	
+https://ref.gs1.org/voc/OrganicClaimAgencyCode-DEMETER_BUND	https://ref.gs1.org/voc/OrganicClaimAgencyCode	
+https://ref.gs1.org/voc/OrganicClaimAgencyCode-DEMETER_INTERNATIONAL	https://ref.gs1.org/voc/OrganicClaimAgencyCode	
+https://ref.gs1.org/voc/OrganicClaimAgencyCode-ECOLAND	https://ref.gs1.org/voc/OrganicClaimAgencyCode	
+https://ref.gs1.org/voc/OrganicClaimAgencyCode-ECOVIN	https://ref.gs1.org/voc/OrganicClaimAgencyCode	
+https://ref.gs1.org/voc/OrganicClaimAgencyCode-EPA	https://ref.gs1.org/voc/OrganicClaimAgencyCode	
+https://ref.gs1.org/voc/OrganicClaimAgencyCode-FDA	https://ref.gs1.org/voc/OrganicClaimAgencyCode	
+https://ref.gs1.org/voc/OrganicClaimAgencyCode-FSA	https://ref.gs1.org/voc/OrganicClaimAgencyCode	
+https://ref.gs1.org/voc/OrganicClaimAgencyCode-GAA	https://ref.gs1.org/voc/OrganicClaimAgencyCode	
+https://ref.gs1.org/voc/OrganicClaimAgencyCode-IFOA	https://ref.gs1.org/voc/OrganicClaimAgencyCode	
+https://ref.gs1.org/voc/OrganicClaimAgencyCode-IFOAM	https://ref.gs1.org/voc/OrganicClaimAgencyCode	
+https://ref.gs1.org/voc/OrganicClaimAgencyCode-NATURLAND	https://ref.gs1.org/voc/OrganicClaimAgencyCode	
+https://ref.gs1.org/voc/OrganicClaimAgencyCode-QAI	https://ref.gs1.org/voc/OrganicClaimAgencyCode	
+https://ref.gs1.org/voc/OrganicClaimAgencyCode-SUDITIROL	https://ref.gs1.org/voc/OrganicClaimAgencyCode	
+https://ref.gs1.org/voc/OrganicClaimAgencyCode-USDA	https://ref.gs1.org/voc/OrganicClaimAgencyCode	
+https://ref.gs1.org/voc/PackagingMarkedLabelAccreditationCode-EC_NATIONAL_HEALTH_MARK	https://ref.gs1.org/voc/PackagingMarkedLabelAccreditationCode	
+https://ref.gs1.org/voc/PackagingMaterialTypeCode-GLASS	https://ref.gs1.org/voc/PackagingMaterialTypeCode	
+https://ref.gs1.org/voc/PackagingMaterialTypeCode-PLASTIC_BIOPLASTIC	https://ref.gs1.org/voc/PackagingMaterialTypeCode	
+https://ref.gs1.org/voc/PackagingRecyclingSchemeCode-ALKO	https://ref.gs1.org/voc/PackagingRecyclingSchemeCode	
+https://ref.gs1.org/voc/PackagingRecyclingSchemeCode-A_PULLO	https://ref.gs1.org/voc/PackagingRecyclingSchemeCode	
+https://ref.gs1.org/voc/ReferencedFileTypeCode-OPTIMIZED_PACK_IMAGE	https://ref.gs1.org/voc/ReferencedFileTypeCode	
+https://ref.gs1.org/voc/RegulatoryIdentifierType-DUE_DILIGENCE_STATEMENT	https://ref.gs1.org/voc/RegulatoryIdentifierType	DUE_DILIGENCE_STATEMENT
+https://ref.gs1.org/voc/TradeChannelCode-INSTORE_ONLY	https://ref.gs1.org/voc/TradeChannelCode	
+https://ref.gs1.org/voc/TradeChannelCode-OMNICHANNEL	https://ref.gs1.org/voc/TradeChannelCode	
+https://ref.gs1.org/voc/TradeChannelCode-ONLINE_ONLY	https://ref.gs1.org/voc/TradeChannelCode	
