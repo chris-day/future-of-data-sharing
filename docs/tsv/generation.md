@@ -77,6 +77,8 @@ build/gdsn-tsv/google/
 The GDSN transformer reads these source files from
 `artefacts/GDSN_Current_v3.1.35/`:
 
+The source files can be obtained from navigator.gs1.org
+
 | Source file | Use |
 | --- | --- |
 | `gdsn_classes.json` | UML classes, datatypes, code-list classes, enumerations, associations, and generalisations |
