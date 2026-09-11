@@ -10,8 +10,6 @@ related_workstreams:
 - 8.3.a — Machine-readable standards and models
 - 8.4.b — AI Interfaces
 language: en-GB
-licence: Internal GS1 working document — confirm publication terms before external
-  release
 keywords:
 - semantic publication
 - machine-readable standards

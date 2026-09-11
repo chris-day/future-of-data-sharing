@@ -10,8 +10,6 @@ related_workstreams:
 - 8.3.a — Machine-readable standards and models
 - 8.4.b — AI Interfaces
 language: en-GB
-licence: Internal GS1 working document — confirm publication terms before external
-  release
 keywords:
 - semantic publication
 - machine-readable standards
@@ -43,8 +41,6 @@ icon: lucide/book-open
 # Semantic Publication Profiles
 
 *Source version 1.2.0. Draft for discussion and validation.*
-
-**Publication terms:** Internal GS1 working document — confirm publication terms before external release.
 
 This is a curated documentation view of the source draft, not an approved profile release.
 
