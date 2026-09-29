@@ -303,6 +303,10 @@ The GitHub Pages deployment is handled by `.github/workflows/docs.yml`. On pushe
 
 For GitHub Pages to publish correctly, configure the repository Pages source to use **GitHub Actions**.
 
+For RDF/JSON-LD conversion and OWL-to-Schema.org projection, see the
+[OWL/RDF and JSON-LD guide](docs/ontology/jsonld.md). With CPython 3.14.4,
+install using `.venv/bin/python -m pip install -e .`, then run `.venv/bin/owl-jsonld --help`.
+
 ## Contributing
 
 Contributions should:

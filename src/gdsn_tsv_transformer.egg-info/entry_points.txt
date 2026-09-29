@@ -3,3 +3,4 @@ gdsn-json-to-tsv = gdsn_tsv_transformer.cli:main
 gdsn-xml-to-rdf = gdsn_tsv_transformer.xml_to_rdf:main
 google-taxonomy-to-tsv = gdsn_tsv_transformer.google_taxonomy:main
 gs1-gdsn-holon = gdsn_tsv_transformer.holon:main
+owl-jsonld = gdsn_tsv_transformer.jsonld.cli:main

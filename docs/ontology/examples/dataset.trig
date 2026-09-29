@@ -1,0 +1,3 @@
+@prefix ex: <https://example.com/> .
+ex:book ex:title "Default graph" .
+ex:catalogue { ex:book ex:title "Named graph" . }

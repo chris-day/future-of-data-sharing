@@ -1,0 +1,12 @@
+@prefix ex: <https://example.com/vocab/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Book a owl:Class ;
+    rdfs:label "Book"@en, "Livre"@fr ;
+    rdfs:subClassOf <https://schema.org/CreativeWork> .
+ex:title a owl:DatatypeProperty ;
+    rdfs:label "title" ;
+    rdfs:domain ex:Book ;
+    rdfs:range xsd:string .

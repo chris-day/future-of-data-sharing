@@ -87,6 +87,9 @@ nav = [
     { "uml2semantics" = "ontology/uml2semantics.md" },
     { "GraphDB Named Graphs" = "ontology/graphdb.md" },
     { "SPARQL Examples" = "ontology/sparql.md" },
+    { "OWL/RDF and JSON-LD" = "ontology/jsonld.md" },
+    { "JSON-LD Command Reference" = "ontology/jsonld-cli.md" },
+    { "JSON-LD Development" = "ontology/jsonld-development.md" },
   ] },
   { "Instances" = [
     { "KATO RDF" = "instances/kato.md" },
