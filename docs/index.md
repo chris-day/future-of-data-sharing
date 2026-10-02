@@ -7,6 +7,8 @@ icon: lucide/network
 This documentation describes the local tooling for turning GS1 artefacts into
 semantic TSV bundles, OWL ontologies, RDF instance data, and SHACL holon shapes.
 
+All artefacts used are publicaly available from [GS1 Navigator](https://navigator.gs1.org/) and [GS1 Reference](https://ref.gs1.org/).
+
 The current pipeline covers:
 
 - Product Holon architecture and companion technical evidence.
