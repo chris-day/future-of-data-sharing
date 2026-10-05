@@ -11,18 +11,7 @@ repo_url = "https://github.com/chris-day/future-of-data-sharing"
 # edit_uri = "edit/main/docs/"
 
 nav = [
-  { "Overview" = [
-    { "Overview" = "index.md" },
-    { "Ontologies" = [
-      { "uml2semantics" = "ontology/uml2semantics.md" },
-      { "GraphDB Named Graphs" = "ontology/graphdb.md" },
-      { "SPARQL Examples" = "ontology/sparql.md" },
-      { "OWL/RDF and JSON-LD" = "ontology/jsonld.md" },
-      { "JSON-LD Command Reference" = "ontology/jsonld-cli.md" },
-      { "JSON-LD Development" = "ontology/jsonld-development.md" },
-      { "Protege" = "ontology/protege.md" },
-    ] },
-  ] },
+  { "Overview" = "index.md" },
   { "Product Holon Architecture" = [
     { "Overview" = "architecture/index.md" },
     { "Purpose and Scope" = "architecture/purpose-and-scope.md" },
@@ -93,6 +82,15 @@ nav = [
   { "TSV Generation" = [
     { "GDSN, GPC, and Google" = "tsv/generation.md" },
     { "Google Product Taxonomy" = "tsv/google-product-taxonomy.md" },
+  ] },
+  { "Ontologies" = [
+    { "uml2semantics" = "ontology/uml2semantics.md" },
+    { "GraphDB Named Graphs" = "ontology/graphdb.md" },
+    { "SPARQL Examples" = "ontology/sparql.md" },
+    { "OWL/RDF and JSON-LD" = "ontology/jsonld.md" },
+    { "JSON-LD Command Reference" = "ontology/jsonld-cli.md" },
+    { "JSON-LD Development" = "ontology/jsonld-development.md" },
+    { "Protege" = "ontology/protege.md" },
   ] },
   { "Instances" = [
     { "KATO RDF" = "instances/kato.md" },
