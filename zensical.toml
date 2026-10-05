@@ -1,17 +1,28 @@
 [project]
-site_url = "https://gs1.github.io/gs1-future-of-data-sharing"
+site_url = "https://chris-day.github.io/future-of-data-sharing"
 site_name = "GS1 Future of Data Sharing"
 site_description = "Semantic TSV, ontology, RDF instance, and SHACL holon tooling for GS1 data sharing experiments."
 # site_author = "Your name"
 
 # copyright = "Copyright &copy; 2026 Your name"
 
-repo_url = "https://github.com/gs1/gs1-future-of-data-sharing"
+repo_url = "https://github.com/chris-day/future-of-data-sharing"
 # repo_name = "user/repo"
 # edit_uri = "edit/main/docs/"
 
 nav = [
-  { "Overview" = "index.md" },
+  { "Overview" = [
+    { "Overview" = "index.md" },
+    { "Ontologies" = [
+      { "uml2semantics" = "ontology/uml2semantics.md" },
+      { "GraphDB Named Graphs" = "ontology/graphdb.md" },
+      { "SPARQL Examples" = "ontology/sparql.md" },
+      { "OWL/RDF and JSON-LD" = "ontology/jsonld.md" },
+      { "JSON-LD Command Reference" = "ontology/jsonld-cli.md" },
+      { "JSON-LD Development" = "ontology/jsonld-development.md" },
+      { "Protege" = "ontology/protege.md" },
+    ] },
+  ] },
   { "Product Holon Architecture" = [
     { "Overview" = "architecture/index.md" },
     { "Purpose and Scope" = "architecture/purpose-and-scope.md" },
@@ -82,14 +93,6 @@ nav = [
   { "TSV Generation" = [
     { "GDSN, GPC, and Google" = "tsv/generation.md" },
     { "Google Product Taxonomy" = "tsv/google-product-taxonomy.md" },
-  ] },
-  { "Ontologies" = [
-    { "uml2semantics" = "ontology/uml2semantics.md" },
-    { "GraphDB Named Graphs" = "ontology/graphdb.md" },
-    { "SPARQL Examples" = "ontology/sparql.md" },
-    { "OWL/RDF and JSON-LD" = "ontology/jsonld.md" },
-    { "JSON-LD Command Reference" = "ontology/jsonld-cli.md" },
-    { "JSON-LD Development" = "ontology/jsonld-development.md" },
   ] },
   { "Instances" = [
     { "KATO RDF" = "instances/kato.md" },

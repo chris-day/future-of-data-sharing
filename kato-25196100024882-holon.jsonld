@@ -1,0 +1,3720 @@
+[
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab1",
+    "http://www.w3.org/ns/shacl#in": [
+      {
+        "@list": [
+          {
+            "@value": "ACAI"
+          },
+          {
+            "@value": "ATEMOYA"
+          },
+          {
+            "@value": "AVOCADO"
+          },
+          {
+            "@value": "BEARBERRY"
+          },
+          {
+            "@value": "BLACK CURRANT/CASSIS"
+          },
+          {
+            "@value": "BOYSENBERRY"
+          },
+          {
+            "@value": "BREADFRUIT"
+          },
+          {
+            "@value": "CACAO FRUIT"
+          },
+          {
+            "@value": "CACTUS PEAR"
+          },
+          {
+            "@value": "CAJA"
+          },
+          {
+            "@value": "CARAMBOLA/STAR FRUIT"
+          },
+          {
+            "@value": "CHERIMOYA"
+          },
+          {
+            "@value": "CHOKEBERRY"
+          },
+          {
+            "@value": "CLEMENTINE"
+          },
+          {
+            "@value": "CLOUDBERRY"
+          },
+          {
+            "@value": "CORNELIAN CHERRY/DOG CHERRY"
+          },
+          {
+            "@value": "CRAB APPLE"
+          },
+          {
+            "@value": "CROWBERRY"
+          },
+          {
+            "@value": "CUPUACU"
+          },
+          {
+            "@value": "DATE"
+          },
+          {
+            "@value": "DURIAN"
+          },
+          {
+            "@value": "FEIJOA"
+          },
+          {
+            "@value": "GOUMI"
+          },
+          {
+            "@value": "GRAVIOLA"
+          },
+          {
+            "@value": "HAW"
+          },
+          {
+            "@value": "HOMLI"
+          },
+          {
+            "@value": "HONEYSUCKLE EDIBLE"
+          },
+          {
+            "@value": "HUCKLEBERRY"
+          },
+          {
+            "@value": "HYBRID"
+          },
+          {
+            "@value": "JACK FRUIT"
+          },
+          {
+            "@value": "JUJUBE"
+          },
+          {
+            "@value": "JUNEBERRY"
+          },
+          {
+            "@value": "KAKI"
+          },
+          {
+            "@value": "KIWANO"
+          },
+          {
+            "@value": "KIWI"
+          },
+          {
+            "@value": "KUMQUAT"
+          },
+          {
+            "@value": "LICHEE"
+          },
+          {
+            "@value": "LIMEQUAT"
+          },
+          {
+            "@value": "LOGAN BERRY"
+          },
+          {
+            "@value": "LOQUAT"
+          },
+          {
+            "@value": "MAMEY"
+          },
+          {
+            "@value": "MANGOSTEEN"
+          },
+          {
+            "@value": "MEDLAR"
+          },
+          {
+            "@value": "NANNYBERRY/SHEEPBERRY"
+          },
+          {
+            "@value": "NECTARINE"
+          },
+          {
+            "@value": "PAPAW"
+          },
+          {
+            "@value": "PAPAYA/PAW PAW"
+          },
+          {
+            "@value": "PERSIMMON"
+          },
+          {
+            "@value": "PHYSALIS"
+          },
+          {
+            "@value": "PITAHAYA"
+          },
+          {
+            "@value": "PLUMCOT"
+          },
+          {
+            "@value": "PRUNE"
+          },
+          {
+            "@value": "QUINCE"
+          },
+          {
+            "@value": "RAMBUTAN"
+          },
+          {
+            "@value": "RED DRAGON"
+          },
+          {
+            "@value": "ROSE APPLE"
+          },
+          {
+            "@value": "ROWAN"
+          },
+          {
+            "@value": "SAGUARO"
+          },
+          {
+            "@value": "SAPODILLA"
+          },
+          {
+            "@value": "SAPOTE"
+          },
+          {
+            "@value": "SATSUMA"
+          },
+          {
+            "@value": "SEABERRY/SEA BUCKTHORN"
+          },
+          {
+            "@value": "SIRIGUELA"
+          },
+          {
+            "@value": "SORB"
+          },
+          {
+            "@value": "SUNBERRY/WONDERBERRY"
+          },
+          {
+            "@value": "SWEETSOP"
+          },
+          {
+            "@value": "TAMARINDO"
+          },
+          {
+            "@value": "TANGELO"
+          },
+          {
+            "@value": "UMBU"
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "Type of Fruit"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gpc:20000076"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab100",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1481031847"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: FoodAndBeverageIngredientModule (urn:gs1:std:gdsn:c1320)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "ingredientStatement"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a812659001"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab101",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItemIdentification (urn:gs1:std:gdsn:c788)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "25196100024882"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "gtin"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a5339"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab102",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1366998358"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItem (urn:gs1:std:gdsn:c863999331)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@id": "urn:gs1:std:gdsn:cv180063"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#in": [
+      {
+        "@list": [
+          {
+            "@id": "urn:gs1:std:gdsn:cv177555"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv177556"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv177557"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180061"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180062"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180063"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180064"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180065"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180066"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180067"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180068"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180069"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180070"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180071"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180072"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180943"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180953"
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "contextIdentification"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a-891441183"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab120",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#boolean"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItem (urn:gs1:std:gdsn:c863999331)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "false",
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "isTradeItemABaseUnit"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a-216656538"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab121",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1322"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: NutrientHeader (urn:gs1:std:gdsn:c1336934671)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "nutrientDetail"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:assoc_1336934671_1322_1"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab122",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1672558995"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: AllergenRelatedInformation (urn:gs1:std:gdsn:c-474206270)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "allergen"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:assoc_-474206270_1672558995_1"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab123",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1327077224"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItem (urn:gs1:std:gdsn:c863999331)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "tradeItemSynchronisationDates"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3AsyncDates_2F25196100024882"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:assoc_863999331_1327077224_10"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab124",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#boolean"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItem (urn:gs1:std:gdsn:c863999331)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "false",
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "isTradeItemAConsumerUnit"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a1838900975"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab125",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: ChildTradeItem (urn:gs1:std:gdsn:c282496455)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "20",
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "quantityOfNextLowerLevelTradeItem"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a-1893466998"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab126",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItemIdentification (urn:gs1:std:gdsn:c788)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "25196100024899"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "gtin"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a5339"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab127",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: GDSNTradeItemClassification (urn:gs1:std:gdsn:c-1698192853)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "Fruit – Unprepared/Unprocessed (Frozen)"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "gpcCategoryDefinition"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a-872066840"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab128",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: GDSNTradeItemClassification (urn:gs1:std:gdsn:c-1698192853)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "10000002"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "gpcCategoryCode"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a289210221"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab129",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: BrandNameInformation (urn:gs1:std:gdsn:c1350303678)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "Kiln_TT9"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "brandName"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a308904173"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab130",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: DeliveryPurchasingInformation (urn:gs1:std:gdsn:c1362)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "2026-07-11T04:41:53.737000+00:00",
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "startAvailabilityDateTime"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a1727163091"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab131",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1350303678"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItemDescriptionInformation (urn:gs1:std:gdsn:c1204161147)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "brandNameInformation"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aextension_2F25196100024882_2FbrandNameInformation"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:assoc_1204161147_1350303678_4"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab132",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1441"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItemDescriptionInformation (urn:gs1:std:gdsn:c1204161147)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "functionalName"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Avalue_2F25196100024882_2FfunctionalName"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a1986433438"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab133",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1490"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItemMeasurements (urn:gs1:std:gdsn:c-1443794077)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "depth"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Avalue_2F25196100024882_2Fdepth"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a652919722"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab134",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1490"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItemMeasurements (urn:gs1:std:gdsn:c-1443794077)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "netContent"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Avalue_2F25196100024882_2FnetContent"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a-930082660"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab135",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1490"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItemMeasurements (urn:gs1:std:gdsn:c-1443794077)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "height"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Avalue_2F25196100024882_2Fheight"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a-611376925"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab136",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1490"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItemMeasurements (urn:gs1:std:gdsn:c-1443794077)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "width"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Avalue_2F25196100024882_2Fwidth"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a963951080"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab137",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c-113081611"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItemMeasurements (urn:gs1:std:gdsn:c-1443794077)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "tradeItemWeight"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aextension_2F25196100024882_2FtradeItemWeight"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:assoc_-1443794077_-113081611_1"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab138",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1490"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItemWeight (urn:gs1:std:gdsn:c-113081611)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "grossWeight"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Avalue_2F25196100024882_2FgrossWeight"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a-387099093"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab139",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c282496455"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: NextLowerLevelTradeItemInformation (urn:gs1:std:gdsn:c652864357)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "childTradeItem"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3AchildTradeItem_2F25196100024882_2F25196100024899"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:assoc_652864357_282496455_1"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab140",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: NextLowerLevelTradeItemInformation (urn:gs1:std:gdsn:c652864357)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "20",
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "totalQuantityOfNextLowerLevelTradeItem"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a-455218496"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab141",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: NextLowerLevelTradeItemInformation (urn:gs1:std:gdsn:c652864357)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "quantityOfChildren"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a-1968786405"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab142",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: PartyInRole (urn:gs1:std:gdsn:c845)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "1234567890128"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "gln"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a-1479739869"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab143",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: PartyInRole (urn:gs1:std:gdsn:c845)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "1234567890128"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "gln"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a-1479739869"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab144",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: PartyInRole (urn:gs1:std:gdsn:c845)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "Data Source"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "partyName"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a-1454997754"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab145",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItemSynchronisationDates (urn:gs1:std:gdsn:c1327077224)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "2026-07-11T04:41:53.737000+00:00",
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "effectiveDateTime"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a101169311"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab146",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItemSynchronisationDates (urn:gs1:std:gdsn:c1327077224)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "2026-07-11T04:41:53.737000+00:00",
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "lastChangeDateTime"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a1274695156"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab147",
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TargetMarket (urn:gs1:std:gdsn:c919)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@id": "urn:iso:std:iso:3166USA"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "targetMarketCountryCode"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a5682"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab148",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:GDSNExtensionModule"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItemInformation (urn:gs1:std:gdsn:c1352305416)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@id": "urn:gs1:sample:kato:extension/25196100024882/deliveryPurchasingInformationModule"
+      },
+      {
+        "@id": "urn:gs1:sample:kato:extension/25196100024882/tradeItemDescriptionModule"
+      },
+      {
+        "@id": "urn:gs1:sample:kato:extension/25196100024882/tradeItemMeasurementsModule"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "extensionModule"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:extensionModule"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab149",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "10.0",
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#value"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#value"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab150",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: Measurement (urn:gs1:std:gdsn:c1490)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "MMT"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "measurementUnitCode"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a7085"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab151",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: Description35 (urn:gs1:std:gdsn:c1441)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "en"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "languageCode"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a7139"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab152",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "Fruit – Unprepared/Unprocessed",
+        "@language": "en"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#value"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#value"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab153",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: Measurement (urn:gs1:std:gdsn:c1490)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "KGM"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "measurementUnitCode"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a7085"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab154",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "20.0",
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#value"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#value"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab155",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "5.0",
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#value"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#value"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab156",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: Measurement (urn:gs1:std:gdsn:c1490)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "MMT"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "measurementUnitCode"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a7085"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab157",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "20.0",
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#value"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#value"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab158",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: Measurement (urn:gs1:std:gdsn:c1490)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "H87"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "measurementUnitCode"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a7085"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab159",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: Measurement (urn:gs1:std:gdsn:c1490)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "MMT"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "measurementUnitCode"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a7085"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab160",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "10.0",
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#value"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#value"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab71",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1362"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: DeliveryPurchasingInformationModule (urn:gs1:std:gdsn:c1952808552)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "deliveryPurchasingInformation"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aextension_2F25196100024882_2FdeliveryPurchasingInformation"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:assoc_1952808552_1362_1"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab72",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1204161147"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItemDescriptionModule (urn:gs1:std:gdsn:c1343046870)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "tradeItemDescriptionInformation"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aextension_2F25196100024882_2FtradeItemDescriptionInformation"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:assoc_1343046870_1204161147_1"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab73",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c-1443794077"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItemMeasurementsModule (urn:gs1:std:gdsn:c-1559145472)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "tradeItemMeasurements"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aextension_2F25196100024882_2FtradeItemMeasurements"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:assoc_-1559145472_-1443794077_1"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab74",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c919"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItem (urn:gs1:std:gdsn:c863999331)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "targetMarket"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3AtargetMarket_2F25196100024882"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:assoc_863999331_919_6"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab75",
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Links the GDSN TradeItem to the GPC Brick used by this holon."
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "10000002"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "GPC Brick classification"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@list": [
+          {
+            "@id": "urn:gs1:std:gdsn:assoc_863999331_-1698192853_1"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:a289210221"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab78",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1336934671"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: NutritionalInformationModule (urn:gs1:std:gdsn:c1340910615)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "nutrientHeader"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:assoc_1340910615_1336934671_2"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab79",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1215629922"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItem (urn:gs1:std:gdsn:c863999331)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@id": "urn:gs1:std:gdsn:cv180121"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#in": [
+      {
+        "@list": [
+          {
+            "@id": "urn:gs1:std:gdsn:cv180120"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180121"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180122"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180123"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180124"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180125"
+          },
+          {
+            "@id": "urn:gs1:std:gdsn:cv180126"
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "tradeItemUnitDescriptorCode"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a1326222280"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab87",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#boolean"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItem (urn:gs1:std:gdsn:c863999331)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "true",
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "isTradeItemAnInvoiceUnit"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a457409205"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab88",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1352305416"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItem (urn:gs1:std:gdsn:c863999331)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "tradeItemInformation"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3AtradeItemInformation_2F25196100024882"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:assoc_863999331_1352305416_11"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab89",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c-474206270"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: AllergenInformationModule (urn:gs1:std:gdsn:c-1935341322)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "allergenRelatedInformation"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:assoc_-1935341322_-474206270_1"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab90",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#boolean"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItem (urn:gs1:std:gdsn:c863999331)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "true",
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "isTradeItemADespatchUnit"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a864801284"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab91",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#boolean"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItem (urn:gs1:std:gdsn:c863999331)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "true",
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "isTradeItemAnOrderableUnit"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a1452054482"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab92",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c2147348056"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: ProductInformationDetail (urn:gs1:std:gdsn:c45067187)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "claimDetail"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:assoc_45067187_2147348056_4"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab93",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c845"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItem (urn:gs1:std:gdsn:c863999331)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "brandOwner"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aparty_2F25196100024882_2FbrandOwner"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:assoc_863999331_845_3"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab94",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c845"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItem (urn:gs1:std:gdsn:c863999331)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "informationProviderOfTradeItem"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aparty_2F25196100024882_2FinformationProviderOfTradeItem"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:assoc_863999331_845_4"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab95",
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Links the GDSN TradeItem instance to the GTIN used to create this holon."
+      }
+    ],
+    "http://www.w3.org/ns/shacl#hasValue": [
+      {
+        "@value": "25196100024882"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "GTIN identity"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a5339"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab96",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c652864357"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItem (urn:gs1:std:gdsn:c863999331)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "nextLowerLevelTradeItemInformation"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3AnextLowerLevel_2F25196100024882"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:assoc_863999331_652864357_8"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab97",
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c-1698192853"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItem (urn:gs1:std:gdsn:c863999331)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#ObjectProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "gDSNTradeItemClassification"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#node": [
+      {
+        "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aclassification_2F25196100024882"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:assoc_863999331_-1698192853_1"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab98",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#float"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: PackagingRecycledContent (urn:gs1:std:gdsn:c1928955888)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "packagingRecycledContentRatio"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a212299678"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab99",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@value": "Source domain: TradeItemIdentification (urn:gs1:std:gdsn:c788)"
+      },
+      {
+        "@value": "Source rdf:type: http://www.w3.org/2002/07/owl#DatatypeProperty"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "gtin"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "urn:gs1:std:gdsn:a5339"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Brick10000002Shape",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Fruit - Unprepared/Unprocessed (Frozen) GPC Brick shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "Fruit - Unprepared/Unprocessed (Frozen) GPC Brick shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab1"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetClass": [
+      {
+        "@id": "urn:gs1:std:gpc:10000002"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3AchildTradeItem_2F25196100024882_2F25196100024899",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "ChildTradeItem instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c282496455"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:childTradeItem/25196100024882/25196100024899"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab125"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab126"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:childTradeItem/25196100024882/25196100024899"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aclassification_2F25196100024882",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "GDSNTradeItemClassification instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c-1698192853"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:classification/25196100024882"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab127"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab128"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:classification/25196100024882"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aextension_2F25196100024882_2FbrandNameInformation",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "BrandNameInformation instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1350303678"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:extension/25196100024882/brandNameInformation"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab129"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:extension/25196100024882/brandNameInformation"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aextension_2F25196100024882_2FdeliveryPurchasingInformation",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "DeliveryPurchasingInformation instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1362"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:extension/25196100024882/deliveryPurchasingInformation"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab130"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:extension/25196100024882/deliveryPurchasingInformation"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aextension_2F25196100024882_2FdeliveryPurchasingInformationModule",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "GDSN Extension Module instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:GDSNExtensionModule"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:extension/25196100024882/deliveryPurchasingInformationModule"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab71"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:extension/25196100024882/deliveryPurchasingInformationModule"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aextension_2F25196100024882_2FtradeItemDescriptionInformation",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "TradeItemDescriptionInformation instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1204161147"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:extension/25196100024882/tradeItemDescriptionInformation"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab131"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab132"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:extension/25196100024882/tradeItemDescriptionInformation"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aextension_2F25196100024882_2FtradeItemDescriptionModule",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "GDSN Extension Module instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:GDSNExtensionModule"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:extension/25196100024882/tradeItemDescriptionModule"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab72"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:extension/25196100024882/tradeItemDescriptionModule"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aextension_2F25196100024882_2FtradeItemMeasurements",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "TradeItemMeasurements instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c-1443794077"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:extension/25196100024882/tradeItemMeasurements"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab133"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab134"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab135"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab136"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab137"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:extension/25196100024882/tradeItemMeasurements"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aextension_2F25196100024882_2FtradeItemMeasurementsModule",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "GDSN Extension Module instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:GDSNExtensionModule"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:extension/25196100024882/tradeItemMeasurementsModule"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab73"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:extension/25196100024882/tradeItemMeasurementsModule"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aextension_2F25196100024882_2FtradeItemWeight",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "TradeItemWeight instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c-113081611"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:extension/25196100024882/tradeItemWeight"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab138"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:extension/25196100024882/tradeItemWeight"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3AnextLowerLevel_2F25196100024882",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "NextLowerLevelTradeItemInformation instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c652864357"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:nextLowerLevel/25196100024882"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab139"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab140"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab141"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:nextLowerLevel/25196100024882"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aparty_2F25196100024882_2FbrandOwner",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "PartyInRole instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c845"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:party/25196100024882/brandOwner"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab142"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:party/25196100024882/brandOwner"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Aparty_2F25196100024882_2FinformationProviderOfTradeItem",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "PartyInRole instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c845"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:party/25196100024882/informationProviderOfTradeItem"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab143"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab144"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:party/25196100024882/informationProviderOfTradeItem"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3AsyncDates_2F25196100024882",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "TradeItemSynchronisationDates instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1327077224"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:syncDates/25196100024882"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab145"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab146"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:syncDates/25196100024882"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3AtargetMarket_2F25196100024882",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "TargetMarket instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c919"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:targetMarket/25196100024882"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab147"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:targetMarket/25196100024882"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3AtradeItemInformation_2F25196100024882",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "TradeItemInformation instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1352305416"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:tradeItemInformation/25196100024882"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab148"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:tradeItemInformation/25196100024882"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Avalue_2F25196100024882_2Fdepth",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Measurement instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1490"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:value/25196100024882/depth"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab149"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab150"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:value/25196100024882/depth"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Avalue_2F25196100024882_2FfunctionalName",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Description35 instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1441"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:value/25196100024882/functionalName"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab151"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab152"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:value/25196100024882/functionalName"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Avalue_2F25196100024882_2FgrossWeight",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Measurement instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1490"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:value/25196100024882/grossWeight"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab153"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab154"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:value/25196100024882/grossWeight"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Avalue_2F25196100024882_2Fheight",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Measurement instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1490"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:value/25196100024882/height"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab155"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab156"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:value/25196100024882/height"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Avalue_2F25196100024882_2FnetContent",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Measurement instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1490"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:value/25196100024882/netContent"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab157"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab158"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:value/25196100024882/netContent"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:Instance_urn_3Ags1_3Asample_3Akato_3Avalue_2F25196100024882_2Fwidth",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Measurement instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c1490"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "urn:gs1:sample:kato:value/25196100024882/width"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab159"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab160"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:value/25196100024882/width"
+      }
+    ]
+  },
+  {
+    "@id": "urn:gs1:shapes:gpc:TradeItemGDSNShape",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Generated from selected GDSN properties. Source property domains are preserved as sh:description because not all selected properties are direct TradeItem properties in the generated ontology."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "TradeItem instance shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "urn:gs1:std:gdsn:c863999331"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@value": "Cross-category GDSN TradeItem shape"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab100"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab101"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab102"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab120"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab121"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab122"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab123"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab124"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab74"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab75"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab78"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab79"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab87"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab88"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab89"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab90"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab91"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab92"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab93"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab94"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab95"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab96"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab97"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab98"
+      },
+      {
+        "@id": "_:n4de1de802a64404d9b24bc3d0203e35ab99"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetNode": [
+      {
+        "@id": "urn:gs1:sample:kato:gtin/25196100024882"
+      }
+    ]
+  }
+]
