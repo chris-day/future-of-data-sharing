@@ -146,3 +146,23 @@ owl-jsonld --version
 
 Prints the installed `gdsn-tsv-transformer` distribution version. There is no
 separate, potentially conflicting version for the JSON-LD subpackage.
+
+## Label-based identity rewriting
+
+Available on `rdf-to-jsonld`, `convert`, and `validate`:
+
+| Option | Behavior |
+| --- | --- |
+| `--label-ids` | Verify selected identifiers against `rdfs:label`; rewrite them during RDF-to-JSON-LD conversion |
+| `--label-prefix PREFIX=IRI` | Select a namespace and its output prefix; repeat for additional namespaces; requires `--label-ids` |
+
+Both options must be supplied together. `validate` only verifies and prints
+its result to stderr. Successful label verification also prints a shell-quoted
+conversion command retaining the verified input and parsing options, with JSON-LD
+output directed to stdout. `--quiet` suppresses this suggestion. For stdin input,
+run the suggested command with the same input supplied again. No command is
+suggested after a verification failure. Conversion verifies before writing any output. Failures
+return `1`; invalid CLI option combinations return `2`. These options require
+RDF input and, for conversion, JSON-LD output. They can be combined with
+`--schema-org`. See [verification rules and examples](jsonld.md#verified-label-based-identifiers)
+for the strict label policy and the effect on RDF identity.

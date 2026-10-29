@@ -19,6 +19,7 @@ src/gdsn_tsv_transformer/jsonld/cli.py
 src/gdsn_tsv_transformer/jsonld/conformance.py
 src/gdsn_tsv_transformer/jsonld/core.py
 src/gdsn_tsv_transformer/jsonld/errors.py
+src/gdsn_tsv_transformer/jsonld/labels.py
 src/gdsn_tsv_transformer/jsonld/lists.py
 src/gdsn_tsv_transformer/jsonld/parsing.py
 src/gdsn_tsv_transformer/jsonld/py.typed

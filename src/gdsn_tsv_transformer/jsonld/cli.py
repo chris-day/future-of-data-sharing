@@ -5,6 +5,7 @@ import argparse
 from importlib.metadata import version
 import json
 import os
+import shlex
 import tempfile
 from pathlib import Path
 import sys
@@ -21,6 +22,7 @@ from .conformance import DEFAULT_MANIFEST, read_resource, run_suite
 from .core import strict_json
 from .errors import InvalidInputError, UnsupportedOptionError
 from .parsing import parse_rdf
+from .labels import rewrite_label_ids, verify_label_ids
 
 DATASET_FORMATS = frozenset({"trig", "trix", "nquads", "application/n-quads", "json-ld", "application/ld+json", "application/trig", "application/trix", "hext", "patch"})
 JSONLD_FORMATS = frozenset({"json-ld", "application/ld+json"})
@@ -57,6 +59,25 @@ def _json_options(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--ensure-ascii", action="store_true", help="Escape non-ASCII characters in JSON output.")
 
 
+def _label_options(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--label-ids", action="store_true", help="Verify labels and rewrite selected namespace identifiers from rdfs:label.")
+    parser.add_argument("--label-prefix", action="append", default=[], metavar="PREFIX=IRI", help="Namespace to verify/rewrite; repeat for each namespace. Requires --label-ids.")
+
+
+def _label_prefixes(args: argparse.Namespace) -> dict[str, str]:
+    values = getattr(args, "label_prefix", [])
+    enabled = getattr(args, "label_ids", False)
+    if bool(values) != enabled:
+        raise UsageError("--label-ids requires --label-prefix PREFIX=IRI and vice versa")
+    result: dict[str, str] = {}
+    for value in values:
+        prefix, separator, namespace = value.partition("=")
+        if not separator or not prefix or not namespace or prefix in result:
+            raise UsageError(f"Invalid or duplicate --label-prefix: {value}")
+        result[prefix] = namespace
+    return result
+
+
 def _rdf_options(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--context", metavar="PATH_OR_URL", help="External JSON-LD context document (UTF-8 file or HTTP(S) URL).")
     parser.add_argument("--generalized-rdf", action="store_true", help="Allow RDFLib-supported blank-node predicates.")
@@ -88,6 +109,8 @@ def build_parser() -> argparse.ArgumentParser:
         sub[name].add_argument("--force", action="store_true", help="Allow overwriting an existing output file.")
     for name in ("rdf-to-jsonld", "convert"):
         _json_options(sub[name])
+    for name in ("rdf-to-jsonld", "convert", "validate"):
+        _label_options(sub[name])
     for name in ("jsonld-to-rdf", "convert"):
         _rdf_options(sub[name])
     for name in ("rdf-to-jsonld", "validate"):
@@ -208,6 +231,9 @@ def _convert(args: argparse.Namespace) -> None:
         raise UsageError("Ambiguous conversion: specify --input-format and --output-format with exactly one JSON-LD format")
     if args.command == "jsonld-to-rdf" and output_format in JSONLD_FORMATS:
         raise UsageError("jsonld-to-rdf requires a non-JSON-LD output format; choose turtle, trig, or nquads")
+    prefixes = _label_prefixes(args)
+    if prefixes and (input_format in JSONLD_FORMATS or output_format not in JSONLD_FORMATS):
+        raise UsageError("--label-ids requires RDF input and JSON-LD output")
     schema = getattr(args, "schema_org", False)
     if schema and (input_format in JSONLD_FORMATS or output_format not in JSONLD_FORMATS):
         raise UsageError("--schema-org requires RDF/OWL input and JSON-LD output")
@@ -228,6 +254,8 @@ def _convert(args: argparse.Namespace) -> None:
             graph, ordered=args.ordered, use_native_types=args.use_native_types,
             use_rdf_type=args.use_rdf_type, rdf_direction=None if args.rdf_direction == "none" else args.rdf_direction,
         )
+        if prefixes:
+            document = rewrite_label_ids(document, graph, prefixes=prefixes)
         text = json.dumps(document, ensure_ascii=args.ensure_ascii, allow_nan=False,
                           indent=None if args.compact else args.indent,
                           separators=(",", ":") if args.compact else None)
@@ -258,6 +286,20 @@ def _tests(args: argparse.Namespace) -> int:
     return 1 if report["failed"] else 0
 
 
+def _suggest_label_conversion(args: argparse.Namespace, input_format: str,
+                              prefixes: dict[str, str]) -> str:
+    """Build a shell-quoted conversion command matching verified input options."""
+    command = ["owl-jsonld", "rdf-to-jsonld", "--input-format", input_format,
+               "--label-ids"]
+    for prefix, namespace in prefixes.items():
+        command.extend(["--label-prefix", f"{prefix}={namespace}"])
+    if args.base is not None:
+        command.append(f"--base={args.base}")
+    command.extend(["--rdf-direction", args.rdf_direction, "--output", "-",
+                    "--", args.input])
+    return shlex.join(command)
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     """Run the CLI with exit codes 0 success, 1 processing, 2 usage, 3 I/O."""
     parser = build_parser()
@@ -278,7 +320,18 @@ def main(argv: Sequence[str] | None = None) -> int:
             input_format = _format(args.input_format, args.input)
             if not input_format:
                 raise UsageError("Cannot infer input format; supply --input-format")
-            _parse(args, input_format)
+            prefixes = _label_prefixes(args)
+            if prefixes and input_format in JSONLD_FORMATS:
+                raise UsageError("Label verification requires RDF input")
+            graph = _parse(args, input_format)
+            if prefixes:
+                mapping = verify_label_ids(graph, prefixes=prefixes)
+                if not args.quiet:
+                    print(f"{args.input}: verified {len(mapping)} label identifiers", file=sys.stderr)
+                    print("Suggested conversion command (JSON-LD to stdout):", file=sys.stderr)
+                    print(_suggest_label_conversion(args, input_format, prefixes), file=sys.stderr)
+                    if args.input == "-":
+                        print("Supply the same RDF input on stdin again when running this command.", file=sys.stderr)
             if not args.quiet:
                 print(f"{args.input}: valid {input_format}", file=sys.stderr)
         else:

@@ -9,3 +9,7 @@ __all__ = [
     "Direction", "InvalidInputError", "JsonLdError", "MalformedListError", "UnsupportedOptionError",
     "validate_rdf_list", "PRIMITIVE_DATATYPES", "from_rdf", "serialize_rdf", "to_rdf", "owl_to_schema_org",
 ]
+
+from .labels import LabelVerificationError, rewrite_label_ids, verify_label_ids
+
+__all__ += ["LabelVerificationError", "rewrite_label_ids", "verify_label_ids"]
