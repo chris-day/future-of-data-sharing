@@ -1,5 +1,5 @@
 [project]
-site_url = "https://chris-day.github.io/future-of-data-sharing"
+site_url = "https://future-of-data-sharing.perdl.com"
 site_name = "GS1 Future of Data Sharing"
 site_description = "Semantic TSV, ontology, RDF instance, and SHACL holon tooling for GS1 data sharing experiments."
 # site_author = "Your name"
