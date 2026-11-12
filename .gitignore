@@ -1,6 +1,7 @@
 # Python virtual environments
 venv/
 .venv/
+.python-runtimes/
 
 # Python cache files
 __pycache__/

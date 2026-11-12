@@ -10,7 +10,7 @@ existing transformer package. Its [user guide](jsonld.md) and
 
 ## Environment and checks
 
-Use **CPython 3.14.4** and the existing `.venv` workflow. Dependency pins remain in
+Use **CPython 3.14.10** and the existing `.venv` workflow. Dependency pins remain in
 the repository's `pyproject.toml` and `requirements.txt`; pytest is in the `dev`
 extra. There is no separate project or dependency environment for this tool.
 
@@ -29,7 +29,7 @@ git diff --check
 The repository has no configured formatter, linter, or static type checker.
 Public APIs and implementation functions have type hints, and the subpackage
 ships `py.typed`. Compile checks and whitespace checks are not substitutes for
-static type checking; no mypy/Ruff result is claimed. CI selects Python 3.14.4
+static type checking; no mypy/Ruff result is claimed. CI selects Python 3.14.10
 and runs the complete pytest suite, the offline conformance command, dependency
 checks, and the existing Zensical build.
 
@@ -104,6 +104,29 @@ The [user guide](jsonld.md#conversion-behavior-and-rdflib-boundaries) records th
 RDFLib parser boundaries, literal-normalization caveat, and boolean lexical-form
 specification/test-suite difference. Passing From RDF tests does not imply
 conformance with the separate expansion, compaction, framing, or To RDF suites.
+
+## Python upgrade verification — 2026-11-12
+
+The local environment and both CI workflows now use **CPython 3.14.10**.
+The documentation runner resolved `ubuntu-latest` to Ubuntu 26.04, for which
+GitHub provides Python 3.14.10 binaries but no Python 3.14.4 binary.
+
+The local managed interpreter is stored under the ignored `.python-runtimes/`
+directory. Do not store an interpreter or environment backup in `.cache/`:
+Zensical's clean build removes that directory.
+
+| Command | Result |
+| --- | --- |
+| `.venv/bin/python --version` | Python 3.14.10, also checked after the clean build |
+| `.venv/bin/python -m pip install -r requirements.txt -e '.[dev]'` | Pinned dependencies and editable package installed |
+| `.venv/bin/python -m pip check` | No broken requirements |
+| `.venv/bin/python -m pytest -q --disable-warnings` | 237 passed, 10 skipped, 4 subtests passed |
+| `.venv/bin/owl-jsonld test-w3c --offline` | 54 passed, 0 failed, 0 skipped |
+| `.venv/bin/zensical build --clean` | Passed, no issues found |
+
+The ten existing integration-test skips require generated GDSN/GPC/KATO
+artefacts that were not available in this checkout. The following older record
+is retained as historical verification, not the current runtime configuration.
 
 ## Verification record — 2026-09-28
 

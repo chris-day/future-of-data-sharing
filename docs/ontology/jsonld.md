@@ -14,14 +14,14 @@ The Python module is `gdsn_tsv_transformer.jsonld`, within the existing
 
 ## Install and run
 
-The supported and tested interpreter is **CPython 3.14.4**. The repository's
+The supported and tested interpreter is **CPython 3.14.10**. The repository's
 `.python-version` and CI select that version; package metadata allows
-`>=3.14.4,<3.15` and makes no claim about older Python versions.
+`>=3.14.10,<3.15` and makes no claim about older Python versions.
 
 From the repository root:
 
 ```bash
-python3.14 --version  # Must report Python 3.14.4 for the verified setup.
+python3.14 --version  # Must report Python 3.14.10 for the verified setup.
 python3.14 -m venv .venv
 .venv/bin/python -m pip install -e .
 source .venv/bin/activate
